@@ -1,10 +1,10 @@
-ƒ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NdimaTech | Web · AI · Cloud</title>
-  <meta name="description" content="NdimaTech helps South African businesses grow with technology — website development, AI consulting, and cloud solutions. Based in Witpoortjie, Gauteng." />
+  <meta name="description" content="NdimaTech helps South African businesses grow with technology — website development, AI consulting, and cloud solutions. Based in Ekurhuleni, Gauteng." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -163,11 +163,13 @@
       font-size: 0.95rem;
       transition: all 0.2s;
       display: inline-block;
+      box-shadow: 0 4px 20px rgba(0, 212, 170, 0.35);
     }
 
     .btn-primary:hover {
       background: var(--teal-dark);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 212, 170, 0.45);
     }
 
     .btn-secondary {
@@ -186,6 +188,43 @@
     .btn-secondary:hover {
       border-color: var(--teal);
       color: var(--teal);
+    }
+
+    /* TRUST STRIP */
+    #trust {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-quote {
+      max-width: 640px;
+      text-align: center;
+    }
+
+    .trust-quote blockquote {
+      font-size: 1rem;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .trust-quote blockquote::before { content: '\201C'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
+    .trust-quote blockquote::after  { content: '\201D'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+
+    .trust-attribution {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--grey-text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* SECTIONS */
@@ -268,8 +307,22 @@
     .service-card h3 {
       font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       color: var(--navy);
+    }
+
+    /* PRICING TAG */
+    .pricing-tag {
+      display: inline-block;
+      background: rgba(0,212,170,0.1);
+      color: var(--teal-dark);
+      border: 1px solid rgba(0,212,170,0.25);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.3px;
     }
 
     .service-card p {
@@ -378,6 +431,62 @@
       margin-top: 1px;
     }
 
+    /* HOW IT WORKS */
+    #how-it-works {
+      background: var(--grey-light);
+      text-align: center;
+    }
+
+    #how-it-works h2 { margin-bottom: 0.5rem; }
+
+    #how-it-works .section-intro {
+      margin: 0 auto 3rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .step {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px; height: 40px;
+      background: var(--teal);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--grey-text);
+      line-height: 1.7;
+    }
+
     /* CONTACT */
     #contact {
       background: var(--navy);
@@ -416,15 +525,10 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       nav ul { display: none; }
-
       #hero { padding: 100px 5% 60px; }
-
-      #about {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
+      #about { grid-template-columns: 1fr; gap: 2.5rem; }
       .stat-row { grid-template-columns: 1fr 1fr; }
+      #trust { text-align: center; }
     }
   </style>
 </head>
@@ -447,11 +551,20 @@
       <h1>Technology that moves your <span>business forward.</span></h1>
       <p>From your first website to a full cloud strategy — NdimaTech helps South African businesses grow with practical, affordable technology solutions.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Let's Talk →</a>
+        <a href="#contact" class="btn-primary">Get a Free Tech Consultation →</a>
         <a href="#services" class="btn-secondary">Our Services</a>
       </div>
     </div>
   </section>
+
+  <!-- TRUST STRIP -->
+  <div id="trust">
+    <div class="trust-quote">
+      <blockquote>NdimaTech helped us get online in days. We started getting enquiries through Google within the first week — something we hadn't seen in years of only using Facebook.</blockquote>
+      <!-- TODO: Replace with a real client testimonial when available -->
+      <div class="trust-attribution">Local Business Owner · Ekurhuleni</div>
+    </div>
+  </div>
 
   <!-- SERVICES -->
   <section id="services">
@@ -466,6 +579,8 @@
       <div class="service-card">
         <div class="service-icon">🌐</div>
         <h3>Web & Digital Presence</h3>
+        <!-- TODO: Replace with your actual starting price e.g. "Starting from R 3,500" -->
+        <div class="pricing-tag">Best for Local Businesses · Fixed-cost packages</div>
         <p>A professional website that gets you found on Google and turns visitors into paying customers. Clean, mobile-first, and built to convert.</p>
         <ul class="service-list">
           <li>Business websites & landing pages</li>
@@ -479,7 +594,9 @@
       <div class="service-card">
         <div class="service-icon">🤖</div>
         <h3>AI Consulting</h3>
-        <p>Practical AI for businesses ready to work smarter. We cut through the hype and implement AI tools that actually save you time and money.</p>
+        <!-- TODO: Replace with your actual starting price -->
+        <div class="pricing-tag">Best for Growing Teams · ROI-driven implementation</div>
+        <p>Practical AI for businesses ready to work smarter. We cut through the hype and implement AI tools that actually save you time and money. Built for maximum local resilience — your workflows stay operational 24/7.</p>
         <ul class="service-list">
           <li>AI strategy & readiness assessment</li>
           <li>Workflow automation</li>
@@ -492,7 +609,9 @@
       <div class="service-card">
         <div class="service-icon">☁️</div>
         <h3>Cloud Solutions</h3>
-        <p>Move to the cloud with confidence. We handle strategy, migration, and ongoing management — so you get the benefits without the complexity.</p>
+        <!-- TODO: Replace with your actual starting price -->
+        <div class="pricing-tag">Best for Scaling Businesses · No lock-in</div>
+        <p>Move to the cloud with confidence. We handle strategy, migration, and ongoing management — so you get the benefits without the complexity. Built for maximum local resilience, ensuring your cloud assets stay online and accessible 24/7.</p>
         <ul class="service-list">
           <li>Cloud strategy & architecture</li>
           <li>AWS, Azure & Google Cloud</li>
@@ -556,13 +675,38 @@
     </div>
   </section>
 
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="section-label">How It Works</div>
+    <h2>Simple, transparent process</h2>
+    <p class="section-intro">No lengthy contracts, no surprise bills. Here's exactly what working with NdimaTech looks like.</p>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>15-Minute Discovery</h3>
+        <p>We look at your current setup and goals — no jargon, no cost. Just an honest conversation about where you are and where you want to be.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>The Blueprint</h3>
+        <p>We build a clear, fixed-price plan tailored to your budget and business. You know exactly what you're getting before we start — no hidden fees.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Growth & Support</h3>
+        <p>We deploy your solution and provide ongoing local support while you focus on running your business. We stay in your corner as you grow.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Get in Touch</div>
     <h2>Ready to take the next step?</h2>
     <p>Whether you need a website, want to explore AI for your business, or are thinking about the cloud — let's have a conversation. No jargon, no pressure.</p>
     <div class="contact-btns">
-      <a href="https://wa.me/27612682537" class="btn-primary" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/27612682537?text=Hi%20NdimaTech%2C%20I%27d%20like%20to%20chat%20about%20a%20solution%20for%20my%20business." class="btn-primary" target="_blank">💬 WhatsApp Us</a>
       <a href="mailto:setup@ndimatech.co.za" class="btn-secondary">✉️ Send an Email</a>
     </div>
   </section>
