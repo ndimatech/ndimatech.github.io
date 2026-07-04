@@ -3,718 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NdimaTech | Web · AI · Cloud</title>
-  <meta name="description" content="NdimaTech helps South African businesses grow with technology — website development, AI consulting, and cloud solutions. Based in Witpoortjie, Gauteng. Visit ndimatech.co.za" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Beauty4Ashes Brows & Nail Bar | Kempton Park</title>
+  <meta name="description" content="Beauty4Ashes Brows & Nail Bar — professional brows, lashes, and nails in Norkem Park Mall, Kempton Park. Book online or via WhatsApp." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy: #0a1628;
-      --navy-mid: #112240;
-      --teal: #00d4aa;
-      --teal-dark: #00b890;
-      --white: #ffffff;
-      --grey-light: #f4f7fb;
-      --grey-text: #64748b;
-      --text: #1e293b;
+      --black: #0d0d0d;
+      --rose: #c4708a;
+      --rose-light: #e8a0b4;
+      --rose-pale: #fdf0f4;
+      --gold: #c9963a;
+      --text: #1a1a1a;
+      --grey: #8a7880;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
-    }
-
-    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(10, 22, 40, 0.96);
-      backdrop-filter: blur(8px);
-      padding: 0 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,13,13,0.97); backdrop-filter: blur(8px);
+      padding: 0 5%; display: flex; align-items: center;
+      justify-content: space-between; height: 60px;
     }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--rose-light); text-decoration: none; letter-spacing: 0.5px; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    nav ul a:hover { color: var(--rose-light); }
+    .nav-cta { background: var(--rose); color: #fff !important; padding: 0.4rem 1rem; border-radius: 4px; font-weight: 600 !important; }
+    .nav-cta:hover { background: #a85070 !important; }
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-
-    .logo span { color: var(--teal); }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav ul a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    nav ul a:hover { color: var(--teal); }
-
-    .nav-cta {
-      background: var(--teal);
-      color: var(--navy) !important;
-      padding: 0.45rem 1.1rem;
-      border-radius: 6px;
-      font-weight: 600 !important;
-    }
-
-    .nav-cta:hover { background: var(--teal-dark); color: var(--navy) !important; }
-
-    /* HERO */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 60%, #0a2a1f 100%);
-      display: flex;
-      align-items: center;
-      padding: 80px 5% 60px;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(160deg, #0d0d0d 0%, #1a0a10 50%, #220d14 100%);
+      display: flex; align-items: center; padding: 80px 5% 60px;
+      position: relative; overflow: hidden;
     }
-
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -200px;
+    .hero-glow {
+      position: absolute; top: -150px; right: -150px;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,212,170,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(196,112,138,0.12) 0%, transparent 65%);
       border-radius: 50%;
     }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
+    .hero-glow2 {
+      position: absolute; bottom: -100px; left: 20%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(196,112,138,0.07) 0%, transparent 65%);
       border-radius: 50%;
     }
-
-    .hero-content {
-      max-width: 700px;
-      position: relative;
-      z-index: 1;
+    .hero-content { max-width: 600px; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block; background: rgba(196,112,138,0.15);
+      color: var(--rose-light); border: 1px solid rgba(196,112,138,0.3);
+      padding: 0.3rem 0.85rem; border-radius: 20px; font-size: 0.77rem;
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem;
     }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(0,212,170,0.15);
-      color: var(--teal);
-      border: 1px solid rgba(0,212,170,0.3);
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-    }
-
     #hero h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 1.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4rem); font-weight: 700;
+      color: #fff; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -0.5px;
     }
-
-    #hero h1 span { color: var(--teal); }
-
-    #hero p {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.7);
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--teal);
-      color: var(--navy);
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      display: inline-block;
-      box-shadow: 0 4px 20px rgba(0, 212, 170, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: var(--teal-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0, 212, 170, 0.45);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.25);
-      transition: all 0.2s;
-      display: inline-block;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--teal);
-      color: var(--teal);
-    }
-
-    /* TRUST STRIP */
-    #trust {
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 2rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .trust-quote {
-      max-width: 640px;
-      text-align: center;
-    }
-
-    .trust-quote blockquote {
-      font-size: 1rem;
-      color: var(--text);
-      font-style: italic;
-      line-height: 1.7;
-      margin-bottom: 0.5rem;
-    }
-
-    .trust-quote blockquote::before { content: '\201C'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
-    .trust-quote blockquote::after  { content: '\201D'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
-
-    .trust-attribution {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--grey-text);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* SECTIONS */
-    section { padding: 80px 5%; }
-
-    .section-label {
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--teal);
-      margin-bottom: 0.75rem;
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .section-intro {
-      font-size: 1.05rem;
-      color: var(--grey-text);
-      max-width: 580px;
-      line-height: 1.7;
-    }
+    #hero h1 span { color: var(--rose-light); }
+    #hero p { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 460px; margin-bottom: 2.5rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-rose { background: var(--rose); color: #fff; padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; box-shadow: 0 4px 20px rgba(196,112,138,0.35); }
+    .btn-rose:hover { background: #a85070; transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: rgba(255,255,255,0.75); padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.15); transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--rose-light); color: var(--rose-light); }
 
     /* SERVICES */
-    #services { background: var(--grey-light); }
-
-    .services-header { margin-bottom: 3rem; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
+    #services { padding: 70px 5%; background: var(--rose-pale); }
+    .section-label { text-transform: uppercase; font-size: 0.73rem; font-weight: 700; letter-spacing: 1.5px; color: var(--rose); margin-bottom: 0.5rem; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--text); margin-bottom: 0.75rem; }
+    .sub { font-size: 0.93rem; color: var(--grey); margin-bottom: 2.5rem; line-height: 1.75; max-width: 540px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
     .service-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid #e2e8f0;
-      transition: all 0.25s;
-      position: relative;
-      overflow: hidden;
+      background: #fff; border-radius: 12px; padding: 1.75rem 1.5rem;
+      border: 1px solid #f0d8e0; transition: all 0.2s; text-align: center;
     }
+    .service-card:hover { box-shadow: 0 6px 28px rgba(196,112,138,0.14); transform: translateY(-3px); border-color: var(--rose-light); }
+    .s-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .service-card h3 { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .service-card p { font-size: 0.83rem; color: var(--grey); line-height: 1.65; }
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--teal);
-      transform: scaleX(0);
-      transition: transform 0.25s;
-      transform-origin: left;
+    /* GALLERY */
+    #gallery { padding: 70px 5%; background: #fff; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 2rem; }
+    .gallery-item { border-radius: 10px; overflow: hidden; aspect-ratio: 1; position: relative; }
+    .gp { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: rgba(255,255,255,0.5); }
+    .g1 { background: linear-gradient(135deg, #220d14, #6b2040); }
+    .g2 { background: linear-gradient(135deg, #1a0a18, #502060); }
+    .g3 { background: linear-gradient(135deg, #1a0a10, #6b3050); }
+    .g4 { background: linear-gradient(135deg, #0d0d0d, #3a1a28); }
+    .gallery-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.65)); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 1rem 0.5rem 0.5rem; text-align: center; }
+
+    /* BOOKING */
+    #booking {
+      padding: 70px 5%; text-align: center;
+      background: linear-gradient(160deg, #0d0d0d 0%, #1a0a10 100%);
     }
-
-    .service-card:hover {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      transform: translateY(-3px);
+    #booking .section-label { color: var(--rose-light); }
+    #booking h2 { color: #fff; margin-bottom: 0.75rem; }
+    #booking p { color: rgba(255,255,255,0.55); font-size: 0.95rem; max-width: 480px; margin: 0 auto 2.25rem; line-height: 1.8; }
+    .booking-options { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .location-strip {
+      margin-top: 2.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.4); font-size: 0.82rem;
     }
+    .location-strip strong { color: var(--rose-light); }
 
-    .service-card:hover::before { transform: scaleX(1); }
+    footer { background: #080808; color: rgba(255,255,255,0.3); text-align: center; padding: 1.25rem 5%; font-size: 0.78rem; }
+    footer span { color: var(--rose-light); }
 
-    .service-icon {
-      width: 48px; height: 48px;
-      background: rgba(0,212,170,0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-      font-size: 1.4rem;
+    .built-by {
+      position: fixed; bottom: 16px; right: 16px; z-index: 200;
+      background: #0d0d0d; color: rgba(255,255,255,0.6);
+      padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.72rem;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s;
     }
+    .built-by:hover { background: var(--rose); color: #fff; }
+    .built-by span { color: var(--rose-light); font-weight: 700; }
+    .built-by:hover span { color: #fff; }
 
-    .service-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--navy);
-    }
-
-    /* PRICING TAG */
-    .pricing-tag {
-      display: inline-block;
-      background: rgba(0,212,170,0.1);
-      color: var(--teal-dark);
-      border: 1px solid rgba(0,212,170,0.25);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.3px;
-    }
-
-    .service-card p {
-      font-size: 0.92rem;
-      color: var(--grey-text);
-      line-height: 1.7;
-    }
-
-    .service-list {
-      margin-top: 1rem;
-      list-style: none;
-    }
-
-    .service-list li {
-      font-size: 0.87rem;
-      color: var(--grey-text);
-      padding: 0.25rem 0;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .service-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--teal);
-      font-size: 0.75rem;
-    }
-
-    /* ABOUT */
-    #about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-visual {
-      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 100%);
-      border-radius: 16px;
-      padding: 3rem 2.5rem;
-      color: white;
-    }
-
-    .about-visual h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--white);
-    }
-
-    .about-visual h3 span { color: var(--teal); }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .stat { text-align: center; }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--teal);
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.6);
-      margin-top: 0.25rem;
-    }
-
-    .about-text p {
-      color: var(--grey-text);
-      margin-bottom: 1rem;
-      line-height: 1.8;
-    }
-
-    .why-list {
-      list-style: none;
-      margin-top: 1.5rem;
-    }
-
-    .why-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    .check {
-      width: 22px; height: 22px;
-      background: rgba(0,212,170,0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: var(--teal);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* HOW IT WORKS */
-    #how-it-works {
-      background: var(--grey-light);
-      text-align: center;
-    }
-
-    #how-it-works h2 { margin-bottom: 0.5rem; }
-
-    #how-it-works .section-intro {
-      margin: 0 auto 3rem;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .step {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2rem 1.75rem;
-      border: 1px solid #e2e8f0;
-      text-align: left;
-      position: relative;
-    }
-
-    .step-number {
-      width: 40px; height: 40px;
-      background: var(--teal);
-      color: var(--navy);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .step h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .step p {
-      font-size: 0.9rem;
-      color: var(--grey-text);
-      line-height: 1.7;
-    }
-
-    /* CONTACT */
-    #contact {
-      background: var(--navy);
-      text-align: center;
-    }
-
-    #contact h2 { color: var(--white); }
-    #contact .section-label { color: var(--teal); }
-
-    #contact p {
-      color: rgba(255,255,255,0.65);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-
-    .contact-btns {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #060e1a;
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 1.5rem 5%;
-      font-size: 0.82rem;
-    }
-
-    footer a { color: var(--teal); text-decoration: none; }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav ul { display: none; }
-      #hero { padding: 100px 5% 60px; }
-      #about { grid-template-columns: 1fr; gap: 2.5rem; }
-      .stat-row { grid-template-columns: 1fr 1fr; }
-      #trust { text-align: center; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a href="#hero" class="logo">Ndima<span>Tech</span></a>
+    <a href="#hero" class="logo">Beauty4Ashes</a>
     <ul>
       <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#booking" class="nav-cta">Book Now</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
     <div class="hero-content">
-      <div class="hero-badge">🇿🇦 Based in Witpoortjie, Gauteng</div>
-      <h1>Technology that moves your <span>business forward.</span></h1>
-      <p>From your first website to a full cloud strategy — NdimaTech helps South African businesses grow with practical, affordable technology solutions.</p>
+      <div class="hero-tag">💅 Norkem Park Mall, Kempton Park</div>
+      <h1>Brows, lashes & nails <span>done perfectly.</span></h1>
+      <p>Beauty4Ashes is Kempton Park's go-to brow and nail bar. Professional results, a welcoming space, and a team that genuinely cares about your look.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Get a Free Tech Consultation →</a>
-        <a href="#services" class="btn-secondary">Our Services</a>
+        <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Beauty4Ashes%2C%20I%27d%20like%20to%20book%20an%20appointment." class="btn-rose" target="_blank">💬 Book via WhatsApp</a>
+        <a href="#services" class="btn-outline">Our Services</a>
       </div>
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <div id="trust">
-    <div class="trust-quote">
-      <blockquote>NdimaTech helped us get online in days. We started getting enquiries through Google within the first week — something we hadn't seen in years of only using Facebook.</blockquote>
-      <!-- TODO: Replace with a real client testimonial when available -->
-      <div class="trust-attribution">Local Business Owner · Ekurhuleni</div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
   <section id="services">
-    <div class="services-header">
-      <div class="section-label">What We Do</div>
-      <h2>Three ways we help your business grow</h2>
-      <p class="section-intro">Whether you're just getting online or ready to scale with AI and cloud — we have the right service for where you are right now.</p>
-    </div>
-
+    <div class="section-label">What We Do</div>
+    <h2>Every beauty service you need</h2>
+    <p class="sub">Whether you're coming in for a quick shape-up or a full pamper session — we've got you covered from brows to toes.</p>
     <div class="services-grid">
-
       <div class="service-card">
-        <div class="service-icon">🌐</div>
-        <h3>Web & Digital Presence</h3>
-        <!-- TODO: Replace with your actual starting price e.g. "Starting from R 3,500" -->
-        <div class="pricing-tag">Best for Local Businesses · Fixed-cost packages</div>
-        <p>A professional website that gets you found on Google and turns visitors into paying customers. Clean, mobile-first, and built to convert.</p>
-        <ul class="service-list">
-          <li>Business websites & landing pages</li>
-          <li>Mobile-optimised design</li>
-          <li>Google-ready (SEO basics included)</li>
-          <li>WhatsApp & booking integrations</li>
-          <li>E-commerce solutions</li>
-        </ul>
+        <div class="s-icon">🪄</div>
+        <h3>Eyebrow Shaping</h3>
+        <p>Threading, waxing, and tinting to frame your face perfectly. We work with your natural brow shape.</p>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">🤖</div>
-        <h3>AI Consulting</h3>
-        <!-- TODO: Replace with your actual starting price -->
-        <div class="pricing-tag">Best for Growing Teams · ROI-driven implementation</div>
-        <p>Practical AI for businesses ready to work smarter. We cut through the hype and implement AI tools that actually save you time and money. Built for maximum local resilience — your workflows stay operational 24/7.</p>
-        <ul class="service-list">
-          <li>AI strategy & readiness assessment</li>
-          <li>Workflow automation</li>
-          <li>AI tool integration (ChatGPT, Copilot & more)</li>
-          <li>Custom AI solutions</li>
-          <li>Staff training & adoption support</li>
-        </ul>
+        <div class="s-icon">👁️</div>
+        <h3>Lash Extensions</h3>
+        <p>Classic, hybrid, and volume lash sets for a look that lasts weeks without mascara.</p>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">☁️</div>
-        <h3>Cloud Solutions</h3>
-        <!-- TODO: Replace with your actual starting price -->
-        <div class="pricing-tag">Best for Scaling Businesses · No lock-in</div>
-        <p>Move to the cloud with confidence. We handle strategy, migration, and ongoing management — so you get the benefits without the complexity. Built for maximum local resilience, ensuring your cloud assets stay online and accessible 24/7.</p>
-        <ul class="service-list">
-          <li>Cloud strategy & architecture</li>
-          <li>AWS, Azure & Google Cloud</li>
-          <li>Cloud migration & setup</li>
-          <li>Cost optimisation</li>
-          <li>Ongoing managed support</li>
-        </ul>
+        <div class="s-icon">💅</div>
+        <h3>Acrylic Nails</h3>
+        <p>Full sets, infills, and nail art. Durable, beautiful nails built to last.</p>
       </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" style="padding: 80px 5%;">
-    <div class="about-visual">
-      <h3>Built for <span>African business.</span></h3>
-      <p style="color: rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7;">We understand the South African market — the budget realities, the mobile-first audience, and the real problems businesses face when going digital.</p>
-      <div class="stat-row">
-        <div class="stat">
-          <span class="stat-number">3</span>
-          <div class="stat-label">Core service areas</div>
-        </div>
-        <div class="stat">
-          <span class="stat-number">SA</span>
-          <div class="stat-label">Market focused</div>
-        </div>
-        <div class="stat">
-          <span class="stat-number">SMB</span>
-          <div class="stat-label">to Enterprise</div>
-        </div>
-        <div class="stat">
-          <span class="stat-number">WPT</span>
-          <div class="stat-label">Based in Witpoortjie</div>
-        </div>
+      <div class="service-card">
+        <div class="s-icon">✨</div>
+        <h3>Gel Nails & Toes</h3>
+        <p>Gel manicures and pedicures with a high-shine finish that doesn't chip.</p>
       </div>
-    </div>
-
-    <div class="about-text">
-      <div class="section-label">About NdimaTech</div>
-      <h2>We meet you where you are</h2>
-      <p>NdimaTech was founded on a simple belief: every business deserves access to technology that actually works for them — not just the big corporates with massive IT budgets.</p>
-      <p>We work with local entrepreneurs who need their first website, growing companies ready to automate with AI, and established businesses navigating cloud infrastructure and digital transformation.</p>
-      <ul class="why-list">
-        <li>
-          <div class="check">✓</div>
-          <span><strong>Practical, not just theoretical</strong> — we implement and support, not just advise</span>
-        </li>
-        <li>
-          <div class="check">✓</div>
-          <span><strong>Priced for the SA market</strong> — quality solutions without enterprise price tags</span>
-        </li>
-        <li>
-          <div class="check">✓</div>
-          <span><strong>We speak your language</strong> — plain English, no unnecessary tech jargon</span>
-        </li>
-        <li>
-          <div class="check">✓</div>
-          <span><strong>Local, responsive support</strong> — you're not dealing with an overseas call centre</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how-it-works">
-    <div class="section-label">How It Works</div>
-    <h2>Simple, transparent process</h2>
-    <p class="section-intro">No lengthy contracts, no surprise bills. Here's exactly what working with NdimaTech looks like.</p>
-
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>15-Minute Discovery</h3>
-        <p>We look at your current setup and goals — no jargon, no cost. Just an honest conversation about where you are and where you want to be.</p>
+      <div class="service-card">
+        <div class="s-icon">🎨</div>
+        <h3>Nail Art</h3>
+        <p>Custom designs, ombre, glitter, and detailed hand-painted art for those who want to stand out.</p>
       </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>The Blueprint</h3>
-        <p>We build a clear, fixed-price plan tailored to your budget and business. You know exactly what you're getting before we start — no hidden fees.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Growth & Support</h3>
-        <p>We deploy your solution and provide ongoing local support while you focus on running your business. We stay in your corner as you grow.</p>
+      <div class="service-card">
+        <div class="s-icon">💋</div>
+        <h3>Makeup Application</h3>
+        <p>Event and bridal makeup — flawless, long-lasting, and tailored to your skin tone and style.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-label">Get in Touch</div>
-    <h2>Ready to take the next step?</h2>
-    <p>Whether you need a website, want to explore AI for your business, or are thinking about the cloud — let's have a conversation. No jargon, no pressure.</p>
-    <div class="contact-btns">
-      <a href="https://wa.me/27612682537?text=Hi%20NdimaTech%2C%20I%27d%20like%20to%20chat%20about%20a%20solution%20for%20my%20business." class="btn-primary" target="_blank">💬 WhatsApp Us</a>
-      <a href="mailto:setup@ndimatech.co.za" class="btn-secondary">✉️ Send an Email</a>
+  <section id="gallery">
+    <div class="section-label">Our Work</div>
+    <h2>The results speak for themselves</h2>
+    <p class="sub">Add your best nail, brow, and lash photos here. Your portfolio is your best marketing tool.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><div class="gp g1">💅</div><div class="gallery-label">Acrylic Set</div></div>
+      <div class="gallery-item"><div class="gp g2">✨</div><div class="gallery-label">Nail Art</div></div>
+      <div class="gallery-item"><div class="gp g3">👁️</div><div class="gallery-label">Lash Extensions</div></div>
+      <div class="gallery-item"><div class="gp g4">🪄</div><div class="gallery-label">Brow Shaping</div></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <section id="booking">
+    <div class="section-label">Bookings</div>
+    <h2>Ready to treat yourself?</h2>
+    <p>We take bookings via WhatsApp — just send us your name, the service you want, and your preferred day and time. We'll confirm within the hour.</p>
+    <div class="booking-options">
+      <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Beauty4Ashes%2C%20I%27d%20like%20to%20book%20an%20appointment." class="btn-rose" target="_blank">💬 Book via WhatsApp</a>
+    </div>
+    <div class="location-strip">
+      📍 <strong>Shop 15/16, Norkem Park Mall</strong> · Mooiriver Drive, Birchleigh, Kempton Park
+    </div>
+  </section>
+
   <footer>
-    <p>© 2025 NdimaTech. Based in Witpoortjie, Gauteng, South Africa. &nbsp;|&nbsp; <a href="https://ndimatech.co.za">ndimatech.co.za</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
+    <p>© 2025 <span>Beauty4Ashes Brows & Nail Bar</span> · Norkem Park Mall, Kempton Park</p>
   </footer>
+
+  <a href="https://ndimatech.co.za" class="built-by" target="_blank">Built by <span>NdimaTech</span></a>
 
 </body>
 </html>
