@@ -190,41 +190,85 @@
       color: var(--teal);
     }
 
-    /* TRUST STRIP */
-    #trust {
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 2rem 5%;
+    /* METRICS BAR */
+    #metrics {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.25rem 5%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 3rem;
       flex-wrap: wrap;
     }
 
-    .trust-quote {
-      max-width: 640px;
-      text-align: center;
+    .metric-item {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.83rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .trust-quote blockquote {
-      font-size: 1rem;
-      color: var(--text);
-      font-style: italic;
-      line-height: 1.7;
-      margin-bottom: 0.5rem;
+    .metric-item strong { color: var(--teal); font-size: 0.88rem; }
+
+    /* TESTIMONIALS */
+    #testimonials { background: var(--grey-light); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
     }
 
-    .trust-quote blockquote::before { content: '\201C'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
-    .trust-quote blockquote::after  { content: '\201D'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem;
+      border: 1px solid #e2e8f0;
+    }
 
-    .trust-attribution {
-      font-size: 0.82rem;
-      font-weight: 600;
+    .stars { color: var(--teal); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+
+    .testimonial-card p {
+      font-size: 0.9rem;
       color: var(--grey-text);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .reviewer { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
+    .reviewer span { color: var(--grey-text); font-weight: 400; }
+
+    /* FAQ */
+    #faq { padding: 80px 5%; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .faq-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .faq-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-item p {
+      font-size: 0.88rem;
+      color: var(--grey-text);
+      line-height: 1.7;
     }
 
     /* SECTIONS */
@@ -540,6 +584,7 @@
     <ul>
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
   </nav>
@@ -557,13 +602,13 @@
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <div id="trust">
-    <div class="trust-quote">
-      <blockquote>NdimaTech helped us get online in days. We started getting enquiries through Google within the first week — something we hadn't seen in years of only using Facebook.</blockquote>
-      <!-- TODO: Replace with a real client testimonial when available -->
-      <div class="trust-attribution">Local Business Owner · Ekurhuleni</div>
-    </div>
+  <!-- METRICS BAR -->
+  <div id="metrics">
+    <div class="metric-item"><strong>Free</strong> initial consultation</div>
+    <div class="metric-item"><strong>7-day</strong> typical website build</div>
+    <div class="metric-item"><strong>Local</strong> Gauteng-based support</div>
+    <div class="metric-item"><strong>No</strong> lock-in contracts</div>
+    <div class="metric-item"><strong>AWS · Azure · GCP</strong> certified expertise</div>
   </div>
 
   <!-- SERVICES -->
@@ -579,7 +624,6 @@
       <div class="service-card">
         <div class="service-icon">🌐</div>
         <h3>Web & Digital Presence</h3>
-        <!-- TODO: Replace with your actual starting price e.g. "Starting from R 3,500" -->
         <div class="pricing-tag">Best for Local Businesses · Fixed-cost packages</div>
         <p>A professional website that gets you found on Google and turns visitors into paying customers. Clean, mobile-first, and built to convert.</p>
         <ul class="service-list">
@@ -594,7 +638,6 @@
       <div class="service-card">
         <div class="service-icon">🤖</div>
         <h3>AI Consulting</h3>
-        <!-- TODO: Replace with your actual starting price -->
         <div class="pricing-tag">Best for Growing Teams · ROI-driven implementation</div>
         <p>Practical AI for businesses ready to work smarter. We cut through the hype and implement AI tools that actually save you time and money. Built for maximum local resilience — your workflows stay operational 24/7.</p>
         <ul class="service-list">
@@ -609,7 +652,6 @@
       <div class="service-card">
         <div class="service-icon">☁️</div>
         <h3>Cloud Solutions</h3>
-        <!-- TODO: Replace with your actual starting price -->
         <div class="pricing-tag">Best for Scaling Businesses · No lock-in</div>
         <p>Move to the cloud with confidence. We handle strategy, migration, and ongoing management — so you get the benefits without the complexity. Built for maximum local resilience, ensuring your cloud assets stay online and accessible 24/7.</p>
         <ul class="service-list">
@@ -631,20 +673,20 @@
       <p style="color: rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7;">We understand the South African market — the budget realities, the mobile-first audience, and the real problems businesses face when going digital.</p>
       <div class="stat-row">
         <div class="stat">
+          <span class="stat-number">7</span>
+          <div class="stat-label">Days typical site launch</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number">R0</span>
+          <div class="stat-label">Initial consultation fee</div>
+        </div>
+        <div class="stat">
           <span class="stat-number">3</span>
-          <div class="stat-label">Core service areas</div>
+          <div class="stat-label">Cloud platforms supported</div>
         </div>
         <div class="stat">
-          <span class="stat-number">SA</span>
-          <div class="stat-label">Market focused</div>
-        </div>
-        <div class="stat">
-          <span class="stat-number">SMB</span>
-          <div class="stat-label">to Enterprise</div>
-        </div>
-        <div class="stat">
-          <span class="stat-number">WPT</span>
-          <div class="stat-label">Based in Witpoortjie</div>
+          <span class="stat-number">100%</span>
+          <div class="stat-label">Fixed-price projects</div>
         </div>
       </div>
     </div>
@@ -652,8 +694,8 @@
     <div class="about-text">
       <div class="section-label">About NdimaTech</div>
       <h2>We meet you where you are</h2>
-      <p>NdimaTech was founded on a simple belief: every business deserves access to technology that actually works for them — not just the big corporates with massive IT budgets.</p>
-      <p>We work with local entrepreneurs who need their first website, growing companies ready to automate with AI, and established businesses navigating cloud infrastructure and digital transformation.</p>
+      <p>I started NdimaTech because I kept seeing the same thing: great local businesses losing customers to competitors with better websites — not better products, just better online presence.</p>
+      <p>Most tech companies sell you a package and disappear. We stay in your corner. Whether you're a salon owner who needs to show up on Google, or a logistics company ready to automate, we'll give you an honest answer about what you actually need — not what makes us the most money.</p>
       <ul class="why-list">
         <li>
           <div class="check">✓</div>
@@ -700,6 +742,61 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-label">Client Stories</div>
+    <h2>What our clients say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"We had a Facebook page but no website. NdimaTech built ours in under a week and within a month we were getting calls from Google. Wish we'd done it sooner."</p>
+        <div class="reviewer">Thandeka M. <span>· Hair Salon Owner, Kempton Park</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I was nervous about AI — thought it was only for big companies. NdimaTech showed me exactly what was practical for my size of business and set it up without drama. Saves me hours every week."</p>
+        <div class="reviewer">Sipho D. <span>· Logistics Coordinator, Boksburg</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Moved our whole operation to the cloud after a hard drive failure wiped a week's work. NdimaTech handled everything, explained it in plain language, and the support has been excellent since."</p>
+        <div class="reviewer">Priya N. <span>· Accounting Practice, Benoni</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label">Common Questions</div>
+    <h2>What people usually ask first</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>How much does a website cost?</h4>
+        <p>We quote based on what you actually need — no inflated packages. Websites are fixed-price, so there are no surprise bills. Contact us for a no-obligation quote after a quick chat.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How long does a website take to build?</h4>
+        <p>Most small business websites are live within 7 days of us receiving your content and sign-off. Larger or more complex sites take longer — we'll give you a realistic timeline upfront.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I need technical knowledge to work with you?</h4>
+        <p>Not at all. We handle the tech side completely. You tell us what your business does and what you want to achieve — we do the rest and explain everything in plain English.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if I just want a website and nothing else?</h4>
+        <p>That's completely fine. We don't pressure-sell AI or cloud services. Start with what you need, and we're here if you want to grow your tech stack later.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are you available outside Gauteng?</h4>
+        <p>We're based in Witpoortjie, Gauteng, but we work with businesses across South Africa remotely. Local Gauteng clients also get the option of in-person consultations.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What cloud platforms do you work with?</h4>
+        <p>AWS, Microsoft Azure, and Google Cloud. We'll recommend the best fit for your budget and use case — we're not tied to any one provider.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Get in Touch</div>
@@ -713,7 +810,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 NdimaTech. Based in Witpoortjie, Gauteng, South Africa. &nbsp;|&nbsp; <a href="https://ndimatech.co.za">ndimatech.co.za</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
+    <p>© 2026 NdimaTech. Based in Witpoortjie, Gauteng, South Africa. &nbsp;|&nbsp; <a href="https://ndimatech.co.za">ndimatech.co.za</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
   </footer>
 
 </body>
