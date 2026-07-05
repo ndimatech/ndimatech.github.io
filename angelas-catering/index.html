@@ -22,7 +22,7 @@
 
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(44,14,6,0.96); backdrop-filter: blur(8px);
+      background: rgba(44,14,6,0.97); backdrop-filter: blur(8px);
       padding: 0 5%; display: flex; align-items: center;
       justify-content: space-between; height: 60px;
     }
@@ -34,14 +34,10 @@
 
     #hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, #2d0e0e 0%, #4a1e0e 40%, #6b2a10 100%);
+      background: linear-gradient(160deg, rgba(45,14,14,0.9) 0%, rgba(74,30,14,0.85) 100%),
+                  url('https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       display: flex; align-items: center; padding: 80px 5% 60px;
       position: relative; overflow: hidden;
-    }
-    #hero::before {
-      content: ''; position: absolute; top: 0; right: 0;
-      width: 45%; height: 100%;
-      background: radial-gradient(ellipse at right, rgba(201,150,58,0.1) 0%, transparent 70%);
     }
     .hero-content { max-width: 620px; position: relative; z-index: 1; }
     .hero-tag {
@@ -56,14 +52,22 @@
       color: #fff; line-height: 1.15; margin-bottom: 1.25rem;
     }
     #hero h1 span { color: var(--gold); }
-    #hero p { font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75; }
+    #hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75; }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-gold { background: var(--gold); color: #1a0800; padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: all 0.2s; box-shadow: 0 4px 18px rgba(201,150,58,0.3); }
     .btn-gold:hover { background: #b8852e; transform: translateY(-1px); }
-    .btn-outline { background: transparent; color: rgba(255,255,255,0.8); padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.92rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+    .btn-outline { background: transparent; color: rgba(255,255,255,0.85); padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.92rem; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* MENU HIGHLIGHTS */
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--warm); padding: 1rem 5%;
+      display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+    }
+    .trust-item { color: rgba(255,255,255,0.65); font-size: 0.83rem; display: flex; align-items: center; gap: 0.5rem; }
+    .trust-item strong { color: var(--gold); }
+
+    /* MENU */
     #menu { padding: 70px 5%; background: #fff; }
     .section-label { text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.5rem; }
     h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--text); margin-bottom: 0.75rem; }
@@ -73,29 +77,46 @@
       border-radius: 10px; overflow: hidden; border: 1px solid #ecdcc8;
       transition: all 0.2s;
     }
-    .menu-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .menu-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.09); transform: translateY(-2px); }
     .menu-img {
-      height: 140px; display: flex; align-items: center;
-      justify-content: center; font-size: 3rem;
+      height: 180px; overflow: hidden; position: relative;
     }
+    .menu-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .menu-card:hover .menu-img img { transform: scale(1.05); }
+    .menu-img-fallback { width: 100%; height: 100%; }
     .mi1 { background: linear-gradient(135deg, #4a1e0e, #7c3018); }
     .mi2 { background: linear-gradient(135deg, #1e3a0e, #3a6018); }
     .mi3 { background: linear-gradient(135deg, #1e1e3a, #303060); }
     .mi4 { background: linear-gradient(135deg, #3a1a0e, #6b3018); }
     .menu-body { padding: 1.25rem; }
-    .menu-body h3 { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .menu-body h3 { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .menu-price { font-size: 0.8rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem; }
     .menu-body p { font-size: 0.84rem; color: var(--grey); line-height: 1.65; }
 
+    /* GALLERY */
+    #gallery { padding: 70px 5%; background: var(--cream); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 2rem; }
+    .gallery-item { border-radius: 8px; overflow: hidden; height: 200px; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+
     /* EVENTS */
-    #events { padding: 70px 5%; background: var(--cream); }
-    .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+    #events { padding: 70px 5%; background: #fff; }
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
     .event-card {
-      background: #fff; border-radius: 10px; padding: 1.5rem 1.25rem;
+      background: var(--cream); border-radius: 10px; padding: 1.5rem 1.25rem;
       text-align: center; border: 1px solid #ecdcc8; transition: all 0.2s;
     }
     .event-card:hover { box-shadow: 0 4px 20px rgba(201,150,58,0.12); border-color: var(--gold); }
-    .event-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .event-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+    .event-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .event-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+
+    /* ABOUT */
+    #about { padding: 70px 5%; background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img { border-radius: 16px; height: 420px; overflow: hidden; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-text p { font-size: 0.95rem; color: var(--grey); line-height: 1.8; margin-bottom: 1rem; }
+    .about-signature { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); margin-top: 0.5rem; }
 
     /* WHY */
     #why {
@@ -105,15 +126,26 @@
     #why .section-label { color: var(--gold); }
     #why h2 { color: #fff; margin-bottom: 0.75rem; }
     #why .sub { color: rgba(255,255,255,0.6); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 0; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
     .why-item { text-align: center; }
     .why-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 700; }
     .why-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
 
+    /* TESTIMONIALS */
+    #testimonials { padding: 70px 5%; background: #fff; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .testimonial-card { background: var(--cream); border-radius: 12px; padding: 1.75rem; border: 1px solid #ecdcc8; }
+    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+    .testimonial-card p { font-size: 0.9rem; color: var(--grey); line-height: 1.75; font-style: italic; margin-bottom: 1rem; }
+    .reviewer { font-size: 0.83rem; font-weight: 700; color: var(--text); }
+    .reviewer span { color: var(--grey); font-weight: 400; }
+
     #contact { padding: 70px 5%; text-align: center; background: #fff; }
     #contact h2 { margin-bottom: 0.75rem; }
-    #contact p { font-size: 0.95rem; color: var(--grey); max-width: 480px; margin: 0 auto 2.25rem; line-height: 1.75; }
+    #contact p { font-size: 0.95rem; color: var(--grey); max-width: 500px; margin: 0 auto 2.25rem; line-height: 1.75; }
     .contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-detail { color: var(--grey); font-size: 0.83rem; margin-top: 1.5rem; }
+    .contact-detail strong { color: var(--burgundy); }
 
     footer { background: #1a0800; color: rgba(255,255,255,0.35); text-align: center; padding: 1.25rem 5%; font-size: 0.8rem; }
     footer span { color: var(--gold); }
@@ -130,6 +162,9 @@
 
     @media (max-width: 768px) {
       nav ul { display: none; }
+      #about { grid-template-columns: 1fr; gap: 2rem; }
+      .about-img { height: 260px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -140,54 +175,91 @@
     <ul>
       <li><a href="#menu">Menus</a></li>
       <li><a href="#events">Events</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
     </ul>
   </nav>
 
   <section id="hero">
     <div class="hero-content">
-      <div class="hero-tag">🍽️ Kempton Park · Corporate & Private Events</div>
+      <div class="hero-tag">Kempton Park · Corporate & Private Events</div>
       <h1>Food that makes your <span>event unforgettable.</span></h1>
-      <p>From intimate gatherings to large corporate functions — Angela's Catering brings professional, delicious food to your event with zero stress on your end.</p>
+      <p>From intimate family gatherings to large corporate functions — Angela's Catering brings fresh, professional food to your event with zero stress on your end.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Angela%27s%20Catering%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20an%20event." class="btn-gold" target="_blank">💬 Get a Free Quote</a>
+        <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Angela%27s%20Catering%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20an%20event." class="btn-gold" target="_blank">Get a Free Quote</a>
         <a href="#menu" class="btn-outline">View Menus</a>
       </div>
     </div>
   </section>
 
+  <div class="trust-bar">
+    <div class="trust-item"><strong>10+</strong> years catering</div>
+    <div class="trust-item"><strong>10–500</strong> guests served</div>
+    <div class="trust-item"><strong>Kempton Park</strong> based</div>
+    <div class="trust-item"><strong>Quotes</strong> within 24 hours</div>
+  </div>
+
   <section id="menu">
     <div class="section-label">Our Menus</div>
     <h2>Something for every occasion</h2>
-    <p class="sub">All menus are freshly prepared and can be customised to your guest count, dietary requirements, and budget.</p>
+    <p class="sub">All menus are freshly prepared and customised to your guest count, dietary requirements, and budget. Prices are per person.</p>
     <div class="menu-grid">
       <div class="menu-card">
-        <div class="menu-img mi1">🥩</div>
+        <div class="menu-img">
+          <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80" alt="Braai buffet spread" onerror="this.style.display='none'; this.parentNode.className += ' mi1'">
+        </div>
         <div class="menu-body">
           <h3>Braai & Spit Braai Buffet</h3>
-          <p>The classic South African crowd-pleaser. Full spit braai setup with sides, salads, and rolls included.</p>
+          <div class="menu-price">From R95 per person</div>
+          <p>The classic South African crowd-pleaser. Full spit braai setup with sides, salads, rolls, and condiments included.</p>
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img mi2">🥗</div>
+        <div class="menu-img">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Corporate lunch spread" onerror="this.style.display='none'; this.parentNode.className += ' mi2'">
+        </div>
         <div class="menu-body">
           <h3>Corporate Lunch Packages</h3>
+          <div class="menu-price">From R75 per person</div>
           <p>Finger foods, platters, and hot lunch options for boardroom meetings, team days, and staff functions.</p>
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img mi3">🎂</div>
+        <div class="menu-img">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Private function catering" onerror="this.style.display='none'; this.parentNode.className += ' mi3'">
+        </div>
         <div class="menu-body">
           <h3>Private Function Catering</h3>
+          <div class="menu-price">From R120 per person</div>
           <p>Weddings, birthdays, and celebrations — we work to your theme, guest list, and dietary requirements.</p>
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img mi4">🥪</div>
+        <div class="menu-img">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80" alt="Platters and sandwiches" onerror="this.style.display='none'; this.parentNode.className += ' mi4'">
+        </div>
         <div class="menu-body">
           <h3>Sandwich & Meat Platters</h3>
+          <div class="menu-price">From R45 per person</div>
           <p>Ready-to-go platters for smaller gatherings, office lunches, and last-minute events.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-label">Our Events</div>
+    <h2>See the Angela's difference</h2>
+    <p class="sub">From braai stations to seated dinners — here's a glimpse of what we've served across Kempton Park and Gauteng.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1530062845289-9109b2c9c868?auto=format&fit=crop&w=600&q=80" alt="Catering event" onerror="this.style.display='none'">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1484723091739-30f299add62e?auto=format&fit=crop&w=600&q=80" alt="Food spread" onerror="this.style.display='none'">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80" alt="Corporate catering" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
@@ -206,24 +278,66 @@
     </div>
   </section>
 
+  <section id="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=700&q=80" alt="Angela preparing food" onerror="this.style.display='none'; this.style.background='linear-gradient(160deg, #4a1e0e, #7c1c2e)'">
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Angela</div>
+      <h2>Good food, done properly</h2>
+      <p>Hi, I'm Angela. I've been cooking professionally for over 10 years and started this catering business because I saw a gap: too many events in Kempton Park were being let down by caterers who didn't deliver what they promised.</p>
+      <p>I believe in fresh food, proper portions, and showing up on time — every single time. I handle everything from the menu planning to the setup and breakdown, so you can actually enjoy your own event.</p>
+      <p>Most of my clients come through word of mouth, and I take that as the biggest compliment I can get.</p>
+      <div class="about-signature">— Angela</div>
+      <p style="margin-top: 1.25rem; color: var(--gold); font-weight: 600; font-size: 0.88rem;">
+        📍 Kempton Park, Gauteng &nbsp;·&nbsp; Serving the East Rand & Sandton
+      </p>
+    </div>
+  </section>
+
   <section id="why">
     <div class="section-label">Why Choose Us</div>
     <h2>The Angela's difference</h2>
     <p class="sub">We don't just deliver food — we take ownership of the catering so you can enjoy your own event.</p>
     <div class="why-grid">
       <div class="why-item"><div class="why-num">100%</div><div class="why-label">Fresh, made-to-order food</div></div>
-      <div class="why-item"><div class="why-num">Setup</div><div class="why-label">Full setup & breakdown included</div></div>
+      <div class="why-item"><div class="why-num">Full</div><div class="why-label">Setup & breakdown included</div></div>
       <div class="why-item"><div class="why-num">Custom</div><div class="why-label">Tailored to your budget</div></div>
-      <div class="why-item"><div class="why-num">Local</div><div class="why-label">Kempton Park based & reliable</div></div>
+      <div class="why-item"><div class="why-num">10+</div><div class="why-label">Years of experience</div></div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="section-label">Client Reviews</div>
+    <h2>Don't just take our word for it</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Angela catered our company year-end function for 120 people. Everything was hot, fresh, and ready on time. The spit braai was incredible and the setup looked professional. We've already booked her for next year."</p>
+        <div class="reviewer">Sipho N. <span>· Operations Manager, Kempton Park</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I used Angela for my daughter's 21st birthday and she was absolutely amazing. She worked within our budget, the food was delicious, and she handled everything. Our guests are still talking about it."</p>
+        <div class="reviewer">Miriam D. <span>· Boksburg</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Reliable, professional, and the food is genuinely good. She's done three of our church events now. Always punctual, never any drama. Highly recommended for any large group catering."</p>
+        <div class="reviewer">Pastor R. Mokoena <span>· Benoni</span></div>
+      </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="section-label">Get in Touch</div>
     <h2>Let's plan your next event</h2>
-    <p>Send us a WhatsApp with your event date, guest count, and the type of function — we'll come back to you with a quote within 24 hours.</p>
+    <p>Send a WhatsApp with your event date, approximate guest count, and the type of function. We'll come back to you with a detailed quote within 24 hours — no obligation.</p>
     <div class="contact-btns">
-      <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Angela%27s%20Catering%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20an%20event." class="btn-gold" target="_blank">💬 WhatsApp for a Quote</a>
+      <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Angela%27s%20Catering%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20an%20event." class="btn-gold" target="_blank">WhatsApp for a Quote</a>
+    </div>
+    <div class="contact-detail" style="margin-top: 1.5rem;">
+      📍 Kempton Park, Gauteng &nbsp;·&nbsp; <strong>Serving:</strong> East Rand, Sandton, Midrand & surrounding areas
     </div>
   </section>
 
