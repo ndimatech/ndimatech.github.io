@@ -1,237 +1,721 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Angela's Catering & Event Management | Kempton Park</title>
-  <meta name="description" content="Angela's Catering & Event Management — professional catering for corporate events, weddings, and private functions in Kempton Park and surrounding areas." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>NdimaTech | Web · AI · Cloud</title>
+  <meta name="description" content="NdimaTech helps South African businesses grow with technology — website development, AI consulting, and cloud solutions. Based in Witpoortjie, Gauteng. Visit ndimatech.co.za" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --burgundy: #7c1c2e;
-      --burgundy-dark: #560f1e;
-      --gold: #c9963a;
-      --cream: #fdf6ee;
-      --warm: #4a1e0e;
-      --text: #2d1810;
-      --grey: #7a6050;
+      --navy: #0a1628;
+      --navy-mid: #112240;
+      --teal: #00d4aa;
+      --teal-dark: #00b890;
+      --white: #ffffff;
+      --grey-light: #f4f7fb;
+      --grey-text: #64748b;
+      --text: #1e293b;
     }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); }
 
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(44,14,6,0.96); backdrop-filter: blur(8px);
-      padding: 0 5%; display: flex; align-items: center;
-      justify-content: space-between; height: 60px;
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
     }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-    nav ul a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold); color: #1a0800 !important; padding: 0.4rem 1rem; border-radius: 4px; font-weight: 600 !important; }
 
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 22, 40, 0.96);
+      backdrop-filter: blur(8px);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--teal); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--teal); }
+
+    .nav-cta {
+      background: var(--teal);
+      color: var(--navy) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--teal-dark); color: var(--navy) !important; }
+
+    /* HERO */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, #2d0e0e 0%, #4a1e0e 40%, #6b2a10 100%);
-      display: flex; align-items: center; padding: 80px 5% 60px;
-      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 60%, #0a2a1f 100%);
+      display: flex;
+      align-items: center;
+      padding: 80px 5% 60px;
+      position: relative;
+      overflow: hidden;
     }
+
     #hero::before {
-      content: ''; position: absolute; top: 0; right: 0;
-      width: 45%; height: 100%;
-      background: radial-gradient(ellipse at right, rgba(201,150,58,0.1) 0%, transparent 70%);
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,212,170,0.12) 0%, transparent 70%);
+      border-radius: 50%;
     }
-    .hero-content { max-width: 620px; position: relative; z-index: 1; }
-    .hero-tag {
-      display: inline-block; background: rgba(201,150,58,0.15);
-      color: var(--gold); border: 1px solid rgba(201,150,58,0.3);
-      padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.78rem;
-      font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem;
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
+      border-radius: 50%;
     }
+
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,212,170,0.15);
+      color: var(--teal);
+      border: 1px solid rgba(0,212,170,0.3);
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
     #hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      color: #fff; line-height: 1.15; margin-bottom: 1.25rem;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 1.25rem;
     }
-    #hero h1 span { color: var(--gold); }
-    #hero p { font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-gold { background: var(--gold); color: #1a0800; padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: all 0.2s; box-shadow: 0 4px 18px rgba(201,150,58,0.3); }
-    .btn-gold:hover { background: #b8852e; transform: translateY(-1px); }
-    .btn-outline { background: transparent; color: rgba(255,255,255,0.8); padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.92rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* MENU HIGHLIGHTS */
-    #menu { padding: 70px 5%; background: #fff; }
-    .section-label { text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.5rem; }
-    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--text); margin-bottom: 0.75rem; }
-    .sub { font-size: 0.95rem; color: var(--grey); margin-bottom: 2.5rem; line-height: 1.7; max-width: 560px; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
-    .menu-card {
-      border-radius: 10px; overflow: hidden; border: 1px solid #ecdcc8;
+    #hero h1 span { color: var(--teal); }
+
+    #hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--navy);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
       transition: all 0.2s;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0, 212, 170, 0.35);
     }
-    .menu-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .menu-img {
-      height: 140px; display: flex; align-items: center;
-      justify-content: center; font-size: 3rem;
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 212, 170, 0.45);
     }
-    .mi1 { background: linear-gradient(135deg, #4a1e0e, #7c3018); }
-    .mi2 { background: linear-gradient(135deg, #1e3a0e, #3a6018); }
-    .mi3 { background: linear-gradient(135deg, #1e1e3a, #303060); }
-    .mi4 { background: linear-gradient(135deg, #3a1a0e, #6b3018); }
-    .menu-body { padding: 1.25rem; }
-    .menu-body h3 { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
-    .menu-body p { font-size: 0.84rem; color: var(--grey); line-height: 1.65; }
 
-    /* EVENTS */
-    #events { padding: 70px 5%; background: var(--cream); }
-    .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
-    .event-card {
-      background: #fff; border-radius: 10px; padding: 1.5rem 1.25rem;
-      text-align: center; border: 1px solid #ecdcc8; transition: all 0.2s;
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.2s;
+      display: inline-block;
     }
-    .event-card:hover { box-shadow: 0 4px 20px rgba(201,150,58,0.12); border-color: var(--gold); }
-    .event-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .event-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--text); }
 
-    /* WHY */
-    #why {
-      padding: 70px 5%;
-      background: linear-gradient(160deg, #2d0e0e 0%, #4a1e0e 100%);
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
     }
-    #why .section-label { color: var(--gold); }
-    #why h2 { color: #fff; margin-bottom: 0.75rem; }
-    #why .sub { color: rgba(255,255,255,0.6); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 0; }
-    .why-item { text-align: center; }
-    .why-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 700; }
-    .why-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
 
-    #contact { padding: 70px 5%; text-align: center; background: #fff; }
-    #contact h2 { margin-bottom: 0.75rem; }
-    #contact p { font-size: 0.95rem; color: var(--grey); max-width: 480px; margin: 0 auto 2.25rem; line-height: 1.75; }
-    .contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    footer { background: #1a0800; color: rgba(255,255,255,0.35); text-align: center; padding: 1.25rem 5%; font-size: 0.8rem; }
-    footer span { color: var(--gold); }
-
-    .built-by {
-      position: fixed; bottom: 16px; right: 16px; z-index: 200;
-      background: #1a0800; color: rgba(255,255,255,0.7);
-      padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.72rem;
-      text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s;
+    /* TRUST STRIP */
+    #trust {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .built-by:hover { background: var(--gold); color: #1a0800; }
-    .built-by span { color: var(--gold); font-weight: 700; }
-    .built-by:hover span { color: #1a0800; }
 
+    .trust-quote {
+      max-width: 640px;
+      text-align: center;
+    }
+
+    .trust-quote blockquote {
+      font-size: 1rem;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .trust-quote blockquote::before { content: '\201C'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
+    .trust-quote blockquote::after  { content: '\201D'; color: var(--teal); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+
+    .trust-attribution {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--grey-text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 5%; }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--grey-text);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    #services { background: var(--grey-light); }
+
+    .services-header { margin-bottom: 3rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(0,212,170,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.4rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+
+    /* PRICING TAG */
+    .pricing-tag {
+      display: inline-block;
+      background: rgba(0,212,170,0.1);
+      color: var(--teal-dark);
+      border: 1px solid rgba(0,212,170,0.25);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.3px;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--grey-text);
+      line-height: 1.7;
+    }
+
+    .service-list {
+      margin-top: 1rem;
+      list-style: none;
+    }
+
+    .service-list li {
+      font-size: 0.87rem;
+      color: var(--grey-text);
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .service-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.75rem;
+    }
+
+    /* ABOUT */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 100%);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      color: white;
+    }
+
+    .about-visual h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .about-visual h3 span { color: var(--teal); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--teal);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.25rem;
+    }
+
+    .about-text p {
+      color: var(--grey-text);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .why-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .check {
+      width: 22px; height: 22px;
+      background: rgba(0,212,170,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* HOW IT WORKS */
+    #how-it-works {
+      background: var(--grey-light);
+      text-align: center;
+    }
+
+    #how-it-works h2 { margin-bottom: 0.5rem; }
+
+    #how-it-works .section-intro {
+      margin: 0 auto 3rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .step {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px; height: 40px;
+      background: var(--teal);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--grey-text);
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: var(--navy);
+      text-align: center;
+    }
+
+    #contact h2 { color: var(--white); }
+    #contact .section-label { color: var(--teal); }
+
+    #contact p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060e1a;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 1.5rem 5%;
+      font-size: 0.82rem;
+    }
+
+    footer a { color: var(--teal); text-decoration: none; }
+
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav ul { display: none; }
+      #hero { padding: 100px 5% 60px; }
+      #about { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      #trust { text-align: center; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <a href="#hero" class="logo">Angela's Catering</a>
+    <a href="#hero" class="logo">Ndima<span>Tech</span></a>
     <ul>
-      <li><a href="#menu">Menus</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
   </nav>
 
+  <!-- HERO -->
   <section id="hero">
     <div class="hero-content">
-      <div class="hero-tag">🍽️ Kempton Park · Corporate & Private Events</div>
-      <h1>Food that makes your <span>event unforgettable.</span></h1>
-      <p>From intimate gatherings to large corporate functions — Angela's Catering brings professional, delicious food to your event with zero stress on your end.</p>
+      <div class="hero-badge">🇿🇦 Based in Witpoortjie, Gauteng</div>
+      <h1>Technology that moves your <span>business forward.</span></h1>
+      <p>From your first website to a full cloud strategy — NdimaTech helps South African businesses grow with practical, affordable technology solutions.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Angela%27s%20Catering%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20an%20event." class="btn-gold" target="_blank">💬 Get a Free Quote</a>
-        <a href="#menu" class="btn-outline">View Menus</a>
+        <a href="#contact" class="btn-primary">Get a Free Tech Consultation →</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
       </div>
     </div>
   </section>
 
-  <section id="menu">
-    <div class="section-label">Our Menus</div>
-    <h2>Something for every occasion</h2>
-    <p class="sub">All menus are freshly prepared and can be customised to your guest count, dietary requirements, and budget.</p>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-img mi1">🥩</div>
-        <div class="menu-body">
-          <h3>Braai & Spit Braai Buffet</h3>
-          <p>The classic South African crowd-pleaser. Full spit braai setup with sides, salads, and rolls included.</p>
+  <!-- TRUST STRIP -->
+  <div id="trust">
+    <div class="trust-quote">
+      <blockquote>NdimaTech helped us get online in days. We started getting enquiries through Google within the first week — something we hadn't seen in years of only using Facebook.</blockquote>
+      <!-- TODO: Replace with a real client testimonial when available -->
+      <div class="trust-attribution">Local Business Owner · Ekurhuleni</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header">
+      <div class="section-label">What We Do</div>
+      <h2>Three ways we help your business grow</h2>
+      <p class="section-intro">Whether you're just getting online or ready to scale with AI and cloud — we have the right service for where you are right now.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Web & Digital Presence</h3>
+        <!-- TODO: Replace with your actual starting price e.g. "Starting from R 3,500" -->
+        <div class="pricing-tag">Best for Local Businesses · Fixed-cost packages</div>
+        <p>A professional website that gets you found on Google and turns visitors into paying customers. Clean, mobile-first, and built to convert.</p>
+        <ul class="service-list">
+          <li>Business websites & landing pages</li>
+          <li>Mobile-optimised design</li>
+          <li>Google-ready (SEO basics included)</li>
+          <li>WhatsApp & booking integrations</li>
+          <li>E-commerce solutions</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI Consulting</h3>
+        <!-- TODO: Replace with your actual starting price -->
+        <div class="pricing-tag">Best for Growing Teams · ROI-driven implementation</div>
+        <p>Practical AI for businesses ready to work smarter. We cut through the hype and implement AI tools that actually save you time and money. Built for maximum local resilience — your workflows stay operational 24/7.</p>
+        <ul class="service-list">
+          <li>AI strategy & readiness assessment</li>
+          <li>Workflow automation</li>
+          <li>AI tool integration (ChatGPT, Copilot & more)</li>
+          <li>Custom AI solutions</li>
+          <li>Staff training & adoption support</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <h3>Cloud Solutions</h3>
+        <!-- TODO: Replace with your actual starting price -->
+        <div class="pricing-tag">Best for Scaling Businesses · No lock-in</div>
+        <p>Move to the cloud with confidence. We handle strategy, migration, and ongoing management — so you get the benefits without the complexity. Built for maximum local resilience, ensuring your cloud assets stay online and accessible 24/7.</p>
+        <ul class="service-list">
+          <li>Cloud strategy & architecture</li>
+          <li>AWS, Azure & Google Cloud</li>
+          <li>Cloud migration & setup</li>
+          <li>Cost optimisation</li>
+          <li>Ongoing managed support</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding: 80px 5%;">
+    <div class="about-visual">
+      <h3>Built for <span>African business.</span></h3>
+      <p style="color: rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7;">We understand the South African market — the budget realities, the mobile-first audience, and the real problems businesses face when going digital.</p>
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <div class="stat-label">Core service areas</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number">SA</span>
+          <div class="stat-label">Market focused</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number">SMB</span>
+          <div class="stat-label">to Enterprise</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number">WPT</span>
+          <div class="stat-label">Based in Witpoortjie</div>
         </div>
       </div>
-      <div class="menu-card">
-        <div class="menu-img mi2">🥗</div>
-        <div class="menu-body">
-          <h3>Corporate Lunch Packages</h3>
-          <p>Finger foods, platters, and hot lunch options for boardroom meetings, team days, and staff functions.</p>
-        </div>
+    </div>
+
+    <div class="about-text">
+      <div class="section-label">About NdimaTech</div>
+      <h2>We meet you where you are</h2>
+      <p>NdimaTech was founded on a simple belief: every business deserves access to technology that actually works for them — not just the big corporates with massive IT budgets.</p>
+      <p>We work with local entrepreneurs who need their first website, growing companies ready to automate with AI, and established businesses navigating cloud infrastructure and digital transformation.</p>
+      <ul class="why-list">
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Practical, not just theoretical</strong> — we implement and support, not just advise</span>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Priced for the SA market</strong> — quality solutions without enterprise price tags</span>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>We speak your language</strong> — plain English, no unnecessary tech jargon</span>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Local, responsive support</strong> — you're not dealing with an overseas call centre</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="section-label">How It Works</div>
+    <h2>Simple, transparent process</h2>
+    <p class="section-intro">No lengthy contracts, no surprise bills. Here's exactly what working with NdimaTech looks like.</p>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>15-Minute Discovery</h3>
+        <p>We look at your current setup and goals — no jargon, no cost. Just an honest conversation about where you are and where you want to be.</p>
       </div>
-      <div class="menu-card">
-        <div class="menu-img mi3">🎂</div>
-        <div class="menu-body">
-          <h3>Private Function Catering</h3>
-          <p>Weddings, birthdays, and celebrations — we work to your theme, guest list, and dietary requirements.</p>
-        </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>The Blueprint</h3>
+        <p>We build a clear, fixed-price plan tailored to your budget and business. You know exactly what you're getting before we start — no hidden fees.</p>
       </div>
-      <div class="menu-card">
-        <div class="menu-img mi4">🥪</div>
-        <div class="menu-body">
-          <h3>Sandwich & Meat Platters</h3>
-          <p>Ready-to-go platters for smaller gatherings, office lunches, and last-minute events.</p>
-        </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Growth & Support</h3>
+        <p>We deploy your solution and provide ongoing local support while you focus on running your business. We stay in your corner as you grow.</p>
       </div>
     </div>
   </section>
 
-  <section id="events">
-    <div class="section-label">Events We Cater For</div>
-    <h2>No event too big or too small</h2>
-    <p class="sub">We've catered for everything from 10-person boardroom lunches to 500-guest weddings. If there's an event, we can feed it.</p>
-    <div class="events-grid">
-      <div class="event-card"><div class="event-icon">🏢</div><h3>Corporate Functions</h3></div>
-      <div class="event-card"><div class="event-icon">💍</div><h3>Weddings</h3></div>
-      <div class="event-card"><div class="event-icon">🎂</div><h3>Birthday Parties</h3></div>
-      <div class="event-card"><div class="event-icon">🎓</div><h3>Graduations</h3></div>
-      <div class="event-card"><div class="event-icon">⛪</div><h3>Church Events</h3></div>
-      <div class="event-card"><div class="event-icon">🤝</div><h3>Team Building</h3></div>
-    </div>
-  </section>
-
-  <section id="why">
-    <div class="section-label">Why Choose Us</div>
-    <h2>The Angela's difference</h2>
-    <p class="sub">We don't just deliver food — we take ownership of the catering so you can enjoy your own event.</p>
-    <div class="why-grid">
-      <div class="why-item"><div class="why-num">100%</div><div class="why-label">Fresh, made-to-order food</div></div>
-      <div class="why-item"><div class="why-num">Setup</div><div class="why-label">Full setup & breakdown included</div></div>
-      <div class="why-item"><div class="why-num">Custom</div><div class="why-label">Tailored to your budget</div></div>
-      <div class="why-item"><div class="why-num">Local</div><div class="why-label">Kempton Park based & reliable</div></div>
-    </div>
-  </section>
-
+  <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Get in Touch</div>
-    <h2>Let's plan your next event</h2>
-    <p>Send us a WhatsApp with your event date, guest count, and the type of function — we'll come back to you with a quote within 24 hours.</p>
+    <h2>Ready to take the next step?</h2>
+    <p>Whether you need a website, want to explore AI for your business, or are thinking about the cloud — let's have a conversation. No jargon, no pressure.</p>
     <div class="contact-btns">
-      <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Angela%27s%20Catering%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20an%20event." class="btn-gold" target="_blank">💬 WhatsApp for a Quote</a>
+      <a href="https://wa.me/27612682537?text=Hi%20NdimaTech%2C%20I%27d%20like%20to%20chat%20about%20a%20solution%20for%20my%20business." class="btn-primary" target="_blank">💬 WhatsApp Us</a>
+      <a href="mailto:setup@ndimatech.co.za" class="btn-secondary">✉️ Send an Email</a>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 <span>Angela's Catering & Event Management</span> · Kempton Park, Gauteng</p>
+    <p>© 2025 NdimaTech. Based in Witpoortjie, Gauteng, South Africa. &nbsp;|&nbsp; <a href="https://ndimatech.co.za">ndimatech.co.za</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
   </footer>
-
-  <a href="https://ndimatech.co.za" class="built-by" target="_blank">Built by <span>NdimaTech</span></a>
 
 </body>
 </html>
