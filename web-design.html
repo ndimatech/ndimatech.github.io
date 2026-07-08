@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affordable Small Business Websites | East Rand & Johannesburg</title>
+  <meta name="description" content="Fixed-price, mobile-first websites for small businesses in the East Rand and Johannesburg. Get found on Google, take bookings, and turn Facebook followers into paying customers. From R2,500, live in about 7 days." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --teal: #00d4aa;
+      --teal-dark: #00b890;
+      --white: #ffffff;
+      --grey-light: #f4f7fb;
+      --grey-text: #64748b;
+      --text: #1e293b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.96); backdrop-filter: blur(8px);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
+    .logo span { color: var(--teal); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav ul a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: var(--navy) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-dark); }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 60%, #0a2a1f 100%);
+      padding: 140px 5% 70px; color: var(--white);
+    }
+    .page-hero .inner { max-width: 800px; }
+    .page-hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.25rem; }
+    .page-hero h1 span { color: var(--teal); }
+    .page-hero p { font-size: 1.08rem; color: rgba(255,255,255,0.72); line-height: 1.8; margin-bottom: 1rem; max-width: 700px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    section { padding: 70px 5%; }
+    .section-label { text-transform: uppercase; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 0.75rem; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; line-height: 1.2; color: var(--navy); }
+    .section-intro { font-size: 1.02rem; color: var(--grey-text); max-width: 620px; line-height: 1.75; }
+
+    /* PAIN/FIX LISTS */
+    .pain-list, .fix-list { list-style: none; margin-top: 1.5rem; max-width: 720px; }
+    .pain-list li, .fix-list li { padding: 0.6rem 0 0.6rem 1.8rem; position: relative; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid #f1f5f9; }
+    .pain-list li::before { content: '✗'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+    .fix-list li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+    /* INCLUDED GRID */
+    #included { background: var(--grey-light); }
+    .included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .included-card { background: var(--white); border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.75rem; }
+    .included-card .icon {
+      width: 44px; height: 44px; background: rgba(0,212,170,0.1); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem;
+    }
+    .included-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .included-card p { font-size: 0.88rem; color: var(--grey-text); line-height: 1.7; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; max-width: 900px; }
+    .plan {
+      background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 2.25rem;
+      display: flex; flex-direction: column;
+    }
+    .plan.featured { border-color: var(--teal); box-shadow: 0 8px 30px rgba(0,212,170,0.12); }
+    .plan h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.25rem; }
+    .plan .price { font-size: 2rem; font-weight: 800; color: var(--navy); margin-bottom: 0.25rem; }
+    .plan .price small { font-size: 0.9rem; font-weight: 500; color: var(--grey-text); }
+    .plan .sub { font-size: 0.85rem; color: var(--grey-text); margin-bottom: 1.25rem; }
+    .plan ul { list-style: none; margin-bottom: 1.5rem; }
+    .plan ul li { font-size: 0.87rem; color: var(--text); padding: 0.35rem 0 0.35rem 1.4rem; position: relative; border-bottom: 1px solid #f1f5f9; }
+    .plan ul li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+    .btn-primary {
+      background: var(--teal); color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-block; text-align: center;
+      transition: all 0.2s; box-shadow: 0 4px 20px rgba(0, 212, 170, 0.25); margin-top: auto;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: var(--white); padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3);
+      display: inline-block; text-align: center; transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-wa {
+      background: #22c05e; color: var(--white); padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-block; text-align: center;
+      transition: all 0.2s;
+    }
+    .btn-wa:hover { background: #1ca94f; transform: translateY(-2px); }
+
+    /* STEPS */
+    #how { background: var(--grey-light); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .step { background: var(--white); border-radius: 12px; padding: 2rem 1.75rem; border: 1px solid #e2e8f0; }
+    .step-number {
+      width: 40px; height: 40px; background: var(--teal); color: var(--navy); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; margin-bottom: 1rem;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.9rem; color: var(--grey-text); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; }
+    .faq-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+    .faq-item p { font-size: 0.88rem; color: var(--grey-text); line-height: 1.7; }
+
+    /* CTA */
+    #cta-block { background: var(--navy); text-align: center; }
+    #cta-block h2 { color: var(--white); }
+    #cta-block p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto 2rem; line-height: 1.75; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    footer {
+      background: #060e1a; color: rgba(255,255,255,0.4); text-align: center;
+      padding: 1.5rem 5%; font-size: 0.82rem; line-height: 1.9;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    @media (max-width: 768px) { nav ul { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Ndima<span>Tech</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="web-design.html">Websites</a></li>
+      <li><a href="it-support-plans.html">IT Support Plans</a></li>
+      <li><a href="email-migrations.html">Email Migrations</a></li>
+      <li><a href="#cta-block" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero">
+    <div class="inner">
+      <h1>Your Customers Are Searching on Google. <span>Can They Find You?</span></h1>
+      <p>Your social media page is working hard - but anyone who doesn't already follow you can't find you. When someone searches "nail salon near me" or "caterer East Rand," they book with whoever shows up. A clean, mobile-first website puts your business in those results and turns lookers into bookings.</p>
+      <div class="hero-btns">
+        <a href="#cta-block" class="btn-primary">Get a Fixed-Price Quote →</a>
+        <a href="#pricing" class="btn-secondary">See Pricing</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAIN / FIX -->
+  <section>
+    <div class="section-label">The Gap</div>
+    <h2>Great on Social Media. Invisible on Google.</h2>
+    <ul class="pain-list">
+      <li>New customers search Google first - and find your competitors instead</li>
+      <li>Your prices, hours, and location live in DM replies you type over and over</li>
+      <li>No booking button means enquiries slip away after hours</li>
+      <li>Your best work is buried in a feed instead of showcased in a gallery</li>
+    </ul>
+    <h2 style="margin-top: 3rem;">What a website fixes</h2>
+    <ul class="fix-list">
+      <li>Show up when locals search for what you do</li>
+      <li>A gallery that sells your work before you say a word</li>
+      <li>WhatsApp and booking buttons - enquiries come to you, even at midnight</li>
+      <li>Hours, prices, and directions answered automatically</li>
+    </ul>
+  </section>
+
+  <!-- INCLUDED -->
+  <section id="included">
+    <div class="section-label">What You Get</div>
+    <h2>Built to bring in customers, not just to look pretty</h2>
+    <div class="included-grid">
+      <div class="included-card">
+        <div class="icon">📱</div>
+        <h3>Mobile-First Design</h3>
+        <p>Most of your customers will visit from a phone. Your site is designed for that first, desktop second.</p>
+      </div>
+      <div class="included-card">
+        <div class="icon">🔍</div>
+        <h3>Google-Ready</h3>
+        <p>SEO basics done properly - titles, descriptions, and local keywords - so search engines can actually find you.</p>
+      </div>
+      <div class="included-card">
+        <div class="icon">💬</div>
+        <h3>WhatsApp & Booking Buttons</h3>
+        <p>One tap to message or book you. No forms nobody fills in.</p>
+      </div>
+      <div class="included-card">
+        <div class="icon">🖼️</div>
+        <h3>Gallery That Sells</h3>
+        <p>Your work, front and centre - the photos doing the convincing before the first conversation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2>Fixed prices. No surprises.</h2>
+    <p class="section-intro">You'll know the full cost before anything starts - and it's a once-off build, not a monthly trap.</p>
+
+    <div class="pricing-grid">
+      <div class="plan featured">
+        <h3>Website Build</h3>
+        <div class="price">R2,500 – R3,500 <small>once-off</small></div>
+        <div class="sub">Live in about 7 days from content and sign-off</div>
+        <ul>
+          <li>Mobile-first design, up to 5 sections</li>
+          <li>Gallery, services, and contact details</li>
+          <li>WhatsApp & booking call-to-action</li>
+          <li>SEO basics included</li>
+          <li>Fixed quote before work starts</li>
+        </ul>
+        <a href="#cta-block" class="btn-primary">Get My Quote</a>
+      </div>
+
+      <div class="plan">
+        <h3>Care Plan <span style="font-weight:500; font-size:0.8rem; color:var(--grey-text);">(optional)</span></h3>
+        <div class="price">R299<small>/month</small></div>
+        <div class="sub">Keep it running without thinking about it</div>
+        <ul>
+          <li>Domain renewal covered</li>
+          <li>Minor updates within 48 hours (hours, prices, photos)</li>
+          <li>WhatsApp support line</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <a href="#cta-block" class="btn-primary">Ask About the Care Plan</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-label">How It Works</div>
+    <h2>From chat to live site in about a week</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Quick Chat</h3>
+        <p>Tell me about your business - what you do, who your customers are, what you want the site to achieve. WhatsApp or email, whatever's easier.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Fixed Quote & Preview</h3>
+        <p>You get one fixed price and a preview of what your site will look like - before you commit a cent.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Build & Launch</h3>
+        <p>Send me your photos and details, and your site is typically live within 7 days of sign-off - on your own domain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="section-label">Common Questions</div>
+    <h2>Website FAQs</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>I already have a Facebook page - why do I need a website?</h4>
+        <p>Keep the Facebook page - it's working. But only people who already follow you see it. A website catches the customers searching Google who've never heard of you, and it's yours - no algorithm deciding who sees your posts.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What do you need from me?</h4>
+        <p>Your photos, services, prices (if you want them shown), and contact details. I handle everything technical - domain, hosting, setup, the lot.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are there hidden monthly costs?</h4>
+        <p>No. The build is once-off. The R299/month care plan is optional - it covers your domain renewal and updates, but you can also handle that yourself.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I see an example before paying?</h4>
+        <p>Yes - after our first chat I'll show you a preview of what your site would look like, before you commit to anything.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-block">
+    <div class="section-label">Get Started</div>
+    <h2>Let's get you found on Google</h2>
+    <p>Tell me a bit about your business and I'll come back with a fixed quote and a preview. No pressure, no jargon, no monthly trap.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20a%20quote%20for%20a%20website." class="btn-wa" target="_blank">💬 WhatsApp Me</a>
+      <a href="mailto:setup@ndimatech.co.za?subject=Website%20Quote" class="btn-primary">Get a Fixed-Price Quote</a>
+      <a href="index.html" class="btn-secondary">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 NdimaTech. Based in Brakpan, South Africa. Remote support wherever you are; on-site visits across the East Rand and greater Johannesburg.</p>
+    <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="it-support-plans.html">IT Support Plans</a> &nbsp;|&nbsp; <a href="email-migrations.html">Email Migrations</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
+  </footer>
+
+</body>
+</html>

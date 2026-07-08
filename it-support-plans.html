@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixed-Price IT Support for Small Businesses | Brakpan & East Rand</title>
+  <meta name="description" content="Fixed monthly IT support for small businesses in Brakpan and the East Rand. Email, Microsoft 365 and Google Workspace admin, backups, and security - from R1,500/month, month-to-month." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --teal: #00d4aa;
+      --teal-dark: #00b890;
+      --white: #ffffff;
+      --grey-light: #f4f7fb;
+      --grey-text: #64748b;
+      --text: #1e293b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.96); backdrop-filter: blur(8px);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
+    .logo span { color: var(--teal); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav ul a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: var(--navy) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-dark); }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 60%, #0a2a1f 100%);
+      padding: 140px 5% 70px; color: var(--white);
+    }
+    .page-hero .inner { max-width: 800px; }
+    .page-hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.25rem; }
+    .page-hero h1 span { color: var(--teal); }
+    .page-hero p { font-size: 1.08rem; color: rgba(255,255,255,0.72); line-height: 1.8; margin-bottom: 1rem; max-width: 700px; }
+
+    section { padding: 70px 5%; }
+    .section-label { text-transform: uppercase; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 0.75rem; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; line-height: 1.2; color: var(--navy); }
+
+    /* PRICING */
+    #pricing { background: var(--grey-light); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .plan {
+      background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 2rem;
+      display: flex; flex-direction: column;
+    }
+    .plan.featured { border-color: var(--teal); box-shadow: 0 8px 30px rgba(0,212,170,0.12); position: relative; }
+    .plan-flag {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--teal); color: var(--navy); font-size: 0.72rem; font-weight: 800;
+      padding: 0.2rem 0.9rem; border-radius: 12px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .plan h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.25rem; }
+    .plan .price { font-size: 2rem; font-weight: 800; color: var(--navy); margin-bottom: 0.25rem; }
+    .plan .price small { font-size: 0.9rem; font-weight: 500; color: var(--grey-text); }
+    .plan .users { font-size: 0.85rem; color: var(--grey-text); margin-bottom: 1.25rem; }
+    .plan ul { list-style: none; margin-bottom: 1.5rem; }
+    .plan ul li { font-size: 0.87rem; color: var(--text); padding: 0.35rem 0 0.35rem 1.4rem; position: relative; border-bottom: 1px solid #f1f5f9; }
+    .plan ul li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+    .plan ul li.no { color: #b0b9c6; }
+    .plan ul li.no::before { content: '-'; color: #cbd5e1; }
+    .plan .response { font-size: 0.82rem; color: var(--grey-text); margin-bottom: 1.25rem; }
+    .plan .response strong { color: var(--navy); }
+
+    .btn-primary {
+      background: var(--teal); color: var(--navy); padding: 0.8rem 1.8rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.92rem; display: inline-block; text-align: center;
+      transition: all 0.2s; box-shadow: 0 4px 20px rgba(0, 212, 170, 0.25); margin-top: auto;
+    }
+    .btn-row { display: flex; gap: 0.6rem; margin-top: auto; flex-wrap: wrap; }
+    .btn-row .btn-primary { margin-top: 0; flex: 1 1 auto; padding: 0.8rem 1rem; font-size: 0.85rem; }
+    .btn-wa {
+      background: #22c05e; color: var(--white); padding: 0.8rem 1rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-block; text-align: center;
+      transition: all 0.2s; flex: 1 1 auto;
+    }
+    .btn-wa:hover { background: #1ca94f; transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: var(--navy); padding: 0.8rem 1.8rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.92rem; border: 1px solid #cbd5e1;
+      display: inline-block; text-align: center; transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--teal); color: var(--teal-dark); }
+
+    .pricing-note { margin-top: 1.5rem; font-size: 0.83rem; color: var(--grey-text); max-width: 720px; }
+
+    /* NOT INCLUDED */
+    .excluded { max-width: 760px; }
+    .excluded ul { list-style: none; margin-top: 1.25rem; }
+    .excluded li { padding: 0.6rem 0 0.6rem 1.6rem; position: relative; font-size: 0.93rem; color: var(--grey-text); border-bottom: 1px solid #f1f5f9; }
+    .excluded li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
+    .excluded li strong { color: var(--navy); }
+    .excluded a { color: var(--teal-dark); font-weight: 600; }
+
+    /* CTA BLOCK */
+    #cta-block { background: var(--navy); text-align: center; }
+    #cta-block h2 { color: var(--white); }
+    #cta-block p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto 2rem; line-height: 1.75; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    #cta-block .btn-secondary { color: var(--white); border-color: rgba(255,255,255,0.3); }
+    #cta-block .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; }
+    .faq-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+    .faq-item p { font-size: 0.88rem; color: var(--grey-text); line-height: 1.7; }
+
+    /* CROSS-SELL */
+    #cross-sell { background: var(--grey-light); }
+    .cross-card {
+      background: var(--white); border: 1px solid rgba(0,212,170,0.35); border-radius: 14px;
+      padding: 2rem; max-width: 720px; display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .cross-card p { color: var(--grey-text); font-size: 0.95rem; line-height: 1.75; }
+    .cross-card a { color: var(--teal-dark); font-weight: 700; text-decoration: none; }
+    .cross-card a:hover { text-decoration: underline; }
+
+    footer {
+      background: #060e1a; color: rgba(255,255,255,0.4); text-align: center;
+      padding: 1.5rem 5%; font-size: 0.82rem; line-height: 1.9;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    @media (max-width: 768px) { nav ul { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Ndima<span>Tech</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="it-support-plans.html">IT Support Plans</a></li>
+      <li><a href="email-migrations.html">Email Migrations</a></li>
+      <li><a href="web-design.html">Websites</a></li>
+      <li><a href="#cta-block" class="nav-cta">Free IT Health Check</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero">
+    <div class="inner">
+      <h1>Fixed-Price IT Support <span>for Small Businesses</span></h1>
+      <p>Every small business hits the same wall: email stops working, a laptop dies, nobody remembers the WiFi password, and the "IT guy" is a nephew who's now unreachable. Hiring full-time IT staff costs R25,000+ a month. Most businesses don't need that - they need someone reliable, on a fixed monthly fee, who already knows their setup.</p>
+      <p><strong style="color: var(--white);">That's what these plans are.</strong></p>
+    </div>
+  </header>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label">Plans & Pricing</div>
+    <h2>Three plans. Fixed fees. No lock-in.</h2>
+
+    <div class="pricing-grid">
+
+      <div class="plan">
+        <h3>Essentials</h3>
+        <div class="price">R1,500<small>/month</small></div>
+        <div class="users">Up to 5 users</div>
+        <ul>
+          <li>Email & Microsoft 365 admin</li>
+          <li>Password resets & user changes</li>
+          <li class="no">Backup monitoring</li>
+          <li class="no">Security hygiene checks</li>
+          <li class="no">Monthly IT health report</li>
+        </ul>
+        <div class="response"><strong>Response:</strong> next business evening<br><strong>On-site:</strong> billed separately</div>
+        <div class="btn-row">
+          <a href="mailto:setup@ndimatech.co.za?subject=Essentials%20Plan%20Enquiry" class="btn-primary">Enquire About Essentials</a>
+          <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27m%20interested%20in%20the%20Essentials%20support%20plan." class="btn-wa" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-flag">Most Popular</div>
+        <h3>Business</h3>
+        <div class="price">R3,500<small>/month</small></div>
+        <div class="users">Up to 12 users</div>
+        <ul>
+          <li>Email & Microsoft 365 admin</li>
+          <li>Password resets & user changes</li>
+          <li>Backup monitoring</li>
+          <li>Security hygiene checks</li>
+          <li>Monthly IT health report</li>
+        </ul>
+        <div class="response"><strong>Response:</strong> next business evening<br><strong>On-site:</strong> 1 visit/quarter included</div>
+        <div class="btn-row">
+          <a href="mailto:setup@ndimatech.co.za?subject=Business%20Plan%20Enquiry" class="btn-primary">Enquire About Business</a>
+          <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27m%20interested%20in%20the%20Business%20support%20plan." class="btn-wa" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Priority</h3>
+        <div class="price">R6,000<small>/month</small></div>
+        <div class="users">Up to 20 users</div>
+        <ul>
+          <li>Email & Microsoft 365 admin</li>
+          <li>Password resets & user changes</li>
+          <li>Backup monitoring</li>
+          <li>Security hygiene checks</li>
+          <li>Monthly IT health report</li>
+        </ul>
+        <div class="response"><strong>Response:</strong> same day<br><strong>On-site:</strong> 1 visit/month included</div>
+        <div class="btn-row">
+          <a href="mailto:setup@ndimatech.co.za?subject=Priority%20Plan%20Enquiry" class="btn-primary">Enquire About Priority</a>
+          <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27m%20interested%20in%20the%20Priority%20support%20plan." class="btn-wa" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="pricing-note" style="text-align: center; margin-left: auto; margin-right: auto;">All plans are month-to-month with 30 days' notice. Founding clients get <strong>15% off the first 3 months</strong> - mention it when you get in touch.</p>
+  </section>
+
+  <!-- NOT INCLUDED -->
+  <section>
+    <div class="excluded">
+      <div class="section-label">Full Transparency</div>
+      <h2>What's not included</h2>
+      <p style="color: var(--grey-text);">So there are no surprises later, these fall outside the monthly fee:</p>
+      <ul>
+        <li><strong>Hardware purchases</strong> - sourced at cost plus a handling fee</li>
+        <li><strong>New software licensing</strong> - billed at cost, no markup games</li>
+        <li><strong>Projects like migrations or office moves</strong> - quoted separately, fixed price. See <a href="email-migrations.html">Email & Cloud Migrations</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-block">
+    <div class="section-label">Not sure which plan fits?</div>
+    <h2>Book a free 20-minute IT health check</h2>
+    <p>I'll look at your current setup and tell you honestly what you need - even if the answer is "nothing yet."</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20book%20a%20free%20IT%20health%20check." class="btn-wa" target="_blank" style="flex: 0 1 auto; padding: 0.85rem 2rem; font-size: 0.95rem;">💬 WhatsApp Me</a>
+      <a href="mailto:setup@ndimatech.co.za?subject=Free%20IT%20Health%20Check" class="btn-primary" style="margin-top: 0;">Book My Free Health Check</a>
+      <a href="email-migrations.html" class="btn-secondary">Need a migration instead?</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="section-label">Common Questions</div>
+    <h2>Support plan FAQs</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Do you support both Microsoft 365 and Google Workspace?</h4>
+        <p>Yes, both.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if we have an emergency outside your response window?</h4>
+        <p>Priority-plan clients get same-day response. For genuine emergencies on other plans, an after-hours callout rate applies.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are we locked into a contract?</h4>
+        <p>Month-to-month with 30 days' notice. If the service isn't earning its fee, you shouldn't be paying it.</p>
+      </div>
+      <div class="faq-item">
+        <h4>We're not in Brakpan - can you still help?</h4>
+        <p>Most support is remote, so anywhere in South Africa works. On-site visits are limited to the East Rand and greater Johannesburg.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS-SELL -->
+  <section id="cross-sell">
+    <div class="section-label">Still on old email?</div>
+    <h2>Fix the foundation first</h2>
+    <div class="cross-card">
+      <p>If your business is still running on outdated web-host email, a support plan is treating the symptom. A one-off migration to Microsoft 365 or Google Workspace fixes the root cause - and most migration clients move onto a support plan afterwards, with the same person who already knows the setup.</p>
+      <a href="email-migrations.html">See how migrations work →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 NdimaTech. Based in Brakpan, South Africa. Remote support wherever you are; on-site visits across the East Rand and greater Johannesburg.</p>
+    <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="email-migrations.html">Email Migrations</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
+  </footer>
+
+</body>
+</html>

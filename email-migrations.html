@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microsoft 365 & Google Workspace Migration | Johannesburg Small Business</title>
+  <meta name="description" content="Fixed-price Microsoft 365 and Google Workspace migrations for small businesses in Johannesburg and the East Rand. Free assessment, one upfront quote, done evenings and weekends so your business doesn't stop." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --teal: #00d4aa;
+      --teal-dark: #00b890;
+      --white: #ffffff;
+      --grey-light: #f4f7fb;
+      --grey-text: #64748b;
+      --text: #1e293b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.96); backdrop-filter: blur(8px);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
+    .logo span { color: var(--teal); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav ul a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: var(--navy) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-dark); }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 60%, #0a2a1f 100%);
+      padding: 140px 5% 70px; color: var(--white);
+    }
+    .page-hero .inner { max-width: 800px; }
+    .page-hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.25rem; }
+    .page-hero h1 span { color: var(--teal); }
+    .page-hero p { font-size: 1.08rem; color: rgba(255,255,255,0.72); line-height: 1.8; margin-bottom: 1rem; max-width: 700px; }
+
+    section { padding: 70px 5%; }
+    .section-label { text-transform: uppercase; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 0.75rem; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; line-height: 1.2; color: var(--navy); }
+
+    /* STEPS */
+    #how { background: var(--grey-light); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .step { background: var(--white); border-radius: 12px; padding: 2rem 1.75rem; border: 1px solid #e2e8f0; }
+    .step-number {
+      width: 40px; height: 40px; background: var(--teal); color: var(--navy); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; margin-bottom: 1rem;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.9rem; color: var(--grey-text); line-height: 1.7; }
+
+    /* PRICING */
+    .price-card {
+      background: var(--white); border: 1px solid rgba(0,212,170,0.4); border-radius: 14px;
+      padding: 2.5rem; max-width: 640px; box-shadow: 0 8px 30px rgba(0,212,170,0.08);
+    }
+    .price-card .amount { font-size: 2.4rem; font-weight: 800; color: var(--navy); }
+    .price-card .amount small { font-size: 1rem; font-weight: 500; color: var(--grey-text); }
+    .price-card p { color: var(--grey-text); font-size: 0.95rem; line-height: 1.75; margin-top: 0.75rem; }
+
+    .btn-primary {
+      background: var(--teal); color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-block;
+      transition: all 0.2s; box-shadow: 0 4px 20px rgba(0, 212, 170, 0.25);
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: var(--white); padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3);
+      display: inline-block; transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-wa {
+      background: #22c05e; color: var(--white); padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-block; text-align: center;
+      transition: all 0.2s;
+    }
+    .btn-wa:hover { background: #1ca94f; transform: translateY(-2px); }
+
+    /* PAIN LIST */
+    .pain-list { list-style: none; margin-top: 1.5rem; max-width: 720px; }
+    .pain-list li { padding: 0.6rem 0 0.6rem 1.8rem; position: relative; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid #f1f5f9; }
+    .pain-list li::before { content: '✗'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+    .fix-list { list-style: none; margin-top: 1.5rem; max-width: 720px; }
+    .fix-list li { padding: 0.6rem 0 0.6rem 1.8rem; position: relative; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid #f1f5f9; }
+    .fix-list li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+    /* CROSS-SELL */
+    #cross-sell { background: var(--grey-light); }
+    .cross-card {
+      background: var(--white); border: 1px solid rgba(0,212,170,0.35); border-radius: 14px;
+      padding: 2rem; max-width: 720px; display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .cross-card p { color: var(--grey-text); font-size: 0.95rem; line-height: 1.75; }
+    .cross-card a { color: var(--teal-dark); font-weight: 700; text-decoration: none; }
+    .cross-card a:hover { text-decoration: underline; }
+
+    /* CTA */
+    #cta-block { background: var(--navy); text-align: center; }
+    #cta-block h2 { color: var(--white); }
+    #cta-block p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto 2rem; line-height: 1.75; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    footer {
+      background: #060e1a; color: rgba(255,255,255,0.4); text-align: center;
+      padding: 1.5rem 5%; font-size: 0.82rem; line-height: 1.9;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    @media (max-width: 768px) { nav ul { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Ndima<span>Tech</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="it-support-plans.html">IT Support Plans</a></li>
+      <li><a href="email-migrations.html">Email Migrations</a></li>
+      <li><a href="web-design.html">Websites</a></li>
+      <li><a href="#cta-block" class="nav-cta">Free Assessment</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero">
+    <div class="inner">
+      <h1>Move to Microsoft 365 or Google Workspace - <span>Without Losing a Single Email</span></h1>
+      <p>Still on that ancient email your web host gave you in 2015? Emails vanishing, mailbox full warnings, staff sharing one inbox? Moving to Microsoft 365 or Google Workspace fixes this permanently: professional email on your own domain, shared calendars, cloud file storage, and proper security.</p>
+      <p>The move itself is where businesses get burned: lost mail, days of downtime, staff locked out. A structured migration prevents all of it.</p>
+    </div>
+  </header>
+
+  <!-- SYMPTOMS -->
+  <section>
+    <div class="section-label">Sound Familiar?</div>
+    <h2>The signs it's time to move</h2>
+    <ul class="pain-list">
+      <li>Emails to clients bounce, vanish, or land in spam</li>
+      <li>"Mailbox full" warnings, again</li>
+      <li>Staff sharing one info@ inbox because adding accounts is a mission</li>
+      <li>Email addresses still ending in @mweb or @telkomsa instead of your own domain</li>
+      <li>Nobody knows where the files live when someone's laptop dies</li>
+    </ul>
+    <h2 style="margin-top: 3rem;">What you get after the move</h2>
+    <ul class="fix-list">
+      <li>Professional email on your own domain, with every staff member on their own inbox</li>
+      <li>Shared calendars and contacts that actually sync</li>
+      <li>Files in the cloud, backed up, on every device</li>
+      <li>Security defaults set up properly from day one</li>
+    </ul>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-label">How It Works</div>
+    <h2>Four steps, one fixed price</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Free Assessment</h3>
+        <p>I review your current setup and confirm exactly what will move - mail, contacts, calendars, files. No cost, no obligation.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Fixed Quote</h3>
+        <p>One price, agreed upfront. No hourly billing, no scope creep, no surprises on the invoice.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>The Migration</h3>
+        <p>Done evenings and weekends so your business doesn't stop. Old mail arrives in the new system before anyone switches over.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Handover & Training</h3>
+        <p>Every staff member logged in, working, and shown the basics. Documentation left behind so you're never stuck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section>
+    <div class="section-label">Pricing</div>
+    <h2>One fixed price, all-inclusive</h2>
+    <div class="price-card">
+      <div class="amount">From R6,000 <small>for up to 10 users</small></div>
+      <p>All-inclusive labour: assessment, migration, setup, and handover - licence subscriptions billed separately at cost. Larger teams quoted individually, always fixed, never hourly.</p>
+      <!--
+        GUARANTEE PLACEHOLDER - DO NOT PUBLISH YET.
+        Per CLAUDE.md guardrails, the following line may only go live AFTER the migration
+        checklist has been practised end-to-end on a trial tenant:
+
+        "If any mail is lost during a migration I perform, the migration is free.
+         The process is designed so it doesn't."
+
+        Never use "it hasn't happened" phrasing.
+      -->
+      <p style="margin-top: 1.5rem;"><a href="#cta-block" class="btn-primary">Get a Free Migration Assessment</a></p>
+    </div>
+  </section>
+
+  <!-- CROSS-SELL: THE WHOLE STRATEGY -->
+  <section id="cross-sell">
+    <div class="section-label">After the Move</div>
+    <h2>Who looks after it afterwards?</h2>
+    <div class="cross-card">
+      <p>Most migration clients move onto a monthly support plan afterwards - same person, already knows the setup, fixed monthly fee. Your email, backups, and security stay looked after without hiring anyone.</p>
+      <a href="it-support-plans.html">See support plans →</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-block">
+    <div class="section-label">Get Started</div>
+    <h2>Get a free migration assessment</h2>
+    <p>I'll look at your current email setup and tell you exactly what a move would involve - what moves, how long it takes, and what it costs. No obligation.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20a%20free%20migration%20assessment." class="btn-wa" target="_blank">💬 WhatsApp Me</a>
+      <a href="mailto:setup@ndimatech.co.za?subject=Free%20Migration%20Assessment" class="btn-primary">Get a Free Migration Assessment</a>
+      <a href="it-support-plans.html" class="btn-secondary">See Support Plans</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 NdimaTech. Based in Brakpan, South Africa. Remote support wherever you are; on-site visits across the East Rand and greater Johannesburg.</p>
+    <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="it-support-plans.html">IT Support Plans</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
+  </footer>
+
+</body>
+</html>
