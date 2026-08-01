@@ -32,117 +32,100 @@
     "address": { "@type": "PostalAddress", "addressLocality": "Brakpan", "addressRegion": "Gauteng", "addressCountry": "ZA" }
   }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy: #0a1628;
-      --teal: #00d4aa;
-      --teal-dark: #00b890;
-      --white: #ffffff;
-      --grey-light: #f4f7fb;
-      --grey-text: #64748b;
-      --text: #1e293b;
+      --navy: #0a1628; --navy-mid: #0d2137; --teal: #00d4aa; --teal-dark: #00a888;
+      --white: #ffffff; --cream: #f7f5ef; --line: #e4e0d6; --line-cool: #e2e8f0;
+      --grey-text: #5c6470; --text: #1e2733; --ink: #14202e; --wa: #1fae54; --alert: #d1615a;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
 
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(10, 22, 40, 0.96); backdrop-filter: blur(8px);
-      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px;
-    }
-    .logo { font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
-    .logo span { color: var(--teal); }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,22,40,0.94); backdrop-filter: blur(8px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 66px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
+    .logo .nt-mark { width: 30px; height: 30px; flex: 0 0 auto; display: block; }
+    .logo .nt-mark .stroke-n { stroke: currentColor; }
+    .logo .nt-mark .stroke-arrow { stroke: var(--teal); }
+    .logo .logo-word span { color: var(--teal); }
+    nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
+    nav ul a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav ul a:hover { color: var(--teal); }
-    .nav-cta { background: var(--teal); color: var(--navy) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
-    .nav-cta:hover { background: var(--teal-dark); }
+    .nav-cta { background: var(--teal); color: var(--navy) !important; padding: 0.5rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+    .nav-cta:hover { background: #00c39c; }
 
-    .page-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0d2137 60%, #0a2a1f 100%);
-      padding: 140px 5% 70px; color: var(--white);
-    }
-    .page-hero .inner { max-width: 800px; }
-    .page-hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.25rem; }
-    .page-hero h1 span { color: var(--teal); }
-    .page-hero p { font-size: 1.08rem; color: rgba(255,255,255,0.72); line-height: 1.8; margin-bottom: 1rem; max-width: 700px; }
+    /* BUTTONS */
+    .btn-primary { background: var(--teal); color: var(--navy); padding: 0.85rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.92rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #00c39c; transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 0.85rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.92rem; border: 1px solid rgba(255,255,255,0.28); display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: border-color 0.2s, color 0.2s; }
+    .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-wa { background: var(--wa); color: #fff; padding: 0.85rem 1.6rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.2s, transform 0.2s; }
+    .btn-wa:hover { background: #17963f; transform: translateY(-1px); }
+    .btn-primary svg, .btn-secondary svg, .btn-wa svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 
-    section { padding: 70px 5%; }
-    .section-label { text-transform: uppercase; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 0.75rem; }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; line-height: 1.2; color: var(--navy); }
+    /* PAGE HERO */
+    .page-hero { background-color: var(--navy); background-image: repeating-linear-gradient(135deg, rgba(0,212,170,0.05), rgba(0,212,170,0.05) 1px, transparent 1px, transparent 22px), linear-gradient(160deg, #0a1628 0%, #0d2137 62%, #0a2a1f 100%); padding: 132px 5% 78px; color: var(--white); }
+    .page-hero .inner { max-width: 820px; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .hero-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--teal); display: inline-block; }
+    .page-hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.1rem); color: var(--white); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+    .scribble { position: relative; color: var(--teal); white-space: nowrap; }
+    .scribble svg { position: absolute; left: 0; right: 0; bottom: -0.4em; width: 100%; height: 0.4em; stroke: var(--teal); fill: none; stroke-width: 4; stroke-linecap: round; opacity: 0.85; }
+    .page-hero p { font-size: 1.06rem; color: rgba(255,255,255,0.74); line-height: 1.8; margin-bottom: 1rem; max-width: 720px; }
 
-    /* STEPS */
-    #how { background: var(--grey-light); }
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-    .step { background: var(--white); border-radius: 12px; padding: 2rem 1.75rem; border: 1px solid #e2e8f0; }
-    .step-number {
-      width: 40px; height: 40px; background: var(--teal); color: var(--navy); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; margin-bottom: 1rem;
-    }
-    .step h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-    .step p { font-size: 0.9rem; color: var(--grey-text); line-height: 1.7; }
+    /* SECTION SCAFFOLD */
+    section { padding: 78px 5%; }
+    .wrap { max-width: 1080px; margin: 0 auto; }
+    .section-label { text-transform: uppercase; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.14em; color: var(--teal-dark); margin-bottom: 0.7rem; }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 1rem; }
+
+    /* PAIN / FIX LISTS */
+    .pain-list, .fix-list { list-style: none; margin-top: 1.5rem; max-width: 740px; }
+    .pain-list li, .fix-list li { padding: 0.65rem 0 0.65rem 2rem; position: relative; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid var(--line-cool); }
+    .pain-list li svg, .fix-list li svg { position: absolute; left: 0; top: 0.85rem; width: 16px; height: 16px; fill: none; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .pain-list li svg { stroke: var(--alert); }
+    .fix-list li svg { stroke: var(--teal-dark); }
+
+    /* TIMELINE */
+    #how { background: var(--cream); }
+    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 1000px; margin: 2.6rem auto 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; top: 26px; left: 12.5%; right: 12.5%; height: 2px; background: repeating-linear-gradient(90deg, var(--teal) 0 8px, transparent 8px 16px); opacity: 0.5; }
+    .tl-step { padding: 0 1.1rem; position: relative; text-align: center; }
+    .tl-num { width: 54px; height: 54px; margin: 0 auto 1rem; background: var(--cream); border: 2px solid var(--teal); color: var(--teal-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; position: relative; z-index: 1; }
+    .tl-step h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .tl-step p { font-size: 0.89rem; color: var(--grey-text); line-height: 1.7; }
+    @media (max-width: 820px) { .timeline { grid-template-columns: 1fr 1fr; gap: 2rem; } .timeline::before { display: none; } }
+    @media (max-width: 480px) { .timeline { grid-template-columns: 1fr; } }
 
     /* PRICING */
-    .price-card {
-      background: var(--white); border: 1px solid rgba(0,212,170,0.4); border-radius: 14px;
-      padding: 2.5rem; max-width: 640px; box-shadow: 0 8px 30px rgba(0,212,170,0.08);
-    }
-    .price-card .amount { font-size: 2.4rem; font-weight: 800; color: var(--navy); }
-    .price-card .amount small { font-size: 1rem; font-weight: 500; color: var(--grey-text); }
+    .price-card { background: var(--white); border: 1px solid rgba(0,168,136,0.4); border-radius: 16px; padding: 2.4rem; max-width: 680px; box-shadow: 0 10px 30px rgba(0,168,136,0.07); margin-bottom: 1.5rem; }
+    .price-card .amount { font-family: 'Fraunces', serif; font-size: 2.3rem; font-weight: 600; color: var(--ink); }
+    .price-card .amount small { font-size: 1rem; font-weight: 500; color: var(--grey-text); font-family: 'DM Sans', sans-serif; }
     .price-card p { color: var(--grey-text); font-size: 0.95rem; line-height: 1.75; margin-top: 0.75rem; }
 
-    .btn-primary {
-      background: var(--teal); color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px;
-      text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-block;
-      transition: all 0.2s; box-shadow: 0 4px 20px rgba(0, 212, 170, 0.25);
-    }
-    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
-    .btn-secondary {
-      background: transparent; color: var(--white); padding: 0.85rem 2rem; border-radius: 8px;
-      text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3);
-      display: inline-block; transition: all 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
-    .btn-wa {
-      background: #22c05e; color: var(--white); padding: 0.85rem 2rem; border-radius: 8px;
-      text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-block; text-align: center;
-      transition: all 0.2s;
-    }
-    .btn-wa:hover { background: #1ca94f; transform: translateY(-2px); }
-
-    /* PAIN LIST */
-    .pain-list { list-style: none; margin-top: 1.5rem; max-width: 720px; }
-    .pain-list li { padding: 0.6rem 0 0.6rem 1.8rem; position: relative; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid #f1f5f9; }
-    .pain-list li::before { content: '✗'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
-    .fix-list { list-style: none; margin-top: 1.5rem; max-width: 720px; }
-    .fix-list li { padding: 0.6rem 0 0.6rem 1.8rem; position: relative; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid #f1f5f9; }
-    .fix-list li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
-
     /* CROSS-SELL */
-    #cross-sell { background: var(--grey-light); }
-    .cross-card {
-      background: var(--white); border: 1px solid rgba(0,212,170,0.35); border-radius: 14px;
-      padding: 2rem; max-width: 720px; display: flex; flex-direction: column; gap: 0.75rem;
-    }
-    .cross-card p { color: var(--grey-text); font-size: 0.95rem; line-height: 1.75; }
-    .cross-card a { color: var(--teal-dark); font-weight: 700; text-decoration: none; }
-    .cross-card a:hover { text-decoration: underline; }
+    #cross-sell { background: var(--cream); }
+    .cross-card { background: var(--white); border: 1px solid rgba(0,168,136,0.35); border-radius: 16px; padding: 2rem 2.2rem; max-width: 760px; }
+    .cross-card p { color: var(--grey-text); font-size: 0.96rem; line-height: 1.75; margin-bottom: 0.8rem; }
+    .cross-card a { color: var(--teal-dark); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .cross-card a svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
     /* CTA */
     #cta-block { background: var(--navy); text-align: center; }
     #cta-block h2 { color: var(--white); }
-    #cta-block p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto 2rem; line-height: 1.75; }
+    #cta-block .section-label { color: var(--teal); }
+    #cta-block p { color: rgba(255,255,255,0.68); max-width: 560px; margin: 0 auto 2rem; line-height: 1.75; }
     .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-    footer {
-      background: #060e1a; color: rgba(255,255,255,0.4); text-align: center;
-      padding: 1.5rem 5%; font-size: 0.82rem; line-height: 1.9;
-    }
+    /* FOOTER */
+    footer { background: #060e1a; color: rgba(255,255,255,0.42); text-align: center; padding: 1.7rem 5%; font-size: 0.82rem; line-height: 1.9; }
     footer a { color: var(--teal); text-decoration: none; }
 
     @media (max-width: 768px) { nav ul { display: none; } }
@@ -151,7 +134,15 @@
 <body>
 
   <nav>
-    <a href="index.html" class="logo">Ndima<span>Tech</span></a>
+    <a href="index.html" class="logo" aria-label="NdimaTech home">
+      <svg class="nt-mark" width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="stroke-n" d="M11 38 V13" stroke-width="4.6" stroke-linecap="round"/>
+        <path class="stroke-n" d="M33 38 V19" stroke-width="4.6" stroke-linecap="round"/>
+        <path class="stroke-arrow" d="M11 38 L40 10" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="stroke-arrow" d="M29 10 H41 V22" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-word">Ndima<span>Tech</span></span>
+    </a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="it-support-plans.html">IT Support Plans</a></li>
@@ -163,7 +154,8 @@
 
   <header class="page-hero">
     <div class="inner">
-      <h1>Move to Microsoft 365 or Google Workspace - <span>with Every Email Intact</span></h1>
+      <span class="hero-eyebrow">Email &amp; cloud migrations</span>
+      <h1>Move to Microsoft 365 or Google Workspace, with every email <span class="scribble">intact<svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 25 3, 55 3, 80 6 S 105 9, 117 4"/></svg></span></h1>
       <p>Still on that ancient email your web host gave you in 2015? Emails vanishing, mailbox full warnings, staff sharing one inbox? Moving to Microsoft 365 or Google Workspace fixes this permanently: professional email on your own domain, shared calendars, cloud file storage, and proper security.</p>
       <p>The move itself is where businesses get burned: lost mail, days of downtime, staff locked out. A structured migration prevents all of it.</p>
     </div>
@@ -171,101 +163,112 @@
 
   <!-- SYMPTOMS -->
   <section>
-    <div class="section-label">Sound Familiar?</div>
-    <h2>The signs it's time to move</h2>
-    <ul class="pain-list">
-      <li>Emails to clients bounce, vanish, or land in spam</li>
-      <li>"Mailbox full" warnings, again</li>
-      <li>Staff sharing one info@ inbox because adding accounts is a mission</li>
-      <li>Email addresses still ending in @mweb or @telkomsa instead of your own domain</li>
-      <li>Files scatter when a laptop dies, and tracking them down is a scramble</li>
-    </ul>
-    <h2 style="margin-top: 3rem;">What you get after the move</h2>
-    <ul class="fix-list">
-      <li>Professional email on your own domain, with every staff member on their own inbox</li>
-      <li>Shared calendars and contacts that actually sync</li>
-      <li>Files in the cloud, backed up, on every device</li>
-      <li>Security defaults set up properly from day one</li>
-    </ul>
+    <div class="wrap">
+      <div class="section-label">Sound familiar?</div>
+      <h2>The signs it's time to move</h2>
+      <ul class="pain-list">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>Emails to clients bounce, vanish, or land in spam</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>"Mailbox full" warnings, again</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>Staff sharing one info@ inbox because adding accounts is a mission</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>Email addresses still ending in @mweb or @telkomsa instead of your own domain</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>Files scatter when a laptop dies, and tracking them down is a scramble</li>
+      </ul>
+      <h2 style="margin-top: 3rem;">What you get after the move</h2>
+      <ul class="fix-list">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Professional email on your own domain, with every staff member on their own inbox</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Shared calendars and contacts that actually sync</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Files in the cloud, backed up, on every device</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Security defaults set up properly from day one</li>
+      </ul>
+    </div>
   </section>
 
   <!-- HOW IT WORKS -->
   <section id="how">
-    <div class="section-label">How It Works</div>
-    <h2>Four steps, one fixed price</h2>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Free Assessment</h3>
-        <p>I review your current setup and confirm exactly what will move - mail, contacts, calendars, files. Free, and entirely your call.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Fixed Quote</h3>
-        <p>One price, agreed upfront. A flat figure, a fixed scope, and an invoice that matches it.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>The Migration</h3>
-        <p>Done evenings and weekends so your business keeps running. Old mail arrives in the new system before anyone switches over.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>Handover & Training</h3>
-        <p>Every staff member logged in, working, and shown the basics. Documentation left behind so you're always covered.</p>
+    <div class="wrap">
+      <div class="section-label">How it works</div>
+      <h2>Four steps, one fixed price</h2>
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-num">1</div>
+          <h3>Free assessment</h3>
+          <p>I review your current setup and confirm exactly what will move: mail, contacts, calendars, files. Free, and entirely your call.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">2</div>
+          <h3>Fixed quote</h3>
+          <p>One price, agreed upfront. A flat figure, a fixed scope, and an invoice that matches it.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">3</div>
+          <h3>The migration</h3>
+          <p>Done evenings and weekends so your business keeps running. Old mail arrives in the new system before anyone switches over.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">4</div>
+          <h3>Handover &amp; training</h3>
+          <p>Every staff member logged in, working, and shown the basics. Documentation left behind so you're always covered.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PRICING -->
   <section>
-    <div class="section-label">Pricing</div>
-    <h2>Fixed prices, all-inclusive</h2>
-    <div class="price-card">
-      <div class="amount">From R1,250 <small>for 1-3 users</small></div>
-      <p>The Starter migration, for sole traders and small teams still on Gmail, Yahoo or Outlook. A one-off move onto professional email at your own domain, so you look the part to every client you write to. Fixed quote upfront, done evenings and weekends.</p>
-    </div>
-    <div class="price-card">
-      <div class="amount">From R6,000 <small>for up to 10 users</small></div>
-      <p>All-inclusive labour: assessment, migration, setup, and handover - licence subscriptions billed separately at cost. Larger teams quoted individually, always a fixed price.</p>
-      <!--
-        GUARANTEE PLACEHOLDER - DO NOT PUBLISH YET.
-        Per CLAUDE.md guardrails, the following line may only go live AFTER the migration
-        checklist has been practised end-to-end on a trial tenant:
+    <div class="wrap">
+      <div class="section-label">Pricing</div>
+      <h2>Fixed prices, all-inclusive</h2>
+      <div class="price-card">
+        <div class="amount">From R1,250 <small>for 1-3 users</small></div>
+        <p>The Starter migration, for sole traders and small teams still on Gmail, Yahoo or Outlook. A one-off move onto professional email at your own domain, so you look the part to every client you write to. Fixed quote upfront, done evenings and weekends.</p>
+        <p style="margin-top: 1.5rem;"><a href="#cta-block" class="btn-primary">Get a free migration assessment</a></p>
+      </div>
+      <div class="price-card">
+        <div class="amount">From R6,000 <small>for up to 10 users</small></div>
+        <p>All-inclusive labour: assessment, migration, setup, and handover. Licence subscriptions billed separately at cost. Larger teams quoted individually, always a fixed price.</p>
+        <!--
+          GUARANTEE PLACEHOLDER - DO NOT PUBLISH YET.
+          Per CLAUDE.md guardrails, the following line may only go live AFTER the migration
+          checklist has been practised end-to-end on a trial tenant:
 
-        "If any mail is lost during a migration I perform, the migration is free.
-         The process is designed so it doesn't."
+          "If any mail is lost during a migration I perform, the migration is free.
+           The process is designed so it doesn't."
 
-        Never use "it hasn't happened" phrasing.
-      -->
-      <p style="margin-top: 1.5rem;"><a href="#cta-block" class="btn-primary">Get a Free Migration Assessment</a></p>
+          Never use "it hasn't happened" phrasing.
+        -->
+        <p style="margin-top: 1.5rem;"><a href="#cta-block" class="btn-primary">Get a free migration assessment</a></p>
+      </div>
     </div>
   </section>
 
   <!-- CROSS-SELL: THE WHOLE STRATEGY -->
   <section id="cross-sell">
-    <div class="section-label">After the Move</div>
-    <h2>Who looks after it afterwards?</h2>
-    <div class="cross-card">
-      <p>Most migration clients move onto a monthly support plan afterwards - same person, already knows the setup, fixed monthly fee. Your email, backups, and security stay looked after, for a fraction of a full-time hire.</p>
-      <a href="it-support-plans.html">See support plans →</a>
+    <div class="wrap">
+      <div class="section-label">After the move</div>
+      <h2>Who looks after it afterwards?</h2>
+      <div class="cross-card">
+        <p>Most migration clients move onto a monthly support plan afterwards: same person, already knows the setup, fixed monthly fee. Your email, backups, and security stay looked after, for a fraction of a full-time hire.</p>
+        <a href="it-support-plans.html">See support plans <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section id="cta-block">
-    <div class="section-label">Get Started</div>
-    <h2>Get a free migration assessment</h2>
-    <p>I'll look at your current email setup and tell you exactly what a move would involve - what moves, how long it takes, and what it costs. The next step is entirely your call.</p>
-    <div class="cta-btns">
-      <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20a%20free%20migration%20assessment." class="btn-wa" target="_blank">💬 WhatsApp Me</a>
-      <a href="mailto:setup@ndimatech.co.za?subject=Free%20Migration%20Assessment" class="btn-primary">Get a Free Migration Assessment</a>
-      <a href="it-support-plans.html" class="btn-secondary">See Support Plans</a>
+    <div class="wrap">
+      <div class="section-label">Get started</div>
+      <h2>Get a free migration assessment</h2>
+      <p>I'll look at your current email setup and tell you exactly what a move would involve: what moves, how long it takes, and what it costs. The next step is entirely your call.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20a%20free%20migration%20assessment." class="btn-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>WhatsApp me</a>
+        <a href="mailto:setup@ndimatech.co.za?subject=Free%20Migration%20Assessment" class="btn-primary">Get a free migration assessment</a>
+        <a href="it-support-plans.html" class="btn-secondary">See support plans</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 NdimaTech. Based in Brakpan, South Africa. Remote support wherever you are; on-site visits across the East Rand and greater Johannesburg.</p>
+    <p>&copy; 2026 NdimaTech. Based in Brakpan, South Africa. Remote support wherever you are; on-site visits across the East Rand and greater Johannesburg.</p>
     <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="it-support-plans.html">IT Support Plans</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
   </footer>
 
