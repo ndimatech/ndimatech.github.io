@@ -129,6 +129,31 @@
     footer a { color: var(--teal); text-decoration: none; }
 
     @media (max-width: 768px) { nav ul { display: none; } }
+    /* ============ MOBILE MENU ============ */
+    .nav-toggle { display: none; }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+        width: 44px; height: 44px; padding: 0 10px; margin-right: -10px;
+        background: transparent; border: 0; cursor: pointer; border-radius: 8px;
+      }
+      .nav-toggle span { display: block; height: 2px; width: 100%; background: #ffffff; border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+      .nav-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+      nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+      nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      nav.open ul {
+        display: flex; flex-direction: column; align-items: stretch; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: #0a1628; padding: 0.6rem 5% 1.3rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 18px 30px rgba(0,0,0,0.35);
+        max-height: calc(100vh - 66px); overflow-y: auto;
+      }
+      nav.open ul li a { display: block; padding: 0.85rem 0; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      nav.open ul li:last-child a { border-bottom: 0; }
+      nav.open ul .nav-cta { margin-top: 0.9rem; text-align: center; padding: 0.85rem 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -143,7 +168,8 @@
       </svg>
       <span class="logo-word">Ndima<span>Tech</span></span>
     </a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <ul id="site-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="it-support-plans.html">IT Support Plans</a></li>
       <li><a href="email-migrations.html">Email Migrations</a></li>
@@ -273,5 +299,21 @@
     <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="it-support-plans.html">IT Support Plans</a> &nbsp;|&nbsp; <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a></p>
   </footer>
 
+  <script>
+  (function () {
+    var nav = document.querySelector('nav');
+    var btn = nav && nav.querySelector('.nav-toggle');
+    if (!btn) return;
+    function setOpen(open) {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    btn.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+    nav.querySelectorAll('ul a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); btn.focus(); } });
+    document.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false); });
+  })();
+  </script>
 </body>
 </html>
