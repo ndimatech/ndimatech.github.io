@@ -58,6 +58,7 @@
     nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
     nav ul a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav ul a:hover { color: var(--teal); }
+    nav ul a[aria-current="page"] { color: var(--teal); }
     .nav-cta { background: var(--teal); color: var(--navy) !important; padding: 0.5rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
     .nav-cta:hover { background: #00c39c; }
 
@@ -72,7 +73,10 @@
 
     /* PAGE HERO */
     .page-hero { background-color: var(--navy); background-image: repeating-linear-gradient(135deg, rgba(0,212,170,0.05), rgba(0,212,170,0.05) 1px, transparent 1px, transparent 22px), linear-gradient(160deg, #0a1628 0%, #0d2137 62%, #0a2a1f 100%); padding: 132px 5% 78px; color: var(--white); }
-    .page-hero .inner { max-width: 820px; }
+    .page-hero .inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .page-hero .inner p { margin-left: auto; margin-right: auto; }
+    .page-hero .hero-btns { justify-content: center; }
+    @media (max-width: 600px) { .page-hero .hero-eyebrow::before { display: none; } }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.1rem; }
     .hero-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--teal); display: inline-block; }
     .page-hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.1rem); color: var(--white); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
@@ -172,7 +176,7 @@
     <ul id="site-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="it-support-plans.html">IT Support Plans</a></li>
-      <li><a href="email-migrations.html">Email Migrations</a></li>
+      <li><a href="email-migrations.html" aria-current="page">Email Migrations</a></li>
       <li><a href="web-design.html">Websites</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="#cta-block" class="nav-cta">Free Assessment</a></li>
@@ -182,8 +186,8 @@
   <header class="page-hero">
     <div class="inner">
       <span class="hero-eyebrow">Email &amp; cloud migrations</span>
-      <h1>Move to Microsoft 365 or Google Workspace, with every email <span class="scribble">intact<svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 25 3, 55 3, 80 6 S 105 9, 117 4"/></svg></span></h1>
-      <p>Still on that ancient email your web host gave you in 2015? Emails vanishing, mailbox full warnings, staff sharing one inbox? Moving to Microsoft 365 or Google Workspace sorts this out properly: professional email on your own domain, shared calendars, cloud file storage, and proper security.</p>
+      <h1>Move to Microsoft 365 or Google Workspace, <span class="scribble">without the disruption<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 3, 150 3, 210 6 S 270 9, 297 4"/></svg></span></h1>
+      <p>Still on the email your web host set up years ago? Emails vanishing, mailbox full warnings, staff sharing one inbox? Moving to Microsoft 365 or Google Workspace sorts this out properly: professional email on your own domain, shared calendars, cloud file storage, and proper security.</p>
       <p>The move itself is where businesses get burned: lost mail, days of downtime, staff locked out. A structured migration is planned around all three, so your mail is copied across and checked before anyone switches over.</p>
     </div>
   </header>
@@ -274,7 +278,7 @@
       <div class="section-label">After the move</div>
       <h2>Who looks after it afterwards?</h2>
       <div class="cross-card">
-        <p>Most migration clients move onto a monthly support plan afterwards: the same contact, who already knows the setup, on a fixed monthly fee. Your email, backups, and security stay looked after, for one predictable monthly fee.</p>
+        <p>After the move, a monthly support plan keeps your email, backups and security looked after, by the same contact who already knows your setup, on a fixed monthly fee.</p>
         <a href="it-support-plans.html">See support plans <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>

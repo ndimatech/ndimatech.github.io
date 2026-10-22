@@ -72,7 +72,10 @@
 
     /* PAGE HERO */
     .page-hero { background-color: var(--navy); background-image: repeating-linear-gradient(135deg, rgba(0,212,170,0.05), rgba(0,212,170,0.05) 1px, transparent 1px, transparent 22px), linear-gradient(160deg, #0a1628 0%, #0d2137 62%, #0a2a1f 100%); padding: 132px 5% 78px; color: var(--white); }
-    .page-hero .inner { max-width: 820px; }
+    .page-hero .inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .page-hero .inner p { margin-left: auto; margin-right: auto; }
+    .page-hero .hero-btns { justify-content: center; }
+    @media (max-width: 600px) { .page-hero .hero-eyebrow::before { display: none; } }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.1rem; }
     .hero-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--teal); display: inline-block; }
     .page-hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.1rem); color: var(--white); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
@@ -194,11 +197,11 @@
     <button class="nav-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
     <ul id="site-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="web-design.html">Websites</a></li>
-      <li><a href="work.html" aria-current="page">Work</a></li>
       <li><a href="it-support-plans.html">IT Support Plans</a></li>
       <li><a href="email-migrations.html">Email Migrations</a></li>
-      <li><a href="#cta-block" class="nav-cta">Talk to us</a></li>
+      <li><a href="web-design.html">Websites</a></li>
+      <li><a href="work.html" aria-current="page">Work</a></li>
+      <li><a href="#cta-block" class="nav-cta">Get in touch</a></li>
     </ul>
   </nav>
 
