@@ -1,0 +1,6 @@
+# Security contact for NdimaTech (ndimatech.co.za)
+# See https://securitytxt.org
+Contact: mailto:setup@ndimatech.co.za
+Expires: 2027-10-24T00:00:00Z
+Preferred-Languages: en
+Canonical: https://ndimatech.co.za/.well-known/security.txt

@@ -1,0 +1,4 @@
+# GitHub Pages (Jekyll) settings for ndimatech.co.za.
+# Only purpose: publish the .well-known folder, which Jekyll skips by default.
+include:
+  - .well-known
