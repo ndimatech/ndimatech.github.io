@@ -29,4 +29,14 @@
     <loc>https://ndimatech.co.za/work.html</loc>
     <lastmod>2026-11-16</lastmod>
   </url>
+  <url>
+    <loc>https://ndimatech.co.za/popia-checklist.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ndimatech.co.za/privacy.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.3</priority>
+  </url>
 </urlset>
