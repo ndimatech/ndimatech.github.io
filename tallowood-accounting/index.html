@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Tallowood Accounting | Design concept by NdimaTech</title>
+  <meta name="description" content="A website design concept by NdimaTech for an invented accounting practice. Tallowood Accounting is not a real business." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3d33'/%3E%3Cpath d='M9 10h14M16 10v13' stroke='%23e9d9b4' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1f3d33; --green-deep: #142a23; --sage: #dfe7df; --paper: #f8f5ee; --sand: #efe8d8;
+      --brass: #b38a3d; --cream: #e9d9b4; --ink: #18221e; --muted: #5d6a64; --line: #ddd6c6;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Newsreader', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 5%; }
+
+    /* concept notice */
+    .concept-bar { background: #fbf1d8; color: #6e5317; border-bottom: 1px solid #ecd9a6; font-size: 0.82rem; text-align: center; padding: 0.5rem 5%; }
+    .concept-bar a { color: #6e5317; font-weight: 600; }
+
+    /* header */
+    header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+    .head { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .brand-mark { width: 38px; height: 38px; border-radius: 9px; background: var(--green); display: grid; place-items: center; }
+    .brand-mark svg { width: 22px; height: 22px; }
+    .brand-name { font-family: 'Newsreader', serif; font-size: 1.3rem; font-weight: 600; color: var(--green); line-height: 1; }
+    .brand-name small { display: block; font-family: 'Inter', sans-serif; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; font-weight: 500; }
+    nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
+    nav a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+    nav a:hover { color: var(--green); }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.92rem; padding: 0.8rem 1.5rem; border-radius: 6px; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-deep); }
+    .btn-line { border-color: var(--green); color: var(--green); background: transparent; }
+    .btn-line:hover { background: var(--sage); }
+    nav .btn { padding: 0.55rem 1.1rem; color: #fff; }
+
+    /* hero */
+    .hero { padding: 84px 0 76px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+    .eyebrow { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(2.4rem, 4.6vw, 3.6rem); color: var(--green-deep); margin-bottom: 1.3rem; }
+    .hero h1 em { font-style: italic; color: var(--brass); }
+    .hero p.lead { font-size: 1.1rem; color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+    .hero-note { margin-top: 1.4rem; font-size: 0.85rem; color: var(--muted); }
+
+    /* deadlines card */
+    .card-stack { position: relative; }
+    .deadlines { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.6rem 1.7rem; box-shadow: 0 24px 50px rgba(20,42,35,0.10); }
+    .deadlines h3 { font-size: 1.15rem; color: var(--green-deep); margin-bottom: 0.2rem; }
+    .deadlines .sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.1rem; }
+    .dl { display: grid; grid-template-columns: 56px 1fr auto; gap: 0.9rem; align-items: center; padding: 0.8rem 0; border-top: 1px solid #eee8da; }
+    .dl-date { background: var(--sand); border-radius: 8px; text-align: center; padding: 0.35rem 0; line-height: 1.1; }
+    .dl-date b { display: block; font-family: 'Newsreader', serif; font-size: 1.25rem; color: var(--green-deep); }
+    .dl-date span { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .dl-what { font-size: 0.9rem; font-weight: 500; }
+    .dl-what small { display: block; color: var(--muted); font-weight: 400; font-size: 0.78rem; }
+    .pill { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+    .pill-done { background: var(--sage); color: var(--green); }
+    .pill-soon { background: #fbf1d8; color: #7a5a14; }
+    .pill-next { background: #eef0f2; color: #55606a; }
+    .upload-chip { position: absolute; left: -2.2rem; bottom: -1.6rem; background: var(--green); color: #fff; border-radius: 12px; padding: 0.85rem 1.1rem; display: flex; align-items: center; gap: 0.7rem; font-size: 0.84rem; box-shadow: 0 16px 30px rgba(20,42,35,0.25); }
+    .upload-chip svg { width: 20px; height: 20px; stroke: var(--cream); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .upload-chip small { display: block; opacity: 0.7; font-size: 0.74rem; }
+
+    /* sections */
+    section { padding: 84px 0; }
+    .label { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); margin-bottom: 0.7rem; }
+    h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); color: var(--green-deep); margin-bottom: 0.9rem; }
+    .intro { color: var(--muted); max-width: 620px; font-size: 1.02rem; }
+
+    #services { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 2.6rem; border-top: 1px solid var(--line); }
+    .svc { padding: 1.8rem 1.6rem 1.8rem 0; border-right: 1px solid var(--line); }
+    .svc + .svc { padding-left: 1.6rem; }
+    .svc:last-child { border-right: 0; }
+    .svc .num { font-family: 'Newsreader', serif; font-size: 0.95rem; color: var(--brass); margin-bottom: 1.4rem; display: block; }
+    .svc h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--green-deep); }
+    .svc p { font-size: 0.9rem; color: var(--muted); }
+    .svc ul { list-style: none; margin-top: 1rem; }
+    .svc li { font-size: 0.85rem; padding: 0.35rem 0; border-top: 1px dashed var(--line); }
+
+    #how .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem; margin-top: 2.6rem; counter-reset: s; }
+    .step { counter-increment: s; position: relative; padding-top: 3.4rem; }
+    .step::before { content: counter(s); position: absolute; top: 0; left: 0; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid var(--brass); color: var(--brass); font-family: 'Newsreader', serif; font-size: 1.1rem; display: grid; place-items: center; }
+    .step h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--green-deep); }
+    .step p { font-size: 0.92rem; color: var(--muted); }
+
+    #secure { background: var(--green); color: #fff; }
+    #secure h2 { color: #fff; }
+    #secure .label { color: var(--cream); }
+    #secure .intro { color: rgba(255,255,255,0.75); }
+    .secure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .checks { list-style: none; margin-top: 1.8rem; }
+    .checks li { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.95rem; }
+    .checks svg { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 0.2rem; stroke: var(--cream); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .portal { background: var(--paper); color: var(--ink); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
+    .portal-top { background: var(--sand); padding: 0.8rem 1.2rem; font-size: 0.8rem; color: var(--muted); display: flex; justify-content: space-between; }
+    .portal-body { padding: 1.4rem 1.4rem 1.6rem; }
+    .portal-body h3 { font-size: 1.1rem; color: var(--green-deep); margin-bottom: 1rem; }
+    .doc { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0.9rem; background: #fff; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 0.55rem; font-size: 0.86rem; }
+    .doc svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .doc .pill { margin-left: auto; }
+    .drop { border: 1.5px dashed #c9bfa8; border-radius: 8px; padding: 1rem; text-align: center; font-size: 0.84rem; color: var(--muted); margin-top: 0.9rem; }
+
+    #faq .qa { max-width: 760px; margin-top: 2rem; }
+    details { border-top: 1px solid var(--line); padding: 1.1rem 0; }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--green-deep); display: flex; justify-content: space-between; gap: 1rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; color: var(--brass); font-family: 'Inter', sans-serif; }
+    details[open] summary::after { content: '\2013'; }
+    details p { margin-top: 0.7rem; color: var(--muted); font-size: 0.95rem; }
+
+    #contact { background: var(--sand); }
+    .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; }
+    form { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.8rem; display: grid; gap: 1rem; }
+    label { font-size: 0.82rem; font-weight: 600; display: grid; gap: 0.35rem; }
+    input, select, textarea { font: inherit; font-weight: 400; font-size: 0.92rem; padding: 0.7rem 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
+    textarea { min-height: 96px; resize: vertical; }
+    .form-note { font-size: 0.78rem; color: var(--muted); }
+    .contact-lines { list-style: none; margin-top: 1.6rem; }
+    .contact-lines li { padding: 0.8rem 0; border-top: 1px solid #ddd3bd; font-size: 0.92rem; }
+    .contact-lines b { display: block; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+    footer { background: var(--green-deep); color: rgba(255,255,255,0.6); font-size: 0.82rem; padding: 2rem 0; }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--cream); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .secure-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.6rem; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .svc, .svc + .svc { padding: 1.6rem 1.2rem 1.6rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      #how .steps { grid-template-columns: 1fr; gap: 1.8rem; }
+      .upload-chip { left: 1rem; }
+      nav ul li:not(:last-child) { display: none; }
+    }
+    @media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } .hero { padding-top: 56px; } }
+  </style>
+</head>
+<body>
+
+  <div class="concept-bar">Design concept by NdimaTech. Tallowood Accounting is an invented business, not a real practice. <a href="https://ndimatech.co.za/work.html">See our real client work</a></div>
+
+  <header>
+    <div class="wrap head">
+      <a href="#" class="brand" aria-label="Tallowood Accounting">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6h14M12 6v13" stroke="#e9d9b4" stroke-width="2.6" stroke-linecap="round"/><path d="M8 19h8" stroke="#b38a3d" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <span class="brand-name">Tallowood<small>Accounting &amp; Tax</small></span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How we work</a></li>
+          <li><a href="#secure">Client portal</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact" class="btn btn-green">Book a consultation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Accounting for small businesses &middot; East Rand</p>
+        <h1>Books in order. <em>Deadlines</em> handled. No surprises from SARS.</h1>
+        <p class="lead">Monthly bookkeeping, tax returns and payroll for owner-run businesses, with a fixed monthly fee agreed upfront and one accountant who knows your file.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-green">Book a free 30-minute consultation</a>
+          <a href="#services" class="btn btn-line">See what's included</a>
+        </div>
+        <p class="hero-note">Meetings at our office, at yours, or on a video call.</p>
+      </div>
+      <div class="card-stack" aria-hidden="true">
+        <div class="deadlines">
+          <h3>Your year at a glance</h3>
+          <p class="sub">Every client sees their upcoming deadlines in the portal.</p>
+          <div class="dl"><div class="dl-date"><b>07</b><span>Nov</span></div><div class="dl-what">PAYE, UIF &amp; SDL<small>EMP201 submitted and paid</small></div><span class="pill pill-done">Done</span></div>
+          <div class="dl"><div class="dl-date"><b>30</b><span>Nov</span></div><div class="dl-what">VAT return<small>VAT201 for the period</small></div><span class="pill pill-soon">In progress</span></div>
+          <div class="dl"><div class="dl-date"><b>07</b><span>Dec</span></div><div class="dl-what">PAYE, UIF &amp; SDL<small>Payslips ready to review</small></div><span class="pill pill-next">Upcoming</span></div>
+          <div class="dl"><div class="dl-date"><b>26</b><span>Feb</span></div><div class="dl-what">Provisional tax<small>Second payment estimate</small></div><span class="pill pill-next">Upcoming</span></div>
+        </div>
+        <div class="upload-chip">
+          <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg>
+          <div>3 bank statements received<small>Uploaded securely, not by email</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="label">Services</p>
+      <h2>What we take off your plate</h2>
+      <p class="intro">Pick the pieces you need. Most clients start with bookkeeping and tax, then add payroll as they hire.</p>
+      <div class="svc-grid">
+        <div class="svc"><span class="num">01</span><h3>Monthly bookkeeping</h3><p>Bank feeds reconciled and expenses categorised, with a short monthly summary you can actually read.</p><ul><li>Cloud accounting set up</li><li>Monthly management pack</li></ul></div>
+        <div class="svc"><span class="num">02</span><h3>Tax returns</h3><p>Company, provisional and personal returns prepared and filed on time, with SARS queries handled for you.</p><ul><li>VAT registration and returns</li><li>Provisional tax estimates</li></ul></div>
+        <div class="svc"><span class="num">03</span><h3>Payroll</h3><p>Payslips, PAYE, UIF and SDL each month, and the twice-yearly employer reconciliations.</p><ul><li>Payslips emailed to staff</li><li>EMP201 and EMP501</li></ul></div>
+        <div class="svc"><span class="num">04</span><h3>Year-end &amp; CIPC</h3><p>Annual financial statements and your CIPC annual return, so the company stays in good standing.</p><ul><li>Annual financial statements</li><li>CIPC annual returns</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <p class="label">How we work</p>
+      <h2>Simple from the first meeting</h2>
+      <div class="steps">
+        <div class="step"><h3>We meet and look at your books</h3><p>A free half-hour to understand your business, what's been filed and what's outstanding.</p></div>
+        <div class="step"><h3>You get a fixed monthly quote</h3><p>One price for the work we agreed, in writing. If something extra comes up, we quote it before we start.</p></div>
+        <div class="step"><h3>We take it from there</h3><p>You upload documents to your portal each month. We handle the rest and tell you what's due and when.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="secure">
+    <div class="wrap secure-grid">
+      <div>
+        <p class="label">Client portal</p>
+        <h2>Your documents, kept private</h2>
+        <p class="intro">Payslips, ID copies and bank statements are personal information. Instead of attachments flying around on email and WhatsApp, each client gets a private portal.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Upload statements and invoices from your phone</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Download finished returns and financials any time</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Two-step sign-in, and only your accountant sees your file</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Handled in line with POPIA, with a clear privacy notice</li>
+        </ul>
+      </div>
+      <div class="portal" aria-hidden="true">
+        <div class="portal-top"><span>Client portal</span><span>Signed in &middot; 2-step</span></div>
+        <div class="portal-body">
+          <h3>Documents for November</h3>
+          <div class="doc"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg>Business bank statement<span class="pill pill-done">Received</span></div>
+          <div class="doc"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg>Supplier invoices (12)<span class="pill pill-done">Received</span></div>
+          <div class="doc"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg>Staff timesheets<span class="pill pill-soon">Waiting</span></div>
+          <div class="drop">Drag files here or tap to upload from your phone</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <p class="label">Questions</p>
+      <h2>Good to know</h2>
+      <div class="qa">
+        <details open><summary>I'm behind on my returns. Can you still help?</summary><p>Yes. We start by finding out exactly what's outstanding with SARS, then catch up in order of urgency and agree a plan with you.</p></details>
+        <details><summary>Do I have to switch accounting software?</summary><p>Not necessarily. We work with the common cloud packages and will only suggest a change if it saves you time or money.</p></details>
+        <details><summary>How does the monthly fee work?</summary><p>After the first meeting we send a written quote for the services you need. The fee stays the same each month unless the work changes, and we'll tell you before it does.</p></details>
+        <details><summary>Can we meet in person?</summary><p>Yes. Meet at our office, at your business, or on a video call, whichever suits you.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="label">Get in touch</p>
+        <h2>Book a free consultation</h2>
+        <p class="intro">Tell us a little about your business and we'll find a time that works.</p>
+        <ul class="contact-lines">
+          <li><b>Office hours</b>Monday to Friday, 08:00 to 17:00</li>
+          <li><b>Area</b>East Rand and Johannesburg, or anywhere by video call</li>
+        </ul>
+      </div>
+      <form onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='This is a design concept, so nothing was sent.';">
+        <label>Your name<input type="text" autocomplete="off" /></label>
+        <label>Business name<input type="text" autocomplete="off" /></label>
+        <label>What do you need help with?
+          <select><option>Monthly bookkeeping</option><option>Tax returns</option><option>Payroll</option><option>Year-end and CIPC</option><option>Not sure yet</option></select>
+        </label>
+        <label>Anything else we should know?<textarea></textarea></label>
+        <button class="btn btn-green" type="submit">Request a consultation</button>
+        <p class="form-note">Design concept: this form doesn't send anything.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <span>Tallowood Accounting is an invented business used to show NdimaTech's design work.</span>
+      <span>Design concept by <a href="https://ndimatech.co.za/">NdimaTech</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

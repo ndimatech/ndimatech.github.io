@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <title>Work | Client Projects | NdimaTech</title>
-  <meta name="description" content="Client projects by NdimaTech: the His Word Christian Centre church website and the Malhaya Beauty booking site, with what each client set out to do, what was built and how it runs." />
+  <meta name="description" content="Client projects by NdimaTech: the His Word Christian Centre church website and shop, and the Malhaya Beauty booking site, with what each client set out to do, what was built and how it runs." />
   <link rel="canonical" href="https://ndimatech.co.za/work.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
@@ -140,6 +140,14 @@
     .btn-dark { background: var(--navy); color: var(--white); padding: 0.85rem 1.6rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.2s; }
     .btn-dark:hover { background: var(--navy-mid); }
     .btn-dark svg { width: 17px; height: 17px; stroke: var(--teal); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .addon { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.6rem; align-items: center; margin-top: 3.4rem; padding-top: 3rem; border-top: 1px dashed var(--line-cool); }
+    .addon .browser { margin-right: 0; }
+    .addon h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .addon p { font-size: 0.93rem; color: var(--grey-text); line-height: 1.75; margin-bottom: 0.8rem; }
+    .addon ul { list-style: none; }
+    .addon ul li { font-size: 0.9rem; color: var(--text); padding: 0.42rem 0 0.42rem 1.6rem; position: relative; border-bottom: 1px solid #f1f0ea; line-height: 1.6; }
+    .addon ul li svg { position: absolute; left: 0; top: 0.65rem; width: 14px; height: 14px; stroke: var(--teal-dark); fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 900px) { .addon { grid-template-columns: 1fr; } }
     #concepts { background: var(--cream); }
     .concept { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.4rem; align-items: center; margin-top: 2.2rem; }
     .concept .browser { margin-right: 0; }
@@ -222,11 +230,11 @@
         <div>
           <span class="case-tag"><span class="live" aria-hidden="true"></span>Client project &middot; Live</span>
           <h2>His Word Christian Centre</h2>
-          <p class="case-sub">A church website in KwaThema, Springs, built to stay current every week without the church needing a developer.</p>
+          <p class="case-sub">A church website in KwaThema, Springs, built to stay current every week without the church needing a developer, now with its own online shop.</p>
         </div>
         <ul class="facts">
           <li><span>Client</span><span>His Word Christian Centre</span></li>
-          <li><span>Scope</span><span>Website, domain &amp; DNS, Google setup, ongoing care</span></li>
+          <li><span>Scope</span><span>Website, online shop, domain &amp; DNS, Google setup, ongoing care</span></li>
           <li><span>Launched</span><span>October 2026</span></li>
           <li><span>Live site</span><span><a href="https://hiswordchristiancentre.co.za" target="_blank" rel="noopener">hiswordchristiancentre.co.za</a></span></li>
         </ul>
@@ -274,6 +282,27 @@
             <li>The site rebuilds and the change is live in about a minute.</li>
           </ol>
           <p style="margin-top:0.9rem;">Every update is saved, so any change can be reversed, and the site stays online even if an update goes wrong. The church just sends the new link and we handle the rest.</p>
+        </div>
+      </div>
+
+      <div class="addon">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">hiswordchristiancentre.co.za/#shop</span>
+          </div>
+          <img src="assets/work/hwcc-shop.jpg" width="1360" height="850" alt="The Wear His Word shop on the church website, with T-shirt designs and colour choices" loading="lazy" />
+        </div>
+        <div>
+          <span class="case-tag"><span class="live" aria-hidden="true"></span>Added November 2026</span>
+          <h3>An online shop for church merchandise</h3>
+          <p>The church wanted to sell its own T-shirts, hoodies and sweaters. We added a shop to the same site, so members and visitors can order and pay in a few taps.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Every design in every colour, with sizes, a cart and online card payment</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Payments go straight into the church's own account. An order only counts once the payment is verified</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Made to order, collected at church or delivered anywhere in South Africa</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Each new order emailed to the church, with a receipt for the buyer</li>
+          </ul>
         </div>
       </div>
 
@@ -362,15 +391,16 @@
         <div class="browser">
           <div class="browser-bar">
             <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="url">ndimatech.co.za/kadidja-salon</span>
+            <span class="url">ndimatech.co.za/tallowood-accounting</span>
             <span class="badge-concept">Design concept</span>
           </div>
-          <img src="assets/work/kadidja-concept.jpg" width="1200" height="598" alt="Sample salon website concept designed by NdimaTech" loading="lazy" />
+          <img src="assets/work/tallowood-concept.jpg" width="1200" height="740" alt="Website concept for an invented accounting practice, Tallowood Accounting, designed by NdimaTech" loading="lazy" />
         </div>
         <div>
-          <h3>Salon booking site</h3>
-          <p>A mobile-first layout with a clean booking flow and WhatsApp and Book Now buttons built in, for a business that wants to be found on Google and turn visitors into appointments.</p>
-          <div class="case-link" style="margin-top:1.4rem;"><a href="kadidja-salon/" class="btn-dark">View the concept <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></div>
+          <h3>Accounting practice site</h3>
+          <p>A calm, professional site for a small accounting practice, built around what clients worry about: deadlines, a clear monthly fee and keeping their documents private. It includes a client portal mock-up so documents stop going back and forth on email and WhatsApp.</p>
+          <p style="margin-top:0.7rem;">Tallowood Accounting is an invented business, used only to show our design work.</p>
+          <div class="case-link" style="margin-top:1.4rem;"><a href="tallowood-accounting/" class="btn-dark">View the concept <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
     </div>
