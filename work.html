@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <title>Work | Client Projects | NdimaTech</title>
-  <meta name="description" content="Client projects by NdimaTech, starting with the His Word Christian Centre website: what the church set out to do, what was built, and how weekly updates work." />
+  <meta name="description" content="Client projects by NdimaTech: the His Word Christian Centre church website and the Malhaya Beauty booking site, with what each client set out to do, what was built and how it runs." />
   <link rel="canonical" href="https://ndimatech.co.za/work.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
@@ -107,6 +107,7 @@
     /* WORK PAGE */
     nav ul a[aria-current="page"] { color: var(--teal); }
     .case { padding-top: 84px; }
+    .case + .case { border-top: 1px solid var(--line-cool); }
     .case-head { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.4rem; align-items: end; margin-bottom: 2.4rem; }
     .case-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark); background: rgba(0,212,170,0.10); border: 1px solid rgba(0,168,136,0.28); padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem; }
     .case-tag .live { width: 7px; height: 7px; border-radius: 50%; background: var(--teal-dark); }
@@ -278,6 +279,75 @@
 
       <div class="case-link">
         <a href="https://hiswordchristiancentre.co.za" class="btn-dark" target="_blank" rel="noopener">Visit the live site <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY: MALHAYA BEAUTY -->
+  <section class="case" id="malhaya">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <span class="case-tag"><span class="live" aria-hidden="true"></span>Client project &middot; Live</span>
+          <h2>Malhaya Beauty</h2>
+          <p class="case-sub">A makeup, nails and hair business in KwaThema, Springs, where clients book a time and pay their deposit online, any time of day.</p>
+        </div>
+        <ul class="facts">
+          <li><span>Client</span><span>Malhaya Beauty</span></li>
+          <li><span>Scope</span><span>Website, booking calendar, online payments, owner's app, domain &amp; email, ongoing care</span></li>
+          <li><span>Launched</span><span>October 2026</span></li>
+          <li><span>Live site</span><span><a href="https://malhayabeauty.co.za" target="_blank" rel="noopener">malhayabeauty.co.za</a></span></li>
+        </ul>
+      </div>
+
+      <div class="shots">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">malhayabeauty.co.za</span>
+          </div>
+          <img src="assets/work/malhaya-desktop.jpg" width="1360" height="739" alt="The Malhaya Beauty home page on a desktop screen, with the motto Bold. Brave. Beautiful." loading="lazy" />
+        </div>
+        <div class="phone">
+          <img src="assets/work/malhaya-mobile.jpg" width="780" height="1530" alt="Choosing a start time for a manicure on the Malhaya Beauty booking page on a phone" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="story">
+        <div>
+          <h3><span class="n">01</span>What the business set out to do</h3>
+          <p>Malhaya Beauty was launching with makeup, nails and hair services, some at the studio and some at the client's home. The owner wanted bookings handled on the website itself, with a deposit paid upfront so that every slot in her diary is a committed one.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Clients choose a service, day and time and pay without a back-and-forth</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Different days, hours and places for each kind of service</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Payments, domain and hosting all in the owner's own name</li>
+          </ul>
+        </div>
+        <div>
+          <h3><span class="n">02</span>What we built</h3>
+          <p>A custom website with its own booking system, built around how she actually works rather than a one-size-fits-all booking app.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>A live calendar that shows only times she can really make, with travel time between home visits built in</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>The call-out fee worked out from the client's address: free nearby, a flat fee further out</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Deposits and balances paid by card or Instant EFT straight into her account. A booking is only confirmed once the payment is verified</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Confirmation and reminder emails for clients, and protection against spam and fake bookings</li>
+          </ul>
+        </div>
+        <div>
+          <h3><span class="n">03</span>How she runs it day to day</h3>
+          <p>She manages everything from an app on her phone, signed in with Face ID. No laptop needed.</p>
+          <ol class="flow">
+            <li>A client books and pays a deposit on the website.</li>
+            <li>Her phone gets a notification and an email with the booking details.</li>
+            <li>From the app she can move bookings, block off time and message clients on WhatsApp in a tap.</li>
+            <li>The day before, she gets a run sheet of her appointments.</li>
+          </ol>
+          <p style="margin-top:0.9rem;">We look after the site on a monthly care plan, so price changes, new services and fixes are handled for her.</p>
+        </div>
+      </div>
+
+      <div class="case-link">
+        <a href="https://malhayabeauty.co.za" class="btn-dark" target="_blank" rel="noopener">Visit the live site <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
