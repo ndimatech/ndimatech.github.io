@@ -209,9 +209,9 @@ async function processEvent(env, event, url) {
   ).bind(now, event.payload?.id || null, o.id).run();
   if (upd.meta.changes !== 1) return "already_paid";
 
-  const emailed = await issueAndSend(env, url, { ...o, status: "paid" }, "download");
+  const emailed = await issueAndSend(env, url, { ...o, status: "paid", paid_at: now }, "download");
   const product = PRODUCTS[o.product];
-  const alert = saleAlert({ productName: product?.name || o.product, email: o.email, name: o.name, orderId: o.id, amountCents: o.amount_cents, emailed });
+  const alert = saleAlert({ productName: product?.name || o.product, email: o.email, name: o.name, orderId: o.id, amountCents: o.amount_cents, paidAt: now, emailed });
   await sendEmail(env, { to: env.NOTIFY_EMAIL || env.SENDER_EMAIL, ...alert, orderId: o.id, kind: "sale_alert" });
   return emailed ? "paid_emailed" : "paid_email_failed";
 }
@@ -225,7 +225,8 @@ async function issueAndSend(env, url, o, kind) {
   const product = PRODUCTS[o.product];
   const msg = downloadEmail({
     productName: product?.name || o.product, link: `${publicOrigin(env, url)}/d/${token}`, orderId: o.id,
-    amountCents: o.amount_cents, days: DOWNLOAD_DAYS, maxDownloads: MAX_DOWNLOADS,
+    amountCents: o.amount_cents, paidAt: o.paid_at, buyerName: o.name, buyerEmail: o.email,
+    days: DOWNLOAD_DAYS, maxDownloads: MAX_DOWNLOADS,
   });
   const ok = await sendEmail(env, { to: o.email, toName: o.name, ...msg, orderId: o.id, kind });
   if (ok) await env.DB.prepare("UPDATE orders SET emailed_at = ? WHERE id = ?").bind(now, o.id).run();

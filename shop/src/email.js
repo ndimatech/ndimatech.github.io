@@ -33,55 +33,136 @@ export async function sendEmail(env, { to, toName, subject, html, text, orderId,
   return ok;
 }
 
-function frame(title, bodyHtml) {
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title></head>
-<body style="margin:0;padding:0;background:#f4f6f8;"><table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f4f6f8"><tr><td align="center" style="padding:24px 12px;">
-<table width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;width:100%;background:#ffffff;border-radius:10px;">
-<tr><td style="background:#0a1628;border-radius:10px 10px 0 0;padding:18px 28px;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;color:#ffffff;">Ndima<span style="color:#00b890;">Tech</span></td></tr>
-${bodyHtml}
-</table></td></tr></table></body></html>`;
+// Seller details shown on every receipt (no VAT line: NdimaTech is not VAT registered).
+const SELLER = {
+  name: "NdimaTech (Pty) Ltd",
+  reg: "2024/335961/07",
+  postal: "PO Box 4391, Durban, 4001, South Africa",
+  email: "setup@ndimatech.co.za",
+  site: "ndimatech.co.za",
+};
+
+const FONT = "font-family:Helvetica,Arial,sans-serif;";
+const NAVY = "#0a1628", GREEN = "#00b890", INK = "#333f4d", MUTED = "#6b7785", LINE = "#e3e8ee";
+
+// R995.00, R1 250.00 (dot decimals, as on the website and Yoco's page).
+export const rands = (cents) => "R" + (cents / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+export function saDate(ms, withTime = false) {
+  const d = new Date(ms || Date.now());
+  const opts = { timeZone: "Africa/Johannesburg", day: "numeric", month: "long", year: "numeric" };
+  if (withTime) Object.assign(opts, { hour: "2-digit", minute: "2-digit", hour12: false });
+  return d.toLocaleString("en-ZA", opts).replace(",", "");
 }
 
-const P = (html) => `<tr><td style="padding:8px 28px;font-family:Helvetica,Arial,sans-serif;font-size:15px;color:#333f4d;line-height:24px;">${html}</td></tr>`;
+function frame(title, preheader, bodyHtml) {
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><title>${esc(title)}</title></head>
+<body style="margin:0;padding:0;background:#f4f6f8;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${esc(preheader)}</div>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f4f6f8"><tr><td align="center" style="padding:24px 12px;">
+<table width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;width:100%;background:#ffffff;border-radius:10px;border:1px solid ${LINE};">
+<tr><td bgcolor="${NAVY}" style="background:${NAVY};border-radius:10px 10px 0 0;padding:18px 28px;${FONT}font-size:20px;font-weight:700;color:#ffffff;">Ndima<span style="color:${GREEN};">Tech</span></td></tr>
+${bodyHtml}
+</table>
+<table width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;width:100%;"><tr><td style="padding:16px 28px;${FONT}font-size:12px;line-height:18px;color:${MUTED};text-align:center;">
+${SELLER.name} &middot; Reg. ${SELLER.reg}<br>${SELLER.postal}<br><a href="mailto:${SELLER.email}" style="color:${MUTED};">${SELLER.email}</a> &middot; <a href="https://${SELLER.site}" style="color:${MUTED};">${SELLER.site}</a>
+</td></tr></table>
+</td></tr></table></body></html>`;
+}
 
-export function downloadEmail({ productName, link, orderId, amountCents, days, maxDownloads }) {
-  const rand = (amountCents / 100).toFixed(2);
-  const subject = "Your POPIA IT Toolkit download";
-  const html = frame(subject,
-    `<tr><td style="padding:28px 28px 8px;font-family:Helvetica,Arial,sans-serif;font-size:22px;font-weight:700;color:#0a1628;line-height:30px;">Thank you for your purchase</td></tr>` +
-    P(`Your payment for the <strong>${esc(productName)}</strong> went through. Download your templates here:`) +
-    `<tr><td style="padding:18px 28px;"><a href="${esc(link)}" style="display:inline-block;background:#00b890;color:#0a1628;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">Download the toolkit (zip)</a></td></tr>` +
-    P(`The link works for ${days} days and up to ${maxDownloads} downloads, so save the files somewhere safe. Open <em>0 Start here</em> first.`) +
-    P(`<strong>Order:</strong> ${esc(orderId)}<br><strong>Paid:</strong> R${rand}`) +
-    P(`Questions, or trouble downloading? Just reply to this email.<br><br>MJ<br>NdimaTech &middot; <a href="https://ndimatech.co.za" style="color:#008f70;">ndimatech.co.za</a>`) +
-    `<tr><td style="padding:4px 28px 24px;"></td></tr>`);
-  const text = `Thank you for your purchase.
+const P = (html, pad = "8px 28px") => `<tr><td style="padding:${pad};${FONT}font-size:15px;color:${INK};line-height:24px;">${html}</td></tr>`;
+const H = (text) => `<tr><td style="padding:28px 28px 6px;${FONT}font-size:22px;font-weight:700;color:${NAVY};line-height:30px;">${esc(text)}</td></tr>`;
+const button = (href, label) => `<tr><td style="padding:16px 28px 20px;"><a href="${esc(href)}" style="display:inline-block;background:${GREEN};color:${NAVY};${FONT}font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">${esc(label)}</a></td></tr>`;
 
-Your payment for the ${productName} went through. Download your templates here:
+// Two-column rows inside a bordered box (receipt and alerts).
+function box(title, rows, total) {
+  const cell = `${FONT}font-size:14px;line-height:20px;padding:9px 16px;border-top:1px solid ${LINE};`;
+  const body = rows.map(([k, v]) =>
+    `<tr><td style="${cell}color:${MUTED};width:38%;" valign="top">${esc(k)}</td><td style="${cell}color:${INK};" valign="top">${v}</td></tr>`).join("");
+  const tot = total ? `<tr><td style="${cell}border-top:2px solid ${NAVY};color:${NAVY};font-weight:700;">${esc(total[0])}</td><td style="${cell}border-top:2px solid ${NAVY};color:${NAVY};font-weight:700;">${total[1]}</td></tr>` : "";
+  return `<tr><td style="padding:8px 28px 16px;"><table width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid ${LINE};border-radius:8px;border-collapse:separate;">
+<tr><td colspan="2" style="${FONT}font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${MUTED};padding:10px 16px;background:#f8fafb;border-radius:8px 8px 0 0;">${esc(title)}</td></tr>
+${body}${tot}</table></td></tr>`;
+}
+
+export function downloadEmail({ productName, link, orderId, amountCents, paidAt, buyerName, buyerEmail, days, maxDownloads }) {
+  const amount = rands(amountCents);
+  const date = saDate(paidAt);
+  const subject = "Your POPIA IT Toolkit: download link and receipt";
+  const greet = buyerName ? `Hi ${esc(buyerName.split(" ")[0])},` : "Hi,";
+  const html = frame(subject, `Payment received: ${amount}. Your download link is inside.`,
+    H("Thank you for your purchase") +
+    P(`${greet}<br>Your payment went through. Your toolkit is ready to download:`) +
+    button(link, "Download the toolkit (zip)") +
+    P(`The link works for ${days} days and up to ${maxDownloads} downloads, so save the files somewhere safe. Open <em>0 Start here</em> first.`, "0 28px 16px") +
+    box("Receipt", [
+      ["Date paid", esc(date)],
+      ["Order number", `<span style="font-family:Menlo,Consolas,monospace;font-size:13px;">${esc(orderId)}</span>`],
+      ["Billed to", esc(buyerName ? `${buyerName}, ${buyerEmail}` : buyerEmail)],
+      ["Item", `${esc(productName)} (digital download) &times; 1`],
+      ["Paid with", "Online payment via Yoco"],
+    ], ["Total paid", amount]) +
+    P(`Keep this email as your receipt. Questions, or trouble downloading? Just reply and we'll help.`) +
+    P(`MJ<br>NdimaTech`, "8px 28px 28px"));
+  const text = `Thank you for your purchase
+
+${buyerName ? `Hi ${buyerName.split(" ")[0]},` : "Hi,"}
+Your payment went through. Download your toolkit here:
 ${link}
 
 The link works for ${days} days and up to ${maxDownloads} downloads, so save the files somewhere safe. Open "0 Start here" first.
 
-Order: ${orderId}
-Paid: R${rand}
+RECEIPT
+Date paid:    ${date}
+Order number: ${orderId}
+Billed to:    ${buyerName ? `${buyerName}, ${buyerEmail}` : buyerEmail}
+Item:         ${productName} (digital download) x 1
+Paid with:    Online payment via Yoco
+Total paid:   ${amount}
 
-Questions, or trouble downloading? Just reply to this email.
+Keep this email as your receipt. Questions, or trouble downloading? Just reply and we'll help.
 
 MJ
-NdimaTech · ndimatech.co.za`;
+NdimaTech
+
+${SELLER.name} · Reg. ${SELLER.reg}
+${SELLER.postal}
+${SELLER.email} · ${SELLER.site}`;
   return { subject, html, text };
 }
 
-export function saleAlert({ productName, email, name, orderId, amountCents, emailed }) {
+export function saleAlert({ productName, email, name, orderId, amountCents, paidAt, emailed }) {
+  const amount = rands(amountCents);
+  const sent = emailed
+    ? `<span style="color:#0a7a5c;font-weight:700;">Yes</span>`
+    : `<span style="color:#b42318;font-weight:700;">NO</span>: send the files by hand, or ask the buyer to use "resend" on the thank-you page`;
+  const subject = `Sale: ${productName} (${amount.replace(/\.00$/, "")})`;
+  const html = frame(subject, `${name || email} paid ${amount}.`,
+    H(`New sale: ${amount}`) +
+    P(`Someone just bought the <strong>${esc(productName)}</strong>.`) +
+    box("Sale details", [
+      ["Buyer", esc(name || "(no name given)")],
+      ["Email", `<a href="mailto:${esc(email)}" style="color:#008f70;">${esc(email)}</a>`],
+      ["Paid", esc(saDate(paidAt, true))],
+      ["Order number", `<span style="font-family:Menlo,Consolas,monospace;font-size:13px;">${esc(orderId)}</span>`],
+      ["Download email sent", sent],
+    ], ["Amount", amount]) +
+    P(`The payment also shows in your Yoco portal.`, "0 28px 28px"));
   const text = `New sale: ${productName}
-Buyer: ${name || "(no name)"} <${email}>
-Amount: R${(amountCents / 100).toFixed(2)}
+Buyer: ${name || "(no name given)"} <${email}>
+Amount: ${amount}
+Paid: ${saDate(paidAt, true)}
 Order: ${orderId}
 Download email sent: ${emailed ? "yes" : "NO - send the files by hand or ask the buyer to use 'resend' on the thank-you page"}`;
-  return { subject: `Sale: ${productName} (R${(amountCents / 100).toFixed(0)})`, text, html: `<pre style="font-family:Menlo,monospace;font-size:13px;">${esc(text)}</pre>` };
+  return { subject, text, html };
 }
 
 export function problemAlert({ orderId, detail }) {
+  const subject = `Shop problem: order ${orderId}`;
   const text = `Shop problem on order ${orderId}:\n${detail}\n\nCheck the Yoco portal and the order in D1 (orders table).`;
-  return { subject: `Shop problem: order ${orderId}`, text, html: `<pre style="font-family:Menlo,monospace;font-size:13px;">${esc(text)}</pre>` };
+  const html = frame(subject, "A shop order needs your attention.",
+    H("A shop order needs your attention") +
+    box("Problem", [["Order number", `<span style="font-family:Menlo,Consolas,monospace;font-size:13px;">${esc(orderId)}</span>`], ["What happened", esc(detail)]]) +
+    P(`Check the payment in your Yoco portal and the order in the shop's database (orders table).`, "0 28px 28px"));
+  return { subject, text, html };
 }
