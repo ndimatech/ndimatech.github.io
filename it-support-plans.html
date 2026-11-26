@@ -9,14 +9,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <title>Fixed-Price IT Support for Small Businesses | Brakpan & East Rand</title>
-  <meta name="description" content="Fixed monthly IT support for small businesses in Brakpan and the East Rand. Email, Microsoft 365 and Google Workspace admin, backups, and security - from R1,500/month, month-to-month." />
+  <title>Fixed-Price IT Support for Small Businesses | NdimaTech</title>
+  <meta name="description" content="Fixed monthly IT support for small businesses, remote wherever you are. Email, Microsoft 365 and Google Workspace admin, backups, and security - from R1,500/month, month-to-month." />
   <link rel="canonical" href="https://ndimatech.co.za/it-support-plans.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NdimaTech" />
   <meta property="og:title" content="IT Support Plans | NdimaTech" />
-  <meta property="og:description" content="Fixed monthly IT support for small businesses in Brakpan and the East Rand. From R1,500/month, month-to-month." />
+  <meta property="og:description" content="Fixed monthly IT support for small businesses, remote wherever you are. From R1,500/month, month-to-month." />
   <meta property="og:url" content="https://ndimatech.co.za/it-support-plans.html" />
   <meta property="og:image" content="https://ndimatech.co.za/apple-touch-icon.png" />
   <meta name="twitter:card" content="summary" />
@@ -28,8 +28,7 @@
     "url": "https://ndimatech.co.za/",
     "logo": "https://ndimatech.co.za/apple-touch-icon.png",
     "email": "setup@ndimatech.co.za",
-    "areaServed": ["Brakpan", "Benoni", "Boksburg", "Springs", "Kempton Park", "Germiston", "Alberton", "Greater Johannesburg"],
-    "address": { "@type": "PostalAddress", "addressLocality": "Brakpan", "addressRegion": "Gauteng", "addressCountry": "ZA" }
+    "address": { "@type": "PostalAddress", "addressCountry": "ZA" }
   }
   </script>
 
@@ -40,7 +39,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0a1628; --navy-mid: #0d2137; --teal: #00d4aa; --teal-dark: #00a888;
+      --navy: #0a1628; --navy-mid: #0d2137; --teal: #00d4aa; --teal-dark: #007a65;
       --white: #ffffff; --cream: #f7f5ef; --line: #e4e0d6; --line-cool: #e2e8f0;
       --grey-text: #5c6470; --text: #1e2733; --ink: #14202e; --wa: #1fae54;
     }
@@ -153,7 +152,7 @@
     .cross-card a svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
     /* FOOTER */
-    footer { background: #060e1a; color: rgba(255,255,255,0.42); text-align: center; padding: 1.7rem 5%; font-size: 0.82rem; line-height: 1.9; }
+    footer { background: #060e1a; color: rgba(255,255,255,0.6); text-align: center; padding: 1.7rem 5%; font-size: 0.82rem; line-height: 1.9; }
     footer a { color: var(--teal); text-decoration: none; }
 
     @media (max-width: 1240px) { nav ul { display: none; } }
@@ -182,6 +181,13 @@
       nav.open ul li:last-child a { border-bottom: 0; }
       nav.open ul .nav-cta { margin-top: 0.9rem; text-align: center; padding: 0.85rem 1rem; }
     }
+    /* ============ FLOATING WHATSAPP (phones) ============ */
+    .wa-fab { display: none; }
+    @media (max-width: 900px) {
+      .wa-fab { display: inline-flex; align-items: center; gap: 0.5rem; position: fixed; right: 16px; bottom: 16px; z-index: 90; background: var(--teal); color: var(--navy); font-weight: 700; font-size: 0.95rem; text-decoration: none; padding: 0.8rem 1.15rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(10,22,40,0.35); font-family: 'DM Sans', system-ui, sans-serif; }
+      .wa-fab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+      footer { padding-bottom: 5.5rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -208,6 +214,8 @@
       <li><a href="#cta-block" class="nav-cta">Get in touch</a></li>
     </ul>
   </nav>
+
+  <main id="main">
 
   <header class="page-hero">
     <div class="inner">
@@ -336,8 +344,8 @@
           <div class="faq-a"><p>Month-to-month with 30 days' notice. The service should earn its fee every month, and it's on us to make sure it does.</p></div>
         </details>
         <details class="faq-item">
-          <summary>Outside Brakpan, can you still help?</summary>
-          <div class="faq-a"><p>Most support is remote, so we can help businesses across South Africa and neighbouring countries. On-site visits are limited to the East Rand and greater Johannesburg.</p></div>
+          <summary>Where are you based, and can you help us?</summary>
+          <div class="faq-a"><p>Most support is remote, so we can help businesses wherever they are. When a job needs hands on equipment, we arrange an on-site visit and quote it upfront.</p></div>
         </details>
         <details class="faq-item">
           <summary>Can you look after our other business software too?</summary>
@@ -358,6 +366,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <p>&copy; 2026 NdimaTech. Remote support wherever you are.</p>
@@ -381,5 +391,9 @@
     document.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false); });
   })();
   </script>
+  <a class="wa-fab" href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27m%20interested%20in%20an%20IT%20support%20plan." target="_blank" rel="noopener" aria-label="WhatsApp NdimaTech">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
+    WhatsApp us
+  </a>
 </body>
 </html>

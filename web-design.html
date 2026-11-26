@@ -9,14 +9,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <title>Affordable Small Business Websites | East Rand & Johannesburg</title>
-  <meta name="description" content="Fixed-price, mobile-first websites for small businesses in the East Rand and Johannesburg. Get found on Google, take bookings, and turn Facebook followers into paying customers. From R2,500, live in about 7 days." />
+  <title>Affordable Small Business Websites | NdimaTech</title>
+  <meta name="description" content="Fixed-price, mobile-first websites for small businesses. Get found on Google, take bookings, and turn Facebook followers into paying customers. From R2,500, live in about 7 days." />
   <link rel="canonical" href="https://ndimatech.co.za/web-design.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NdimaTech" />
   <meta property="og:title" content="Small Business Websites | NdimaTech" />
-  <meta property="og:description" content="Fixed-price, mobile-first websites for small businesses in the East Rand and Johannesburg. From R2,500, live in about 7 days." />
+  <meta property="og:description" content="Fixed-price, mobile-first websites for small businesses. From R2,500, live in about 7 days." />
   <meta property="og:url" content="https://ndimatech.co.za/web-design.html" />
   <meta property="og:image" content="https://ndimatech.co.za/apple-touch-icon.png" />
   <meta name="twitter:card" content="summary" />
@@ -28,8 +28,7 @@
     "url": "https://ndimatech.co.za/",
     "logo": "https://ndimatech.co.za/apple-touch-icon.png",
     "email": "setup@ndimatech.co.za",
-    "areaServed": ["Brakpan", "Benoni", "Boksburg", "Springs", "Kempton Park", "Germiston", "Alberton", "Greater Johannesburg"],
-    "address": { "@type": "PostalAddress", "addressLocality": "Brakpan", "addressRegion": "Gauteng", "addressCountry": "ZA" }
+    "address": { "@type": "PostalAddress", "addressCountry": "ZA" }
   }
   </script>
 
@@ -40,7 +39,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0a1628; --navy-mid: #0d2137; --teal: #00d4aa; --teal-dark: #00a888;
+      --navy: #0a1628; --navy-mid: #0d2137; --teal: #00d4aa; --teal-dark: #007a65;
       --white: #ffffff; --cream: #f7f5ef; --line: #e4e0d6; --line-cool: #e2e8f0;
       --grey-text: #5c6470; --text: #1e2733; --ink: #14202e; --wa: #1fae54; --alert: #d1615a;
     }
@@ -154,7 +153,7 @@
     .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     /* FOOTER */
-    footer { background: #060e1a; color: rgba(255,255,255,0.42); text-align: center; padding: 1.7rem 5%; font-size: 0.82rem; line-height: 1.9; }
+    footer { background: #060e1a; color: rgba(255,255,255,0.6); text-align: center; padding: 1.7rem 5%; font-size: 0.82rem; line-height: 1.9; }
     footer a { color: var(--teal); text-decoration: none; }
 
     @media (max-width: 1240px) { nav ul { display: none; } }
@@ -183,6 +182,13 @@
       nav.open ul li:last-child a { border-bottom: 0; }
       nav.open ul .nav-cta { margin-top: 0.9rem; text-align: center; padding: 0.85rem 1rem; }
     }
+    /* ============ FLOATING WHATSAPP (phones) ============ */
+    .wa-fab { display: none; }
+    @media (max-width: 900px) {
+      .wa-fab { display: inline-flex; align-items: center; gap: 0.5rem; position: fixed; right: 16px; bottom: 16px; z-index: 90; background: var(--teal); color: var(--navy); font-weight: 700; font-size: 0.95rem; text-decoration: none; padding: 0.8rem 1.15rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(10,22,40,0.35); font-family: 'DM Sans', system-ui, sans-serif; }
+      .wa-fab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+      footer { padding-bottom: 5.5rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -210,11 +216,13 @@
     </ul>
   </nav>
 
+  <main id="main">
+
   <header class="page-hero">
     <div class="inner">
       <span class="hero-eyebrow">Small business websites</span>
       <h1>Your customers are searching on Google. <span class="scribble">Can they find you?<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 3, 150 3, 210 6 S 270 9, 297 4"/></svg></span></h1>
-      <p>Your social media page is working hard, and it reaches the people already following you. A website extends that to everyone searching Google. When someone searches "nail salon near me" or "caterer East Rand," they book with whoever shows up. A clean, mobile-first website puts your business in those results and turns lookers into bookings.</p>
+      <p>Your social media page is working hard, and it reaches the people already following you. A website extends that to everyone searching Google. When someone searches "nail salon near me" or "caterer near me," they book with whoever shows up. A clean, mobile-first website puts your business in those results and turns lookers into bookings.</p>
       <div class="hero-btns">
         <a href="#cta-block" class="btn-primary">Get a fixed-price quote
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
@@ -387,6 +395,8 @@
     </div>
   </section>
 
+  </main>
+
   <footer>
     <p>&copy; 2026 NdimaTech. Remote support wherever you are.</p>
     <p><a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a> &nbsp;|&nbsp; <a href="it-support-plans.html">IT Support Plans</a> &nbsp;|&nbsp; <a href="email-migrations.html">Email Migrations</a> &nbsp;|&nbsp; <a href="software-support.html">Software Support</a> &nbsp;|&nbsp; <a href="web-design.html">Websites</a> &nbsp;|&nbsp; <a href="work.html">Work</a></p>
@@ -409,5 +419,9 @@
     document.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false); });
   })();
   </script>
+  <a class="wa-fab" href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener" aria-label="WhatsApp NdimaTech">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
+    WhatsApp us
+  </a>
 </body>
 </html>

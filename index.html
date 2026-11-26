@@ -9,8 +9,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <title>IT Support for Small Businesses | Brakpan & East Rand | NdimaTech</title>
-  <meta name="description" content="Fixed-price IT support and Microsoft 365 / Google Workspace migrations for small businesses in Brakpan, the East Rand, and greater Johannesburg. Remote support nationwide." />
+  <title>IT Support, Email Migrations &amp; Websites for Small Businesses | NdimaTech</title>
+  <meta name="description" content="Fixed-price IT support, Microsoft 365 / Google Workspace migrations, business software support and websites for small businesses. Remote support wherever you are, on-site when it matters." />
   <link rel="canonical" href="https://ndimatech.co.za/" />
   <meta name="robots" content="index, follow" />
 
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NdimaTech" />
   <meta property="og:title" content="NdimaTech | IT Support & Email Migrations for Small Businesses" />
-  <meta property="og:description" content="Fixed-price IT support and Microsoft 365 / Google Workspace email migrations for small businesses across Brakpan and the East Rand. A dedicated contact, no call centre." />
+  <meta property="og:description" content="Fixed-price IT support and Microsoft 365 / Google Workspace email migrations for small businesses, wherever you are. A dedicated contact, no call centre." />
   <meta property="og:url" content="https://ndimatech.co.za/" />
   <meta property="og:image" content="https://ndimatech.co.za/apple-touch-icon.png" />
   <meta name="twitter:card" content="summary" />
@@ -33,18 +33,10 @@
     "url": "https://ndimatech.co.za/",
     "logo": "https://ndimatech.co.za/apple-touch-icon.png",
     "image": "https://ndimatech.co.za/apple-touch-icon.png",
-    "description": "Fixed-price IT support and Microsoft 365 / Google Workspace email migrations for small businesses across the East Rand and greater Johannesburg.",
+    "description": "Fixed-price IT support and Microsoft 365 / Google Workspace email migrations for small businesses, delivered remotely wherever they are.",
     "email": "setup@ndimatech.co.za",
     "founder": { "@type": "Person", "name": "MJ" },
-    "areaServed": [
-      "Brakpan", "Benoni", "Boksburg", "Springs", "Kempton Park", "Germiston", "Alberton", "Greater Johannesburg"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Brakpan",
-      "addressRegion": "Gauteng",
-      "addressCountry": "ZA"
-    },
+    "address": { "@type": "PostalAddress", "addressCountry": "ZA" },
     "priceRange": "From R1500/month",
     "knowsAbout": ["IT support", "Microsoft 365 migration", "Google Workspace migration", "email hosting", "small business IT"]
   }
@@ -62,7 +54,7 @@
       --navy: #0a1628;
       --navy-mid: #0d2137;
       --teal: #00d4aa;
-      --teal-dark: #00a888;
+      --teal-dark: #007a65;
       --white: #ffffff;
       --cream: #f7f5ef;        /* warm off-white for alternating bands */
       --paper: #fbfaf7;        /* card paper tone */
@@ -305,9 +297,11 @@
     .services-header .section-intro { margin-left: auto; margin-right: auto; }
     .services-top {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.4rem;
       margin-bottom: 1.4rem;
+      max-width: 980px;
+      margin-left: auto; margin-right: auto;
     }
     .service-card {
       background: var(--white);
@@ -573,7 +567,7 @@
     /* ============ FOOTER ============ */
     footer {
       background: #060e1a;
-      color: rgba(255,255,255,0.42);
+      color: rgba(255,255,255,0.6);
       text-align: center;
       padding: 1.7rem 5%;
       font-size: 0.82rem;
@@ -621,6 +615,20 @@
       nav.open ul li:last-child a { border-bottom: 0; }
       nav.open ul .nav-cta { margin-top: 0.9rem; text-align: center; padding: 0.85rem 1rem; }
     }
+    /* ============ FLOATING WHATSAPP (phones) ============ */
+    .wa-fab { display: none; }
+    @media (max-width: 900px) {
+      .wa-fab {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        position: fixed; right: 16px; bottom: 16px; z-index: 90;
+        background: var(--teal); color: var(--navy);
+        font-weight: 700; font-size: 0.95rem; text-decoration: none;
+        padding: 0.8rem 1.15rem; border-radius: 999px;
+        box-shadow: 0 8px 24px rgba(10,22,40,0.35);
+      }
+      .wa-fab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+      footer { padding-bottom: 5.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -649,17 +657,20 @@
     </ul>
   </nav>
 
+  <main id="main">
+
   <!-- HERO -->
   <section id="hero">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="hero-eyebrow">IT support &middot; Email migrations &middot; Websites</span>
-        <h1>Technology that works for
-          <span class="scribble">your business<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 40 3, 90 3, 130 6 S 175 9, 197 4"/></svg></span>.</h1>
-        <p class="lede">IT support, email migrations and websites, wherever you are. A dedicated contact who knows your setup, with every price agreed upfront.</p>
+        <span class="hero-eyebrow">IT support &middot; Migrations &middot; Software &middot; Websites</span>
+        <h1>One dependable contact for your business tech, priced
+          <span class="scribble">upfront<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 40 3, 90 3, 130 6 S 175 9, 197 4"/></svg></span>.</h1>
+        <p class="lede">IT support plans from R1,500/month, email moves to Microsoft 365 or Google Workspace, business software support and websites. Someone who knows your setup, wherever you are, and a fixed price before any work starts.</p>
         <div class="hero-btns">
-          <a href="#contact" class="btn-primary">Get in touch
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20talk%20about%20what%20my%20business%20needs." class="btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
+            WhatsApp us
           </a>
           <a href="#services" class="btn-secondary">See our services</a>
         </div>
@@ -677,6 +688,10 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
       <span><strong>Remote-first</strong> support, on-site when it matters</span>
     </div>
+    <div class="metric-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span><strong>Microsoft Azure &amp; AWS certified</strong>, with a software-support background</span>
+    </div>
   </div>
 
   <!-- SERVICES -->
@@ -684,7 +699,7 @@
     <div class="wrap">
       <div class="services-header">
         <div class="section-label">Services</div>
-        <h2>Three ways we help your business</h2>
+        <h2>Four ways we help your business</h2>
         <p class="section-intro">Most small businesses don't need a full-time IT person or a design agency. They need someone dependable who already knows their setup and quotes a fixed price. That's what we do.</p>
       </div>
 
@@ -709,16 +724,32 @@
         <div class="service-card accent">
           <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="14" height="11" rx="2"/><path d="M2 7.5l7 4.5 7-4.5"/><path d="M18 12h4"/><path d="M20 10l2 2-2 2"/></svg></div>
           <h3>Email &amp; Cloud Migrations</h3>
-          <div class="pricing-tag">From R6,000 &middot; Fixed quote upfront</div>
+          <div class="pricing-tag">From R1,250 &middot; Fixed quote upfront</div>
           <p>Still on the email your web host gave you in 2015? We move businesses onto Microsoft 365 or Google Workspace, properly, with your existing mail moved across and the work done after hours, so your business keeps running.</p>
           <ul class="service-list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Just 1&ndash;3 people? Starter migration from R1,250</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>1&ndash;3 users from R1,250; up to 10 users from R6,000</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Free migration assessment</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>One fixed price, agreed upfront</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Done evenings and weekends, so your business keeps running</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Staff logged in, trained, and working</li>
           </ul>
           <a href="email-migrations.html" class="card-link">How migrations work
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card accent">
+          <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/><path d="M9 10l2 2 4-4"/></svg></div>
+          <h3>Software &amp; Vendor Support</h3>
+          <div class="pricing-tag">Free software check &middot; Fixed quote upfront</div>
+          <p>Your accounting, booking and industry systems, looked after end to end. We handle the admin side, keep everything connected to your email, and deal with your vendors for you.</p>
+          <ul class="service-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Joiners and leavers set up or removed on every system</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Vendor tickets logged, evidenced and followed to a fix</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Microsoft 365 and Google Workspace links kept clean</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Short, practical training for your team</li>
+          </ul>
+          <a href="software-support.html" class="card-link">How software support works
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -814,8 +845,8 @@
           <div class="faq-a"><p>You're free to leave anytime. Support plans are month-to-month with 30 days' notice. The service should earn its fee every month, and it's on us to make sure it does.</p></div>
         </details>
         <details class="faq-item">
-          <summary>Outside Brakpan, can you still help?</summary>
-          <div class="faq-a"><p>Most support is remote, so we can help businesses across South Africa and neighbouring countries. On-site visits cover the East Rand and greater Johannesburg.</p></div>
+          <summary>Where are you based, and can you help us?</summary>
+          <div class="faq-a"><p>Most support is remote, so we can help businesses wherever they are. When a job needs hands on equipment, we arrange an on-site visit and quote it upfront.</p></div>
         </details>
         <details class="faq-item">
           <summary>How much does a website cost?</summary>
@@ -834,7 +865,7 @@
     <div class="wrap">
       <div class="section-label">Get in touch</div>
       <h2>Let's talk about what you need</h2>
-      <p class="lede">Whether you want reliable IT support, a move to Microsoft 365 or Google Workspace, or a website that brings in customers, let's have a conversation.</p>
+      <p class="lede">Whether you want reliable IT support, a move to Microsoft 365 or Google Workspace, help with your business software, or a website that brings in customers, let's have a conversation.</p>
       <div class="contact-btns">
         <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20talk%20about%20what%20my%20business%20needs." class="btn-primary" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
@@ -849,11 +880,18 @@
   </section>
 
   <!-- FOOTER -->
+  </main>
+
   <footer>
     <p>&copy; 2026 NdimaTech. Remote support wherever you are.</p>
     <p><a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a> &nbsp;|&nbsp; <a href="it-support-plans.html">IT Support Plans</a> &nbsp;|&nbsp; <a href="email-migrations.html">Email Migrations</a> &nbsp;|&nbsp; <a href="software-support.html">Software Support</a> &nbsp;|&nbsp; <a href="web-design.html">Websites</a> &nbsp;|&nbsp; <a href="work.html">Work</a></p>
     <p><a href="popia-checklist.html">Free POPIA IT checklist</a> &nbsp;|&nbsp; <a href="popia-toolkit.html">POPIA IT Toolkit</a> &nbsp;|&nbsp; <a href="terms.html">Terms of sale</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a></p>
   </footer>
+
+  <a class="wa-fab" href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20talk%20about%20what%20my%20business%20needs." target="_blank" rel="noopener" aria-label="WhatsApp NdimaTech">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
+    WhatsApp us
+  </a>
 
   <script>
   (function () {
