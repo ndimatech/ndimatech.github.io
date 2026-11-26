@@ -34,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,11 +45,11 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
+    h1, h2, h3 { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,22,40,0.94); backdrop-filter: blur(8px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 66px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
     .logo .nt-mark { width: 30px; height: 30px; flex: 0 0 auto; display: block; }
     .logo .nt-mark .stroke-n { stroke: currentColor; }
     .logo .nt-mark .stroke-arrow { stroke: var(--teal); }
@@ -114,7 +114,7 @@
     .plan:hover { box-shadow: 0 16px 40px rgba(10,22,40,0.08); transform: translateY(-3px); }
     .plan.featured { border-color: rgba(0,168,136,0.5); box-shadow: 0 10px 30px rgba(0,168,136,0.1); }
     .plan h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
-    .plan .price { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+    .plan .price { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
     .plan .price small { font-size: 0.9rem; font-weight: 500; color: var(--grey-text); font-family: 'DM Sans', sans-serif; }
     .plan .sub { font-size: 0.85rem; color: var(--grey-text); margin-bottom: 1.25rem; }
     .plan ul { list-style: none; margin-bottom: 1.5rem; }
@@ -128,7 +128,7 @@
     .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 940px; margin: 2.6rem auto 0; position: relative; text-align: center; }
     .timeline::before { content: ''; position: absolute; top: 26px; left: 16.6%; right: 16.6%; height: 2px; background: repeating-linear-gradient(90deg, var(--teal) 0 8px, transparent 8px 16px); opacity: 0.5; }
     .tl-step { padding: 0 1.4rem; position: relative; }
-    .tl-num { width: 54px; height: 54px; margin: 0 auto 1rem; background: var(--cream); border: 2px solid var(--teal); color: var(--teal-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; position: relative; z-index: 1; }
+    .tl-num { width: 54px; height: 54px; margin: 0 auto 1rem; background: var(--cream); border: 2px solid var(--teal); color: var(--teal-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 1.2rem; position: relative; z-index: 1; }
     .tl-step h3 { font-size: 1.08rem; margin-bottom: 0.5rem; }
     .tl-step p { font-size: 0.89rem; color: var(--grey-text); line-height: 1.7; }
     @media (max-width: 760px) { .timeline { grid-template-columns: 1fr; gap: 2rem; } .timeline::before { display: none; } }
@@ -137,7 +137,7 @@
     #faq .wrap { max-width: 820px; }
     .faq-list { margin-top: 2.2rem; border-top: 1px solid var(--line-cool); }
     .faq-item { border-bottom: 1px solid var(--line-cool); }
-    .faq-item summary { list-style: none; cursor: pointer; padding: 1.3rem 2.6rem 1.3rem 0; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); position: relative; }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 1.3rem 2.6rem 1.3rem 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); position: relative; }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after { content: ''; position: absolute; right: 4px; top: 1.6rem; width: 12px; height: 12px; border-right: 2px solid var(--teal-dark); border-bottom: 2px solid var(--teal-dark); transform: rotate(45deg); transition: transform 0.25s; }
     .faq-item[open] summary::after { transform: rotate(-135deg); }
@@ -191,6 +191,7 @@
       footer { padding-bottom: 5.5rem !important; }
     }
   </style>
+  <link rel="stylesheet" href="assets/theme-c.css" />
 </head>
 <body>
 
@@ -220,7 +221,8 @@
   <main id="main">
 
   <header class="page-hero">
-    <div class="inner">
+    <div class="inner has-art">
+      <div class="hero-copy">
       <span class="hero-eyebrow">Small business websites</span>
       <h1>Your customers are searching on Google. <span class="scribble">Can they find you?<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 3, 150 3, 210 6 S 270 9, 297 4"/></svg></span></h1>
       <p>Your social media page is working hard, and it reaches the people already following you. A website extends that to everyone searching Google. When someone searches "nail salon near me" or "caterer near me," they book with whoever shows up. A clean, mobile-first website puts your business in those results and turns lookers into bookings.</p>
@@ -230,6 +232,24 @@
         </a>
         <a href="#pricing" class="btn-secondary">See pricing</a>
       </div>
+    </div>
+      <div class="hero-art"><svg viewBox="0 0 440 340" role="img" aria-label="Illustration of a phone showing a business website with WhatsApp and booking buttons">
+<rect x="20" y="304" width="400" height="36" fill="#0a1628"/>
+<rect x="150" y="30" width="150" height="270" rx="22" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<rect x="196" y="44" width="58" height="8" rx="4" fill="#0a1628"/>
+<rect x="166" y="66" width="118" height="70" rx="8" fill="#e6f8f3"/>
+<path d="M176 126l30-34 22 22 16-14 30 26z" fill="#7fd9c2"/>
+<rect x="166" y="148" width="96" height="12" rx="6" fill="#0a1628"/>
+<rect x="166" y="170" width="118" height="8" rx="4" fill="#d9dee5"/>
+<rect x="166" y="186" width="104" height="8" rx="4" fill="#d9dee5"/>
+<rect x="166" y="214" width="118" height="28" rx="14" fill="#00b890"/>
+<text x="225" y="233" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13" fill="#0a1628">WhatsApp us</text>
+<rect x="166" y="250" width="118" height="28" rx="14" fill="#ffffff" stroke="#0a1628" stroke-width="3"/>
+<text x="225" y="269" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13" fill="#0a1628">Book now</text>
+<path d="M316 70h90a20 20 0 0 1 0 40h-56l-18 14v-14h-16a20 20 0 0 1 0-40z" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<text x="352" y="96" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#0a1628">Found it!</text>
+<g transform="translate(66 150)"><circle r="40" fill="#ffffff" stroke="#0a1628" stroke-width="5"/><circle cx="-6" cy="-6" r="16" fill="none" stroke="#00b890" stroke-width="6"/><path d="M6 6l16 16" stroke="#0a1628" stroke-width="7" stroke-linecap="round"/></g>
+</svg></div>
     </div>
   </header>
 

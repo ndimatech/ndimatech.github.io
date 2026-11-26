@@ -34,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,11 +45,11 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
+    h1, h2, h3 { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,22,40,0.94); backdrop-filter: blur(8px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 66px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
     .logo .nt-mark { width: 30px; height: 30px; flex: 0 0 auto; display: block; }
     .logo .nt-mark .stroke-n { stroke: currentColor; }
     .logo .nt-mark .stroke-arrow { stroke: var(--teal); }
@@ -97,7 +97,7 @@
     .plan.featured { border-color: rgba(0,168,136,0.5); box-shadow: 0 10px 30px rgba(0,168,136,0.1); position: relative; }
     .plan-flag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--navy); font-size: 0.7rem; font-weight: 700; padding: 0.24rem 0.9rem; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
     .plan h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
-    .plan .price { font-family: 'Fraunces', serif; font-size: 2.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+    .plan .price { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 2.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
     .plan .price small { font-size: 0.9rem; font-weight: 500; color: var(--grey-text); font-family: 'DM Sans', sans-serif; }
     .plan .users { font-size: 0.85rem; color: var(--grey-text); margin-bottom: 1.25rem; }
     .plan ul { list-style: none; margin-bottom: 1.4rem; }
@@ -136,7 +136,7 @@
     #faq .wrap { max-width: 820px; }
     .faq-list { margin-top: 2.2rem; border-top: 1px solid var(--line-cool); }
     .faq-item { border-bottom: 1px solid var(--line-cool); }
-    .faq-item summary { list-style: none; cursor: pointer; padding: 1.3rem 2.6rem 1.3rem 0; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); position: relative; }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 1.3rem 2.6rem 1.3rem 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); position: relative; }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after { content: ''; position: absolute; right: 4px; top: 1.6rem; width: 12px; height: 12px; border-right: 2px solid var(--teal-dark); border-bottom: 2px solid var(--teal-dark); transform: rotate(45deg); transition: transform 0.25s; }
     .faq-item[open] summary::after { transform: rotate(-135deg); }
@@ -190,6 +190,7 @@
       footer { padding-bottom: 5.5rem !important; }
     }
   </style>
+  <link rel="stylesheet" href="assets/theme-c.css" />
 </head>
 <body>
 
@@ -219,11 +220,28 @@
   <main id="main">
 
   <header class="page-hero">
-    <div class="inner">
+    <div class="inner has-art">
+      <div class="hero-copy">
       <span class="hero-eyebrow">IT support plans</span>
       <h1>Fixed-price IT support from someone who knows <span class="scribble">your setup<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 40 3, 90 3, 130 6 S 175 9, 197 4"/></svg></span></h1>
       <p>Every small business hits the same wall: email stops working, a laptop dies, the WiFi password is anyone's guess, and the "IT guy" is a nephew who's gone quiet. Most businesses this size don't need a full-time IT hire. They need someone reliable, on a fixed monthly fee, who already knows their setup.</p>
       <p><strong style="color: var(--white);">That's what these plans are.</strong></p>
+    </div>
+      <div class="hero-art"><svg viewBox="0 0 440 340" role="img" aria-label="Illustration of a support headset beside a laptop showing a green tick">
+<rect x="20" y="292" width="400" height="48" fill="#0a1628"/>
+<rect x="20" y="282" width="400" height="14" rx="4" fill="#1d3352"/>
+<rect x="130" y="120" width="210" height="140" rx="10" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<rect x="146" y="136" width="178" height="108" rx="4" fill="#e6f8f3"/>
+<circle cx="235" cy="190" r="32" fill="#00b890"/>
+<path d="M219 190l11 11 22-22" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M112 260h246l18 22H94z" fill="#0a1628"/>
+<path d="M40 210v-34a44 44 0 0 1 88 0v34" stroke="#0a1628" stroke-width="6" fill="none" stroke-linecap="round"/>
+<rect x="30" y="196" width="26" height="44" rx="10" fill="#00b890" stroke="#0a1628" stroke-width="5"/>
+<rect x="112" y="196" width="26" height="44" rx="10" fill="#00b890" stroke="#0a1628" stroke-width="5"/>
+<path d="M125 240c0 22-18 34-40 34" stroke="#0a1628" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M240 40h150a26 26 0 0 1 0 52h-96l-22 18V92h-32a26 26 0 0 1 0-52z" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<text x="304" y="74" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="20" fill="#0a1628">One monthly fee</text>
+</svg></div>
     </div>
   </header>
 

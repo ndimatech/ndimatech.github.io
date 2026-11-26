@@ -34,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,11 +45,11 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
+    h1, h2, h3 { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,22,40,0.94); backdrop-filter: blur(8px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 66px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
     .logo .nt-mark { width: 30px; height: 30px; flex: 0 0 auto; display: block; }
     .logo .nt-mark .stroke-n { stroke: currentColor; }
     .logo .nt-mark .stroke-arrow { stroke: var(--teal); }
@@ -101,7 +101,7 @@
     .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 1000px; margin: 2.6rem auto 0; position: relative; }
     .timeline::before { content: ''; position: absolute; top: 26px; left: 12.5%; right: 12.5%; height: 2px; background: repeating-linear-gradient(90deg, var(--teal) 0 8px, transparent 8px 16px); opacity: 0.5; }
     .tl-step { padding: 0 1.1rem; position: relative; text-align: center; }
-    .tl-num { width: 54px; height: 54px; margin: 0 auto 1rem; background: var(--cream); border: 2px solid var(--teal); color: var(--teal-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; position: relative; z-index: 1; }
+    .tl-num { width: 54px; height: 54px; margin: 0 auto 1rem; background: var(--cream); border: 2px solid var(--teal); color: var(--teal-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 1.2rem; position: relative; z-index: 1; }
     .tl-step h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
     .tl-step p { font-size: 0.89rem; color: var(--grey-text); line-height: 1.7; }
     @media (max-width: 820px) { .timeline { grid-template-columns: 1fr 1fr; gap: 2rem; } .timeline::before { display: none; } }
@@ -109,7 +109,7 @@
 
     /* PRICING */
     .price-card { background: var(--white); border: 1px solid rgba(0,168,136,0.4); border-radius: 16px; padding: 2.4rem; max-width: 680px; box-shadow: 0 10px 30px rgba(0,168,136,0.07); margin-bottom: 1.5rem; }
-    .price-card .amount { font-family: 'Fraunces', serif; font-size: 2.3rem; font-weight: 600; color: var(--ink); }
+    .price-card .amount { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 2.3rem; font-weight: 600; color: var(--ink); }
     .price-card .amount small { font-size: 1rem; font-weight: 500; color: var(--grey-text); font-family: 'DM Sans', sans-serif; }
     .price-card p { color: var(--grey-text); font-size: 0.95rem; line-height: 1.75; margin-top: 0.75rem; }
 
@@ -166,6 +166,7 @@
       footer { padding-bottom: 5.5rem !important; }
     }
   </style>
+  <link rel="stylesheet" href="assets/theme-c.css" />
 </head>
 <body>
 
@@ -195,11 +196,28 @@
   <main id="main">
 
   <header class="page-hero">
-    <div class="inner">
+    <div class="inner has-art">
+      <div class="hero-copy">
       <span class="hero-eyebrow">Email &amp; cloud migrations</span>
       <h1>Move to Microsoft 365 or Google Workspace, <span class="scribble">without the disruption<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 3, 150 3, 210 6 S 270 9, 297 4"/></svg></span></h1>
       <p>Still on the email your web host set up years ago? Emails vanishing, mailbox full warnings, staff sharing one inbox? Moving to Microsoft 365 or Google Workspace sorts this out properly: professional email on your own domain, shared calendars, cloud file storage, and proper security.</p>
       <p>The move itself is where businesses get burned: lost mail, days of downtime, staff locked out. A structured migration is planned around all three, so your mail is copied across and checked before anyone switches over.</p>
+    </div>
+      <div class="hero-art"><svg viewBox="0 0 440 340" role="img" aria-label="Illustration of envelopes moving from an old server to a cloud">
+<rect x="30" y="130" width="110" height="160" rx="12" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<rect x="48" y="152" width="74" height="16" rx="5" fill="#d9dee5"/>
+<rect x="48" y="180" width="74" height="16" rx="5" fill="#d9dee5"/>
+<rect x="48" y="208" width="74" height="16" rx="5" fill="#d9dee5"/>
+<circle cx="62" cy="262" r="7" fill="#c9d1da"/>
+<path d="M300 150a44 44 0 0 1 84 14 34 34 0 0 1-6 68H286a40 40 0 0 1 14-82z" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<path d="M312 190h52M312 206h34" stroke="#00b890" stroke-width="6" stroke-linecap="round"/>
+<path d="M150 210 C200 140 230 140 270 180" stroke="#0a1628" stroke-width="4" stroke-dasharray="10 10" fill="none" stroke-linecap="round"/>
+<path d="M258 166l14 16-20 6" stroke="#0a1628" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(176 100) rotate(-12)"><rect width="64" height="44" rx="6" fill="#00b890" stroke="#0a1628" stroke-width="5"/><path d="M0 4l32 22 32-22" stroke="#0a1628" stroke-width="5" fill="none" stroke-linejoin="round"/></g>
+<g transform="translate(216 214) rotate(10)"><rect width="52" height="36" rx="6" fill="#ffffff" stroke="#0a1628" stroke-width="5"/><path d="M0 4l26 18 26-18" stroke="#0a1628" stroke-width="5" fill="none" stroke-linejoin="round"/></g>
+<rect x="20" y="300" width="400" height="40" fill="#0a1628"/>
+<text x="330" y="280" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" fill="#0a1628">Done after hours</text>
+</svg></div>
     </div>
   </header>
 

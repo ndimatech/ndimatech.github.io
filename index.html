@@ -45,7 +45,7 @@
   <!-- Brand fonts: Fraunces (editorial display) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,7 +76,7 @@
     }
 
     h1, h2, h3, .founding-card h3, .work-copy h3 {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
       font-weight: 600;
       letter-spacing: -0.015em;
       line-height: 1.12;
@@ -101,7 +101,7 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
       font-size: 1.35rem;
       font-weight: 600;
       color: var(--white);
@@ -236,7 +236,7 @@
       background: linear-gradient(135deg, var(--teal) 0%, #0d9c7e 100%);
       color: var(--navy);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem;
+      font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 1.25rem;
       letter-spacing: -0.02em;
     }
     /* Drop a real photo here later:
@@ -250,7 +250,7 @@
       margin-bottom: 0.9rem;
     }
     .hero-note .sign {
-      font-family: 'Fraunces', serif;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
       font-style: italic;
       color: var(--teal);
       font-size: 1.05rem;
@@ -452,7 +452,7 @@
     .about-panel h3 span { color: var(--teal); }
     .about-panel p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.75; }
     .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1.9rem; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.1); }
-    .stat-number { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 600; color: var(--teal); display: block; }
+    .stat-number { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.9rem; font-weight: 600; color: var(--teal); display: block; }
     .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
     .about-text h2 { margin-bottom: 1rem; }
     .about-text p { color: var(--grey-text); margin-bottom: 1rem; line-height: 1.8; }
@@ -494,7 +494,7 @@
       color: var(--teal-dark);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem;
+      font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 1.25rem;
       position: relative; z-index: 1;
     }
     .tl-step h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
@@ -535,7 +535,7 @@
       list-style: none;
       cursor: pointer;
       padding: 1.3rem 2.6rem 1.3rem 0;
-      font-family: 'Fraunces', serif;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
       font-weight: 600;
       font-size: 1.05rem;
       color: var(--ink);
@@ -631,7 +631,28 @@
       .wa-fab.show { opacity: 1; transform: none; pointer-events: auto; }
       footer { padding-bottom: 5.5rem; }
     }
+    /* ============ THEME C: homepage hero + promise ============ */
+    #hero { padding: 120px 5% 0; }
+    .hero-c { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 3rem; align-items: end; }
+    .hero-c .hero-copy { padding-bottom: 72px; }
+    #hero .hero-c h1 { font-size: clamp(2.6rem, 5.4vw, 4rem); line-height: 1.0; text-wrap: balance; margin-bottom: 1.4rem; }
+    #hero .hero-c p.lede { margin: 0 0 2rem; max-width: 520px; font-size: 1.15rem; }
+    #hero .hero-c .hero-btns { justify-content: flex-start; }
+    .hero-c .hero-art svg { width: 100%; height: auto; display: block; }
+    #promise { background: #ffffff; }
+    .promise-c { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+    .promise-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+    .promise-grid div { border: 2px solid var(--ink); border-radius: 18px; padding: 1.2rem; }
+    .promise-grid strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: var(--ink); }
+    .promise-grid span { font-size: 0.9rem; color: var(--grey-text); }
+    @media (max-width: 860px) {
+      #hero { padding-top: 104px; }
+      .hero-c, .promise-c { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-c .hero-copy { padding-bottom: 0; }
+      .hero-c .hero-art { max-width: 380px; margin: 0 auto; width: 100%; }
+    }
   </style>
+  <link rel="stylesheet" href="assets/theme-c.css" />
 </head>
 <body>
 
@@ -663,38 +684,40 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-grid">
+    <div class="hero-c">
       <div class="hero-copy">
-        <span class="hero-eyebrow">IT support &middot; Migrations &middot; Software &middot; Websites</span>
-        <h1>One dependable contact for your business tech, priced
-          <span class="scribble">upfront<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 40 3, 90 3, 130 6 S 175 9, 197 4"/></svg></span>.</h1>
-        <p class="lede">IT support from R1,500/month, email migrations, software support and websites. Someone who knows your setup, wherever you are, with a fixed price before any work starts.</p>
+        <h1>When something breaks, you know who to call.</h1>
+        <p class="lede">IT support, email migrations, software support and websites for small offices. A fixed price before we start, and the same contact every time.</p>
         <div class="hero-btns">
-          <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20talk%20about%20what%20my%20business%20needs." class="btn-primary" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
-            WhatsApp us
-          </a>
-          <a href="#services" class="btn-secondary">See our services</a>
+          <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20book%20a%20free%20IT%20health%20check." class="btn-primary" target="_blank" rel="noopener">Book a free IT check</a>
+          <a href="#services" class="btn-secondary">See prices</a>
         </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 480 400" role="img" aria-label="Illustration of an office desk with a laptop, a Wi-Fi router and a phone showing a WhatsApp reply">
+<rect x="20" y="330" width="440" height="70" fill="#0a1628"/>
+<rect x="20" y="318" width="440" height="16" rx="4" fill="#1d3352"/>
+<rect x="110" y="150" width="230" height="150" rx="10" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<rect x="126" y="166" width="198" height="118" rx="4" fill="#e6f8f3"/>
+<rect x="142" y="184" width="110" height="12" rx="6" fill="#0a1628"/>
+<rect x="142" y="206" width="160" height="8" rx="4" fill="#7fd9c2"/>
+<rect x="142" y="222" width="140" height="8" rx="4" fill="#7fd9c2"/>
+<rect x="142" y="248" width="70" height="22" rx="11" fill="#00b890"/>
+<path d="M90 300h270l20 18H70z" fill="#0a1628"/>
+<rect x="372" y="262" width="74" height="40" rx="8" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<circle cx="392" cy="282" r="5" fill="#00b890"/><circle cx="410" cy="282" r="5" fill="#00b890"/>
+<path d="M386 262l-10-34M432 262l10-34" stroke="#0a1628" stroke-width="5" stroke-linecap="round"/>
+<path d="M392 214a30 30 0 0 1 36 0M400 226a16 16 0 0 1 20 0" stroke="#00806a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<rect x="34" y="196" width="62" height="114" rx="12" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<rect x="44" y="212" width="42" height="18" rx="6" fill="#d9dee5"/>
+<rect x="50" y="236" width="38" height="18" rx="6" fill="#00b890"/>
+<rect x="44" y="260" width="34" height="14" rx="6" fill="#d9dee5"/>
+<path d="M60 96c0-22 18-40 40-40h120c22 0 40 18 40 40s-18 40-40 40h-92l-26 22v-24c-24-4-42-18-42-38z" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<text x="160" y="104" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" fill="#0a1628">Sorted. Back online.</text>
+</svg>
       </div>
     </div>
   </section>
-
-  <!-- TRUST STRIP -->
-  <div id="metrics">
-    <div class="metric-item">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 9h16"/></svg>
-      <span><strong>Fixed pricing</strong>: every invoice matches the quote</span>
-    </div>
-    <div class="metric-item">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-      <span><strong>Remote-first</strong> support, on-site when it matters</span>
-    </div>
-    <div class="metric-item">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-      <span><strong>Microsoft Azure &amp; AWS certified</strong>, with a software-support background</span>
-    </div>
-  </div>
 
   <!-- SERVICES -->
   <section id="services">
@@ -772,6 +795,22 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section id="promise">
+    <div class="promise-c">
+      <div>
+        <h2>No call centre. No surprise invoices.</h2>
+        <p class="section-intro">You get one contact who knows your setup, a response time in writing, and a monthly fee that doesn't move. Leave any month with 30 days' notice.</p>
+      </div>
+      <div class="promise-grid">
+        <div><strong>Fixed price</strong><span>The invoice matches the quote</span></div>
+        <div><strong>In writing</strong><span>Response time, by plan</span></div>
+        <div><strong>Certified</strong><span>Microsoft Azure &amp; AWS</span></div>
+        <div><strong>Anywhere</strong><span>Remote first, on-site when needed</span></div>
       </div>
     </div>
   </section>

@@ -34,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,11 +45,11 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
+    h1, h2, h3 { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.14; color: var(--ink); }
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,22,40,0.94); backdrop-filter: blur(8px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 66px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; }
     .logo .nt-mark { width: 30px; height: 30px; flex: 0 0 auto; display: block; }
     .logo .nt-mark .stroke-n { stroke: currentColor; }
     .logo .nt-mark .stroke-arrow { stroke: var(--teal); }
@@ -197,6 +197,7 @@
       footer { padding-bottom: 5.5rem !important; }
     }
   </style>
+  <link rel="stylesheet" href="assets/theme-c.css" />
 </head>
 <body>
 
@@ -226,10 +227,26 @@
   <main id="main">
 
   <header class="page-hero">
-    <div class="inner">
+    <div class="inner has-art">
+      <div class="hero-copy">
       <span class="hero-eyebrow">Work</span>
       <h1>Projects we've delivered, <span class="scribble">and how they run<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 3, 150 3, 210 6 S 270 9, 297 4"/></svg></span></h1>
       <p>Each project shows what the client set out to do, what we built, and how it's looked after once it's live. Client work comes first. Design concepts are clearly marked as concepts.</p>
+    </div>
+      <div class="hero-art"><svg viewBox="0 0 440 340" role="img" aria-label="Illustration of stacked website windows">
+<rect x="20" y="304" width="400" height="36" fill="#0a1628"/>
+<g transform="rotate(-5 220 160)"><rect x="70" y="40" width="300" height="190" rx="14" fill="#e6f8f3" stroke="#0a1628" stroke-width="5"/></g>
+<rect x="50" y="80" width="300" height="200" rx="14" fill="#ffffff" stroke="#0a1628" stroke-width="5"/>
+<path d="M50 116h300" stroke="#0a1628" stroke-width="5"/>
+<circle cx="74" cy="98" r="6" fill="#00b890"/><circle cx="94" cy="98" r="6" fill="#c9d1da"/><circle cx="114" cy="98" r="6" fill="#c9d1da"/>
+<rect x="72" y="136" width="130" height="16" rx="8" fill="#0a1628"/>
+<rect x="72" y="164" width="160" height="10" rx="5" fill="#d9dee5"/>
+<rect x="72" y="182" width="140" height="10" rx="5" fill="#d9dee5"/>
+<rect x="72" y="212" width="88" height="30" rx="15" fill="#00b890"/>
+<rect x="250" y="136" width="80" height="120" rx="10" fill="#7fd9c2"/>
+<path d="M330 40l40 0 0 40" stroke="#00806a" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(20 -10)"/>
+<text x="345" y="26" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#0a1628">Live</text>
+</svg></div>
     </div>
   </header>
 
