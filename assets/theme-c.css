@@ -110,3 +110,20 @@ footer a { color: #5ee0c0; }
 .wa-fab.show { opacity: 1; transform: none; pointer-events: auto; }
 .wa-fab:hover { background: #1d3352 !important; }
 footer { padding-bottom: 5.5rem !important; }
+
+/* ---------- Audit fixes, 27 Nov 2026 ---------- */
+/* WhatsApp buttons: white on #1fae54 was 2.9:1; #11823f is 4.9:1 */
+.btn-wa { background: #11823f !important; color: #ffffff !important; }
+.btn-wa:hover { background: #0f7a3d !important; }
+/* "not included" plan items and browser-bar URLs: readable, still muted */
+.plan ul li.no { color: #6b7280 !important; }
+.browser-bar .url { color: #5c6470 !important; }
+.badge-concept { color: #7a5b17; }
+/* logo accent and plain links on the mint field */
+.logo .logo-word span { color: #00664f !important; }
+.page-hero a:not([class]), #hero a:not([class]) { color: #00664f; }
+/* floating button: teal so it shows on mint, white and navy sections alike */
+.wa-fab { background: var(--teal) !important; color: var(--ink) !important; border: 2px solid var(--ink); }
+.wa-fab:hover { background: #00a582 !important; }
+/* open phone menu: clear edge against the mint hero below */
+nav.open ul { border-bottom: 2px solid var(--ink) !important; }

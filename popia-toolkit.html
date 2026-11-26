@@ -17,8 +17,10 @@
   <meta property="og:title" content="POPIA IT Toolkit for Small and Medium Practices | NdimaTech" />
   <meta property="og:description" content="Six ready-to-fill POPIA templates for medical, dental and legal practices: incident plan, breach log, supplier register, retention schedule, staff IT policy and leaver checklist. R995." />
   <meta property="og:url" content="https://ndimatech.co.za/popia-toolkit.html" />
-  <meta property="og:image" content="https://ndimatech.co.za/apple-touch-icon.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://ndimatech.co.za/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="shop-api" content="https://ndimatech-shop.setup-af5.workers.dev" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -384,6 +386,18 @@
           btn.disabled = false; btn.textContent = 'Pay R995 by card';
         });
     });
+  })();
+  </script>
+  <a class="wa-fab" href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27m%20interested%20in%20the%20POPIA%20IT%20Toolkit." target="_blank" rel="noopener" aria-label="WhatsApp NdimaTech">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
+    WhatsApp us
+  </a>
+  <script>
+  (function () {
+    var fab = document.querySelector('.wa-fab');
+    if (!fab) return;
+    function upd() { var y = window.scrollY, nearEnd = y + window.innerHeight > document.documentElement.scrollHeight - 650; fab.classList.toggle('show', !nearEnd); }
+    window.addEventListener('scroll', upd, { passive: true }); upd();
   })();
   </script>
 </body>
