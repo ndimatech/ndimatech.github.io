@@ -59,7 +59,8 @@ nav.open ul li a { border-bottom-color: rgba(10, 22, 40, 0.08) !important; }
   background: var(--mint) !important;
   background-image: none !important;
 }
-.page-hero h1, #hero h1 { color: var(--ink); }
+.page-hero h1, #hero h1 { color: var(--ink) !important; }
+.page-hero strong { color: var(--ink); }
 .page-hero p, #hero p, #hero p.lede { color: #1e3a33 !important; }
 .hero-eyebrow { color: #00664f; }
 .hero-eyebrow::before { background: #00664f; }
@@ -84,7 +85,7 @@ nav.open ul li a { border-bottom-color: rgba(10, 22, 40, 0.08) !important; }
 .hero-art svg { width: 100%; height: auto; display: block; max-width: 440px; margin-left: auto; }
 @media (max-width: 860px) {
   .page-hero .inner.has-art { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-art svg { max-width: 300px; margin: 0 auto; }
+  .hero-art svg { max-width: 210px; margin: 0 auto; }
 }
 
 /* ---------- Cards: softer, rounder ---------- */
