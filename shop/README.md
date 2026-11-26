@@ -6,8 +6,12 @@ Sells the POPIA IT Toolkit (R995, no VAT) and delivers it automatically.
 2. The Worker saves a pending order in D1 and creates a Yoco checkout. The buyer pays on Yoco's page.
 3. Yoco calls `POST /api/yoco/webhook`. Only a correctly signed `payment.succeeded` for the right amount
    marks the order paid. The success redirect is never trusted.
-4. The Worker emails a download link through Brevo (works 30 days, 10 downloads) and alerts NdimaTech.
-5. `GET /d/<token>` streams the zip from the private R2 bucket. `popia-toolkit-thanks.html` shows the
+4. The Worker emails a receipt with a download link through Brevo (works 30 days, 10 downloads) and alerts
+   NdimaTech. The link opens `download.html` on ndimatech.co.za (token after `#`, never sent to a server),
+   so buyers only see NdimaTech's own domain.
+5. On a tap, `download.html` posts the token to `POST /api/download`, which streams the zip from the private R2
+   bucket; the page saves it. The tap is required so email link scanners can't use up downloads.
+   `GET /d/<token>` (direct link, used by local tests and the first test email) does the same checks. `popia-toolkit-thanks.html` shows the
    order status and lets the buyer ask for a fresh link (3 times).
 
 Daily clean-up (01:00 UTC): unpaid orders after 14 days, webhook records after 120 days, email log after

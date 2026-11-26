@@ -332,22 +332,6 @@
   </script>
   <script>
   (function () {
-    var nav = document.querySelector('nav');
-    var btn = nav && nav.querySelector('.nav-toggle');
-    if (!btn) return;
-    function setOpen(open) {
-      nav.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    }
-    btn.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
-    nav.querySelectorAll('ul a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); btn.focus(); } });
-    document.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false); });
-  })();
-  </script>
-  <script>
-  (function () {
     var API = document.querySelector('meta[name="shop-api"]').content;
     var form = document.getElementById('buy-form'), btn = document.getElementById('pay-btn'), msg = document.getElementById('msg');
     function show(text, kind) { msg.textContent = text; msg.className = 'msg show ' + kind; msg.scrollIntoView({ block: 'nearest' }); }

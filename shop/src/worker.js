@@ -74,6 +74,7 @@ async function route(request, env, url, ctx) {
   let mm;
   if ((mm = p.match(/^\/api\/order\/([0-9a-f-]{36})$/)) && m === "GET") return orderStatus(env, mm[1]);
   if ((mm = p.match(/^\/api\/order\/([0-9a-f-]{36})\/resend$/)) && m === "POST") return resend(request, env, url, mm[1]);
+  if (p === "/api/download" && m === "POST") return downloadApi(request, env);
   if ((mm = p.match(/^\/d\/([A-Za-z0-9_-]{43})$/)) && m === "GET") return download(env, mm[1]);
   if (p.startsWith("/mock-yoco/")) return mockYoco(request, env, url);
   if (p === "/") return Response.redirect((env.SITE_ORIGIN || "https://ndimatech.co.za") + "/popia-toolkit.html", 302);
@@ -216,6 +217,13 @@ async function processEvent(env, event, url) {
   return emailed ? "paid_emailed" : "paid_email_failed";
 }
 
+// The emailed link opens download.html on the website; the token sits after # so it is never sent to
+// the web server. Local tests (no website) use the direct /d/ link.
+function downloadLink(env, url, token) {
+  if (isLocal(env)) return `${publicOrigin(env, url)}/d/${token}`;
+  return `${env.SITE_ORIGIN || "https://ndimatech.co.za"}/download.html#${token}`;
+}
+
 // Creates a fresh download token (replacing any earlier one) and emails the link.
 async function issueAndSend(env, url, o, kind) {
   const token = b64url(crypto.getRandomValues(new Uint8Array(32)));
@@ -224,7 +232,7 @@ async function issueAndSend(env, url, o, kind) {
     .bind(await sha256(token), now + DOWNLOAD_DAYS * DAY, o.id).run();
   const product = PRODUCTS[o.product];
   const msg = downloadEmail({
-    productName: product?.name || o.product, link: `${publicOrigin(env, url)}/d/${token}`, orderId: o.id,
+    productName: product?.name || o.product, link: downloadLink(env, url, token), orderId: o.id,
     amountCents: o.amount_cents, paidAt: o.paid_at, buyerName: o.name, buyerEmail: o.email,
     days: DOWNLOAD_DAYS, maxDownloads: MAX_DOWNLOADS,
   });
@@ -272,26 +280,53 @@ function page(title, body, status = 200) {
   return new Response(html, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } });
 }
 
-async function download(env, token) {
+// Checks a download token, counts the download and returns the file, or an error code.
+async function takeDownload(env, token) {
+  if (!/^[A-Za-z0-9_-]{43}$/.test(token || "")) return { error: "not_found", status: 404 };
   const o = await env.DB.prepare("SELECT * FROM orders WHERE token_hash = ?").bind(await sha256(token)).first();
-  const help = `<p>Email <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a> with your order number and we'll send you a fresh link.</p>`;
-  if (!o || o.status !== "paid") return page("Link not found", `<p>This download link isn't valid. It may have been replaced by a newer one.</p>${help}`, 404);
-  if (Date.now() > o.token_expires_at) return page("Link expired", `<p>This download link has expired.</p>${help}`, 410);
+  if (!o || o.status !== "paid") return { error: "not_found", status: 404 };
+  if (Date.now() > o.token_expires_at) return { error: "expired", status: 410 };
   // Count the download atomically so the limit can't be raced.
   const upd = await env.DB.prepare("UPDATE orders SET downloads = downloads + 1 WHERE id = ? AND downloads < ?")
     .bind(o.id, MAX_DOWNLOADS).run();
-  if (upd.meta.changes !== 1) return page("Download limit reached", `<p>This link has been used ${MAX_DOWNLOADS} times.</p>${help}`, 410);
+  if (upd.meta.changes !== 1) return { error: "limit", status: 410 };
   const product = PRODUCTS[o.product];
   const obj = await env.FILES.get(product.file);
   if (!obj) {
     await env.DB.prepare("UPDATE orders SET downloads = downloads - 1 WHERE id = ?").bind(o.id).run();
-    return page("Download unavailable", `<p>Sorry, the file isn't available right now. We've been told, but you can also email us.</p>${help}`, 503);
+    return { error: "unavailable", status: 503 };
   }
-  return new Response(obj.body, { headers: {
-    "Content-Type": "application/zip",
-    "Content-Disposition": `attachment; filename="${product.downloadName}"`,
-    "Cache-Control": "private, no-store",
-  } });
+  return { obj, product };
+}
+
+const zipResponse = ({ obj, product }) => new Response(obj.body, { headers: {
+  "Content-Type": "application/zip",
+  "Content-Disposition": `attachment; filename="${product.downloadName}"`,
+  "Cache-Control": "private, no-store",
+} });
+
+// Used by download.html on the website (the link in the email), so buyers only see ndimatech.co.za.
+// POST keeps the token out of URLs and logs.
+async function downloadApi(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad_request" }, 400); }
+  const r = await takeDownload(env, String(body.token || ""));
+  return r.error ? json({ error: r.error }, r.status) : zipResponse(r);
+}
+
+// Direct links (older emails). Same checks, plain HTML errors.
+async function download(env, token) {
+  const r = await takeDownload(env, token);
+  if (!r.error) return zipResponse(r);
+  const help = `<p>Email <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a> with your order number and we'll send you a fresh link.</p>`;
+  const pages = {
+    not_found: ["Link not found", "<p>This download link isn't valid. It may have been replaced by a newer one.</p>"],
+    expired: ["Link expired", "<p>This download link has expired.</p>"],
+    limit: ["Download limit reached", `<p>This link has been used ${MAX_DOWNLOADS} times.</p>`],
+    unavailable: ["Download unavailable", "<p>Sorry, the file isn't available right now. We've been told, but you can also email us.</p>"],
+  };
+  const [title, text] = pages[r.error];
+  return page(title, text + help, r.status);
 }
 
 // ---------- clean-up (daily cron) ----------
