@@ -418,7 +418,7 @@
   (function () {
     var fab = document.querySelector('.wa-fab');
     if (!fab) return;
-    function upd() { var y = window.scrollY, nearEnd = y + window.innerHeight > document.documentElement.scrollHeight - 650; fab.classList.toggle('show', y > 520 && !nearEnd); }
+    function upd() { var y = window.scrollY, nearEnd = y + window.innerHeight > document.documentElement.scrollHeight - 650; fab.classList.toggle('show', !nearEnd); }
     window.addEventListener('scroll', upd, { passive: true }); upd();
   })();
   </script>

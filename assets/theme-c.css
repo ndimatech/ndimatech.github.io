@@ -97,3 +97,16 @@ nav.open ul li a { border-bottom-color: rgba(10, 22, 40, 0.08) !important; }
 
 /* ---------- Footer ---------- */
 footer a { color: #5ee0c0; }
+
+/* ---------- Floating WhatsApp: every screen size, from the top of the page ---------- */
+.wa-fab {
+  display: inline-flex !important; align-items: center; gap: 0.5rem;
+  position: fixed; right: 18px; bottom: 18px; z-index: 90;
+  font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 0.95rem; text-decoration: none;
+  padding: 0.8rem 1.15rem; box-shadow: 0 8px 24px rgba(10, 22, 40, 0.35);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.25s, transform 0.25s;
+}
+.wa-fab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.wa-fab.show { opacity: 1; transform: none; pointer-events: auto; }
+.wa-fab:hover { background: #1d3352 !important; }
+footer { padding-bottom: 5.5rem !important; }
