@@ -2,3 +2,7 @@
 # Only purpose: publish the .well-known folder, which Jekyll skips by default.
 include:
   - .well-known
+
+# The shop Worker lives in shop/ and is deployed by Cloudflare, not published here.
+exclude:
+  - shop

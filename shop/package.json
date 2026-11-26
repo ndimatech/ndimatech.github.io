@@ -1,0 +1,13 @@
+{
+  "name": "ndimatech-shop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --var EMAIL_MOCK:1",
+    "migrate": "wrangler d1 migrations apply ndimatech-shop --local",
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.0"
+  }
+}

@@ -1,0 +1,38 @@
+name = "ndimatech-shop"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+# Fill in database_id after creating the database in your Cloudflare account:
+#   npx wrangler d1 create ndimatech-shop
+[[d1_databases]]
+binding = "DB"
+database_name = "ndimatech-shop"
+database_id = "REPLACE_WITH_D1_ID"
+migrations_dir = "migrations"
+
+# Private bucket holding the product files. Never make it public.
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "ndimatech-products"
+
+[[ratelimits]]
+name = "CHECKOUT_LIMITER"
+namespace_id = "2101"
+simple = { limit = 5, period = 60 }
+
+[triggers]
+crons = ["0 1 * * *"]
+
+[vars]
+SITE_ORIGIN = "https://ndimatech.co.za"
+SENDER_EMAIL = "setup@ndimatech.co.za"
+REPLY_TO = "setup@ndimatech.co.za"
+NOTIFY_EMAIL = "setup@ndimatech.co.za"
+
+# Secrets (set in the Cloudflare dashboard or with `npx wrangler secret put NAME`, never here):
+#   YOCO_SECRET_KEY      Yoco secret key (test key first, live key when going live)
+#   YOCO_WEBHOOK_SECRET  from registering the webhook with Yoco (starts with whsec_)
+#   BREVO_API_KEY        Brevo > SMTP & API > API keys
+# Optional:
+#   PUBLIC_ORIGIN        e.g. https://shop.ndimatech.co.za if a custom domain is added later
+# Never set ALLOW_MOCK_PAYMENTS or EMAIL_MOCK here; they are for local tests only.
