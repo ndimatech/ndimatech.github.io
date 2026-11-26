@@ -52,7 +52,7 @@ export function downloadEmail({ productName, link, orderId, amountCents, days, m
     P(`Your payment for the <strong>${esc(productName)}</strong> went through. Download your templates here:`) +
     `<tr><td style="padding:18px 28px;"><a href="${esc(link)}" style="display:inline-block;background:#00b890;color:#0a1628;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">Download the toolkit (zip)</a></td></tr>` +
     P(`The link works for ${days} days and up to ${maxDownloads} downloads, so save the files somewhere safe. Open <em>0 Start here</em> first.`) +
-    P(`<strong>Order:</strong> ${esc(orderId)}<br><strong>Paid:</strong> R${rand} (no VAT charged: NdimaTech is not VAT registered)`) +
+    P(`<strong>Order:</strong> ${esc(orderId)}<br><strong>Paid:</strong> R${rand}`) +
     P(`Questions, or trouble downloading? Just reply to this email.<br><br>MJ<br>NdimaTech &middot; <a href="https://ndimatech.co.za" style="color:#008f70;">ndimatech.co.za</a>`) +
     `<tr><td style="padding:4px 28px 24px;"></td></tr>`);
   const text = `Thank you for your purchase.
@@ -63,7 +63,7 @@ ${link}
 The link works for ${days} days and up to ${maxDownloads} downloads, so save the files somewhere safe. Open "0 Start here" first.
 
 Order: ${orderId}
-Paid: R${rand} (no VAT charged: NdimaTech is not VAT registered)
+Paid: R${rand}
 
 Questions, or trouble downloading? Just reply to this email.
 
