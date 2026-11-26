@@ -122,6 +122,7 @@ async function startCheckout(request, env, url) {
   if (!product) return json({ error: "unknown_product" }, 400);
   const email = String(body.email || "").trim().toLowerCase();
   if (!emailOk(email)) return json({ error: "bad_email" }, 400);
+  if (product.onlyEmail && email !== product.onlyEmail) return json({ error: "unknown_product" }, 400);
   const name = String(body.name || "").trim().slice(0, 120) || null;
   if (body.agree !== true) return json({ error: "terms_not_accepted" }, 400);
   if (paymentMode(env) === "off") return json({ error: "payment_unavailable" }, 503);

@@ -27,3 +27,8 @@ test("a Yoco test key is refused unless ALLOW_TEST_KEY is set", () => {
   assert.equal(paymentMode({ YOCO_SECRET_KEY: "sk_test_abc", ALLOW_TEST_KEY: "1" }), "live");
   assert.equal(paymentMode({ YOCO_SECRET_KEY: "sk_live_abc" }), "live");
 });
+
+test("the R10 test product is only sold to NdimaTech's own address", () => {
+  assert.equal(PRODUCTS["test-r10"].amountCents, 1000);
+  assert.equal(PRODUCTS["test-r10"].onlyEmail, "setup@ndimatech.co.za");
+});

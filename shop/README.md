@@ -41,6 +41,16 @@ a year, paid orders after 5 years (tax records). The privacy notice says the sam
 6. **Test with Yoco's test card** on the real page, then check: download email arrives, zip opens,
    sale alert arrives, the order shows as paid. Only then swap in the live key and live webhook secret.
 
+## Live R10 test
+
+Product `test-r10` (R10, real payment, delivers the real zip) only accepts the buyer email
+setup@ndimatech.co.za. Get a payment link from your own Terminal:
+```
+curl -s https://ndimatech-shop.setup-af5.workers.dev/api/checkout -H "Content-Type: application/json" \
+  -d '{"product":"test-r10","email":"setup@ndimatech.co.za","name":"Live test","agree":true}'
+```
+Open the `redirectUrl`, pay R10, check the receipt, sale alert and download. Refund in the Yoco portal if wanted.
+
 ## Local testing
 
 ```
