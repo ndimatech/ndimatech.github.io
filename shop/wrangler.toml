@@ -7,7 +7,7 @@ compatibility_date = "2026-10-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "ndimatech-shop"
-database_id = "REPLACE_WITH_D1_ID"
+database_id = "fc720d4b-a308-4989-b380-c51c755401b4"
 migrations_dir = "migrations"
 
 # Private bucket holding the product files. Never make it public.
