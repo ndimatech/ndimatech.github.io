@@ -37,7 +37,6 @@ export async function sendEmail(env, { to, toName, subject, html, text, orderId,
 const SELLER = {
   name: "NdimaTech (Pty) Ltd",
   reg: "2024/335961/07",
-  postal: "PO Box 4391, Durban, 4001, South Africa",
   email: "setup@ndimatech.co.za",
   site: "ndimatech.co.za",
 };
@@ -65,7 +64,7 @@ function frame(title, preheader, bodyHtml) {
 ${bodyHtml}
 </table>
 <table width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;width:100%;"><tr><td style="padding:16px 28px;${FONT}font-size:12px;line-height:18px;color:${MUTED};text-align:center;">
-${SELLER.name} &middot; Reg. ${SELLER.reg}<br>${SELLER.postal}<br><a href="mailto:${SELLER.email}" style="color:${MUTED};">${SELLER.email}</a> &middot; <a href="https://${SELLER.site}" style="color:${MUTED};">${SELLER.site}</a>
+${SELLER.name} &middot; Reg. ${SELLER.reg}<br><a href="mailto:${SELLER.email}" style="color:${MUTED};">${SELLER.email}</a> &middot; <a href="https://${SELLER.site}" style="color:${MUTED};">${SELLER.site}</a>
 </td></tr></table>
 </td></tr></table></body></html>`;
 }
@@ -126,7 +125,6 @@ MJ
 NdimaTech
 
 ${SELLER.name} · Reg. ${SELLER.reg}
-${SELLER.postal}
 ${SELLER.email} · ${SELLER.site}`;
   return { subject, html, text };
 }
