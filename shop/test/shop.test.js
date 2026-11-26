@@ -20,3 +20,10 @@ test("webhook signature: valid passes, tampered or stale fails", async () => {
   assert.equal(await verifyWebhook(MOCK_WEBHOOK_SECRET, h(sig, String(Number(ts) - 600)), body), false);
   assert.equal(await verifyWebhook(null, h(sig), body), false);
 });
+
+import { paymentMode } from "../src/yoco.js";
+test("a Yoco test key is refused unless ALLOW_TEST_KEY is set", () => {
+  assert.equal(paymentMode({ YOCO_SECRET_KEY: "sk_test_abc", REQUEST_HOST: "ndimatech-shop.setup-af5.workers.dev" }), "off");
+  assert.equal(paymentMode({ YOCO_SECRET_KEY: "sk_test_abc", ALLOW_TEST_KEY: "1" }), "live");
+  assert.equal(paymentMode({ YOCO_SECRET_KEY: "sk_live_abc" }), "live");
+});

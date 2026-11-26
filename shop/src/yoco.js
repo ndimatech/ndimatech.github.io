@@ -15,7 +15,12 @@ const LOCAL_HOSTS = ["localhost", "127.0.0.1"];
 //   "off"  - neither. Checkouts fail safely with "payment_unavailable" instead of taking free bookings.
 // The worker sets env.REQUEST_HOST for every request; without it the host is unknown and mock is refused.
 export function paymentMode(env) {
-  if (env.YOCO_SECRET_KEY) return "live";
+  if (env.YOCO_SECRET_KEY) {
+    // A Yoco test key would let anyone "pay" with a test card and get the product free. Refuse it unless
+    // explicitly allowed for a test run (plain variable ALLOW_TEST_KEY = "1", removed afterwards).
+    if (env.YOCO_SECRET_KEY.startsWith("sk_test_") && env.ALLOW_TEST_KEY !== "1") return "off";
+    return "live";
+  }
   const host = env.REQUEST_HOST || "";
   if (!host || PRODUCTION_HOSTS.includes(host)) return "off";
   if (LOCAL_HOSTS.includes(host) || env.ALLOW_MOCK_PAYMENTS === "1") return "mock";

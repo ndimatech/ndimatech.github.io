@@ -57,6 +57,8 @@ Mock emails are printed to the console. Mock payments are refused on any other h
 ## Rules
 - Never trust Yoco's successUrl. Only the verified webhook, with the right amount, delivers the product.
 - The product zip lives only in the private R2 bucket. Never commit it to this public repo.
+- A Yoco test key (`sk_test_`) switches checkout off on the live shop, so a test card can't get the product
+  free. To run a test purchase, add a plain variable `ALLOW_TEST_KEY` = `1`, then delete it afterwards.
 - Never put secrets in `wrangler.toml`. Never set `ALLOW_MOCK_PAYMENTS` or `EMAIL_MOCK` in deployed config.
 - The Yoco webhook signature code follows Yoco's docs (Standard Webhooks) and passes local tests, but has
   not yet been checked against a real Yoco event: step 6 is that check.
