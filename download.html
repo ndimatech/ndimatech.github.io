@@ -268,8 +268,8 @@
   <section>
     <div class="simple prose" style="text-align:center">
       <p><button id="dl" class="btn-primary" type="button" style="border:0;cursor:pointer;font-family:inherit">Download the toolkit (zip)</button></p>
-      <p><a id="again" href="#" style="display:none">Save the file again</a></p>
       <div id="msg" class="msg" role="status" style="text-align:left"></div>
+      <p><a id="again" href="#" style="display:none">Save the file again</a></p>
       <p class="fine" id="note">The link works for 30 days and up to 10 downloads. Save the files somewhere safe, then open "0 Start here" first.</p>
       <p class="fine">Trouble downloading? Email <a href="mailto:setup@ndimatech.co.za">setup@ndimatech.co.za</a> with your order number from your receipt email and we'll help.</p>
     </div>
@@ -330,8 +330,11 @@
           blobUrl = URL.createObjectURL(blob);
           save();
           b.style.display = 'none';
+          $('note').style.display = 'none';
           $('again').style.display = 'inline';
-          show('ok', 'Downloaded. Look in your Downloads folder (on a phone, the Files app) for ' + NAME + ', then open "0 Start here" first.');
+          $('title').textContent = 'Downloaded';
+          $('lead').textContent = 'Your toolkit is saved to this device.';
+          show('ok', 'Find ' + NAME + ' in your Downloads folder (on an iPhone: Files app, Downloads). Open "0 Start here" first.');
         })
         .catch(function (err) {
           b.disabled = false; b.textContent = 'Download the toolkit (zip)';
