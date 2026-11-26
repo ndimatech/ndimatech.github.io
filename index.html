@@ -621,12 +621,14 @@
       .wa-fab {
         display: inline-flex; align-items: center; gap: 0.5rem;
         position: fixed; right: 16px; bottom: 16px; z-index: 90;
+        opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.25s, transform 0.25s; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.25s, transform 0.25s;
         background: var(--teal); color: var(--navy);
         font-weight: 700; font-size: 0.95rem; text-decoration: none;
         padding: 0.8rem 1.15rem; border-radius: 999px;
         box-shadow: 0 8px 24px rgba(10,22,40,0.35);
       }
       .wa-fab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+      .wa-fab.show { opacity: 1; transform: none; pointer-events: auto; }
       footer { padding-bottom: 5.5rem; }
     }
   </style>
@@ -666,7 +668,7 @@
         <span class="hero-eyebrow">IT support &middot; Migrations &middot; Software &middot; Websites</span>
         <h1>One dependable contact for your business tech, priced
           <span class="scribble">upfront<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 40 3, 90 3, 130 6 S 175 9, 197 4"/></svg></span>.</h1>
-        <p class="lede">IT support plans from R1,500/month, email moves to Microsoft 365 or Google Workspace, business software support and websites. Someone who knows your setup, wherever you are, and a fixed price before any work starts.</p>
+        <p class="lede">IT support from R1,500/month, email migrations, software support and websites. Someone who knows your setup, wherever you are, with a fixed price before any work starts.</p>
         <div class="hero-btns">
           <a href="https://wa.me/27612682537?text=Hi%20MJ%2C%20I%27d%20like%20to%20talk%20about%20what%20my%20business%20needs." class="btn-primary" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
@@ -907,6 +909,14 @@
     nav.querySelectorAll('ul a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); btn.focus(); } });
     document.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var fab = document.querySelector('.wa-fab');
+    if (!fab) return;
+    function upd() { fab.classList.toggle('show', window.scrollY > 520); }
+    window.addEventListener('scroll', upd, { passive: true }); upd();
   })();
   </script>
 </body>

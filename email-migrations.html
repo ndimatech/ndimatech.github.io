@@ -160,8 +160,9 @@
     /* ============ FLOATING WHATSAPP (phones) ============ */
     .wa-fab { display: none; }
     @media (max-width: 900px) {
-      .wa-fab { display: inline-flex; align-items: center; gap: 0.5rem; position: fixed; right: 16px; bottom: 16px; z-index: 90; background: var(--teal); color: var(--navy); font-weight: 700; font-size: 0.95rem; text-decoration: none; padding: 0.8rem 1.15rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(10,22,40,0.35); font-family: 'DM Sans', system-ui, sans-serif; }
+      .wa-fab { display: inline-flex; align-items: center; gap: 0.5rem; position: fixed; right: 16px; bottom: 16px; z-index: 90; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.25s, transform 0.25s; background: var(--teal); color: var(--navy); font-weight: 700; font-size: 0.95rem; text-decoration: none; padding: 0.8rem 1.15rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(10,22,40,0.35); font-family: 'DM Sans', system-ui, sans-serif; }
       .wa-fab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+      .wa-fab.show { opacity: 1; transform: none; pointer-events: auto; }
       footer { padding-bottom: 5.5rem !important; }
     }
   </style>
@@ -336,5 +337,13 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 01-11.5 7.2L4 20l0.9-4.4A8 8 0 1120 12z"/></svg>
     WhatsApp us
   </a>
+  <script>
+  (function () {
+    var fab = document.querySelector('.wa-fab');
+    if (!fab) return;
+    function upd() { fab.classList.toggle('show', window.scrollY > 520); }
+    window.addEventListener('scroll', upd, { passive: true }); upd();
+  })();
+  </script>
 </body>
 </html>
