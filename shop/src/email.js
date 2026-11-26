@@ -73,15 +73,20 @@ const P = (html, pad = "8px 28px") => `<tr><td style="padding:${pad};${FONT}font
 const H = (text) => `<tr><td style="padding:28px 28px 6px;${FONT}font-size:22px;font-weight:700;color:${NAVY};line-height:30px;">${esc(text)}</td></tr>`;
 const button = (href, label) => `<tr><td style="padding:16px 28px 20px;"><a href="${esc(href)}" style="display:inline-block;background:${GREEN};color:${NAVY};${FONT}font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">${esc(label)}</a></td></tr>`;
 
-// Two-column rows inside a bordered box (receipt and alerts).
+// Short, friendly order number for people (the full id stays in the database): NT-D599B7C9.
+export const orderRef = (id) => "NT-" + String(id).slice(0, 8).toUpperCase();
+
+// Receipt-style list: label left, value right, thin rules between rows, bold total. No outer box,
+// so it sits evenly in every mail app at any width.
 function box(title, rows, total) {
-  const cell = `${FONT}font-size:14px;line-height:20px;padding:9px 16px;border-top:1px solid ${LINE};`;
+  const cell = `${FONT}font-size:14px;line-height:20px;padding:10px 0;border-top:1px solid ${LINE};`;
   const body = rows.map(([k, v]) =>
-    `<tr><td style="${cell}color:${MUTED};width:38%;" valign="top">${esc(k)}</td><td style="${cell}color:${INK};" valign="top">${v}</td></tr>`).join("");
-  const tot = total ? `<tr><td style="${cell}border-top:2px solid ${NAVY};color:${NAVY};font-weight:700;">${esc(total[0])}</td><td style="${cell}border-top:2px solid ${NAVY};color:${NAVY};font-weight:700;">${total[1]}</td></tr>` : "";
-  return `<tr><td style="padding:8px 28px 16px;"><table width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid ${LINE};border-radius:8px;border-collapse:separate;">
-<tr><td colspan="2" style="${FONT}font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${MUTED};padding:10px 16px;background:#f8fafb;border-radius:8px 8px 0 0;">${esc(title)}</td></tr>
-${body}${tot}</table></td></tr>`;
+    `<tr><td style="${cell}color:${MUTED};padding-right:16px;white-space:nowrap;" valign="top">${esc(k)}</td><td style="${cell}color:${INK};text-align:right;" valign="top">${v}</td></tr>`).join("");
+  const tcell = `${FONT}font-size:16px;line-height:22px;padding:12px 0 4px;border-top:2px solid ${NAVY};color:${NAVY};font-weight:700;`;
+  const tot = total ? `<tr><td style="${tcell}">${esc(total[0])}</td><td style="${tcell}text-align:right;">${total[1]}</td></tr>` : "";
+  return `<tr><td style="padding:12px 28px 16px;">
+<div style="${FONT}font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${MUTED};padding-bottom:8px;">${esc(title)}</div>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">${body}${tot}</table></td></tr>`;
 }
 
 export function downloadEmail({ productName, link, orderId, amountCents, paidAt, buyerName, buyerEmail, days, maxDownloads }) {
@@ -96,7 +101,7 @@ export function downloadEmail({ productName, link, orderId, amountCents, paidAt,
     P(`The link works for ${days} days and up to ${maxDownloads} downloads, so save the files somewhere safe. Open <em>0 Start here</em> first.`, "0 28px 16px") +
     box("Receipt", [
       ["Date paid", esc(date)],
-      ["Order number", `<span style="font-family:Menlo,Consolas,monospace;font-size:13px;">${esc(orderId)}</span>`],
+      ["Order number", esc(orderRef(orderId))],
       ["Billed to", esc(buyerName ? `${buyerName}, ${buyerEmail}` : buyerEmail)],
       ["Item", `${esc(productName)} (digital download) &times; 1`],
       ["Paid with", "Online payment via Yoco"],
@@ -113,7 +118,7 @@ The link works for ${days} days and up to ${maxDownloads} downloads, so save the
 
 RECEIPT
 Date paid:    ${date}
-Order number: ${orderId}
+Order number: ${orderRef(orderId)}
 Billed to:    ${buyerName ? `${buyerName}, ${buyerEmail}` : buyerEmail}
 Item:         ${productName} (digital download) x 1
 Paid with:    Online payment via Yoco
@@ -133,7 +138,7 @@ export function saleAlert({ productName, email, name, orderId, amountCents, paid
   const amount = rands(amountCents);
   const sent = emailed
     ? `<span style="color:#0a7a5c;font-weight:700;">Yes</span>`
-    : `<span style="color:#b42318;font-weight:700;">NO</span>: send the files by hand, or ask the buyer to use "resend" on the thank-you page`;
+    : `<span style="color:#b42318;font-weight:700;">NO</span><br>Send the files by hand, or ask the buyer to use "resend" on the thank-you page`;
   const subject = `Sale: ${productName} (${amount.replace(/\.00$/, "")})`;
   const html = frame(subject, `${name || email} paid ${amount}.`,
     H(`New sale: ${amount}`) +
@@ -142,7 +147,7 @@ export function saleAlert({ productName, email, name, orderId, amountCents, paid
       ["Buyer", esc(name || "(no name given)")],
       ["Email", `<a href="mailto:${esc(email)}" style="color:#008f70;">${esc(email)}</a>`],
       ["Paid", esc(saDate(paidAt, true))],
-      ["Order number", `<span style="font-family:Menlo,Consolas,monospace;font-size:13px;">${esc(orderId)}</span>`],
+      ["Order number", esc(orderRef(orderId))],
       ["Download email sent", sent],
     ], ["Amount", amount]) +
     P(`The payment also shows in your Yoco portal.`, "0 28px 28px"));
@@ -150,17 +155,17 @@ export function saleAlert({ productName, email, name, orderId, amountCents, paid
 Buyer: ${name || "(no name given)"} <${email}>
 Amount: ${amount}
 Paid: ${saDate(paidAt, true)}
-Order: ${orderId}
+Order: ${orderRef(orderId)} (full id ${orderId})
 Download email sent: ${emailed ? "yes" : "NO - send the files by hand or ask the buyer to use 'resend' on the thank-you page"}`;
   return { subject, text, html };
 }
 
 export function problemAlert({ orderId, detail }) {
-  const subject = `Shop problem: order ${orderId}`;
+  const subject = `Shop problem: order ${orderRef(orderId)}`;
   const text = `Shop problem on order ${orderId}:\n${detail}\n\nCheck the Yoco portal and the order in D1 (orders table).`;
   const html = frame(subject, "A shop order needs your attention.",
     H("A shop order needs your attention") +
-    box("Problem", [["Order number", `<span style="font-family:Menlo,Consolas,monospace;font-size:13px;">${esc(orderId)}</span>`], ["What happened", esc(detail)]]) +
+    box("Problem", [["Order number", esc(`${orderRef(orderId)} (${orderId})`)], ["What happened", esc(detail)]]) +
     P(`Check the payment in your Yoco portal and the order in the shop's database (orders table).`, "0 28px 28px"));
   return { subject, text, html };
 }

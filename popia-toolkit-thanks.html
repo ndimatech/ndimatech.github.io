@@ -301,7 +301,7 @@
     var id = new URLSearchParams(location.search).get('order') || '';
     var $ = function (x) { return document.getElementById(x); };
     if (!/^[0-9a-f-]{36}$/.test(id)) { $('title').textContent = 'Order not found'; $('lead').textContent = 'This page needs the order link from your checkout.'; return; }
-    $('ref').textContent = ' (' + id + ')';
+    $('ref').textContent = ' (NT-' + id.slice(0, 8).toUpperCase() + ')';
     var tries = 0;
     function paid(s) {
       $('title').textContent = 'Thank you, payment received';
