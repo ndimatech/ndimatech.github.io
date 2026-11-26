@@ -21,7 +21,7 @@ a year, paid orders after 5 years (tax records). The privacy notice says the sam
 3. **Worker:** Workers & Pages > Create > Import a repository > `ndimatech/ndimatech.github.io`.
    Root directory `shop`. Build command `npx wrangler d1 migrations apply ndimatech-shop --remote`.
    Deploy command `npx wrangler deploy`. Note the address it gets (`ndimatech-shop.<you>.workers.dev`)
-   and put it in the `shop-api` meta tag of `popia-toolkit.html` and `popia-toolkit-thanks.html`.
+   (expected: https://ndimatech-shop.setup-af5.workers.dev) and check it matches the `shop-api` meta tag of `popia-toolkit.html` and `popia-toolkit-thanks.html`.
 4. **Secrets** (Worker > Settings > Variables and secrets, type Secret):
    - `BREVO_API_KEY`: Brevo > SMTP & API > API keys.
    - `YOCO_SECRET_KEY`: start with the **test** key (`sk_test_...`).
