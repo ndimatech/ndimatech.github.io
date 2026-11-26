@@ -71,7 +71,7 @@ ${SELLER.name} &middot; Reg. ${SELLER.reg}<br><a href="mailto:${SELLER.email}" s
 
 const P = (html, pad = "8px 28px") => `<tr><td style="padding:${pad};${FONT}font-size:15px;color:${INK};line-height:24px;">${html}</td></tr>`;
 const H = (text) => `<tr><td style="padding:28px 28px 6px;${FONT}font-size:22px;font-weight:700;color:${NAVY};line-height:30px;">${esc(text)}</td></tr>`;
-const button = (href, label) => `<tr><td style="padding:16px 28px 20px;"><a href="${esc(href)}" style="display:inline-block;background:${GREEN};color:${NAVY};${FONT}font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">${esc(label)}</a></td></tr>`;
+const button = (href, label) => `<tr><td align="center" style="padding:16px 28px 20px;text-align:center;"><a href="${esc(href)}" style="display:inline-block;background:${GREEN};color:${NAVY};${FONT}font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">${esc(label)}</a></td></tr>`;
 
 // The order number people see: NT- plus the first 8 characters of the database id (NT-D599B7C9).
 // Emails and pages must never show the full database id; test/shop.test.js checks every email.
