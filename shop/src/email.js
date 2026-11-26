@@ -73,7 +73,9 @@ const P = (html, pad = "8px 28px") => `<tr><td style="padding:${pad};${FONT}font
 const H = (text) => `<tr><td style="padding:28px 28px 6px;${FONT}font-size:22px;font-weight:700;color:${NAVY};line-height:30px;">${esc(text)}</td></tr>`;
 const button = (href, label) => `<tr><td style="padding:16px 28px 20px;"><a href="${esc(href)}" style="display:inline-block;background:${GREEN};color:${NAVY};${FONT}font-size:15px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:8px;">${esc(label)}</a></td></tr>`;
 
-// Short, friendly order number for people (the full id stays in the database): NT-D599B7C9.
+// The order number people see: NT- plus the first 8 characters of the database id (NT-D599B7C9).
+// Emails and pages must never show the full database id; test/shop.test.js checks every email.
+// Look an order up by it: SELECT * FROM orders WHERE id LIKE 'd599b7c9%';
 export const orderRef = (id) => "NT-" + String(id).slice(0, 8).toUpperCase();
 
 // Receipt-style list: label left, value right, thin rules between rows, bold total. No outer box,
@@ -155,17 +157,17 @@ export function saleAlert({ productName, email, name, orderId, amountCents, paid
 Buyer: ${name || "(no name given)"} <${email}>
 Amount: ${amount}
 Paid: ${saDate(paidAt, true)}
-Order: ${orderRef(orderId)} (full id ${orderId})
+Order: ${orderRef(orderId)}
 Download email sent: ${emailed ? "yes" : "NO - send the files by hand or ask the buyer to use 'resend' on the thank-you page"}`;
   return { subject, text, html };
 }
 
 export function problemAlert({ orderId, detail }) {
   const subject = `Shop problem: order ${orderRef(orderId)}`;
-  const text = `Shop problem on order ${orderId}:\n${detail}\n\nCheck the Yoco portal and the order in D1 (orders table).`;
+  const text = `Shop problem on order ${orderRef(orderId)}:\n${detail}\n\nCheck the Yoco portal and the order in D1 (orders table).`;
   const html = frame(subject, "A shop order needs your attention.",
     H("A shop order needs your attention") +
-    box("Problem", [["Order number", esc(`${orderRef(orderId)} (${orderId})`)], ["What happened", esc(detail)]]) +
+    box("Problem", [["Order number", esc(orderRef(orderId))], ["What happened", esc(detail)]]) +
     P(`Check the payment in your Yoco portal and the order in the shop's database (orders table).`, "0 28px 28px"));
   return { subject, text, html };
 }

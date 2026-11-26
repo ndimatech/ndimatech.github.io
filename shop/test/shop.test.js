@@ -32,3 +32,19 @@ test("the R10 test product is only sold to NdimaTech's own address", () => {
   assert.equal(PRODUCTS["test-r10"].amountCents, 1000);
   assert.equal(PRODUCTS["test-r10"].onlyEmail, "setup@ndimatech.co.za");
 });
+
+import { downloadEmail, saleAlert, problemAlert, orderRef } from "../src/email.js";
+test("emails show the short order number, never the full database id", () => {
+  const id = "d599b7c9-54be-43c8-b585-4a455d754ea0";
+  const emails = [
+    downloadEmail({ productName: "P", link: "https://ndimatech.co.za/download.html#x", orderId: id, amountCents: 99500, paidAt: 0, buyerName: "A B", buyerEmail: "a@b.co", days: 30, maxDownloads: 10 }),
+    saleAlert({ productName: "P", email: "a@b.co", name: "A B", orderId: id, amountCents: 99500, paidAt: 0, emailed: true }),
+    saleAlert({ productName: "P", email: "a@b.co", name: "A B", orderId: id, amountCents: 99500, paidAt: 0, emailed: false }),
+    problemAlert({ orderId: id, detail: "x" }),
+  ];
+  const uuid = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+  for (const e of emails) {
+    for (const part of [e.subject, e.html, e.text]) assert.ok(!uuid.test(part), "full id found in: " + e.subject);
+    assert.ok((e.html + e.text).includes(orderRef(id)), "short order number missing in: " + e.subject);
+  }
+});

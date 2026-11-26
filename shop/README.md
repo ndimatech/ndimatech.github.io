@@ -70,5 +70,8 @@ Mock emails are printed to the console. Mock payments are refused on any other h
 - A Yoco test key (`sk_test_`) switches checkout off on the live shop, so a test card can't get the product
   free. To run a test purchase, add a plain variable `ALLOW_TEST_KEY` = `1`, then delete it afterwards.
 - Never put secrets in `wrangler.toml`. Never set `ALLOW_MOCK_PAYMENTS` or `EMAIL_MOCK` in deployed config.
-- The Yoco webhook signature code follows Yoco's docs (Standard Webhooks) and passes local tests, but has
-  not yet been checked against a real Yoco event: step 6 is that check.
+- Buyers and alerts only ever see the short order number (`orderRef`: `NT-` + first 8 characters of the
+  id). Never put the full database id in an email or on a page; a test fails if an email contains it.
+  To find an order: `SELECT * FROM orders WHERE id LIKE '<8 characters, lower case>%';`
+- The Yoco webhook signature was checked against real Yoco events: a test-mode purchase (26 Nov 2026) and
+  a live R10 purchase (26 Nov 2026) were both confirmed and delivered.
