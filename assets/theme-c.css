@@ -127,3 +127,18 @@ footer { padding-bottom: 5.5rem !important; }
 .wa-fab:hover { background: #00a582 !important; }
 /* open phone menu: clear edge against the mint hero below */
 nav.open ul { border-bottom: 2px solid var(--ink) !important; }
+
+/* ---------- Less template (27 Nov 2026, evening) ----------
+   No small all-caps labels, plain step numbers, no icon tiles. */
+.hero-eyebrow, .section-label { display: none !important; }
+.tl-num {
+  width: auto !important; height: auto !important; min-width: 0 !important;
+  border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important;
+  font-family: 'Space Grotesk', system-ui, sans-serif !important; font-size: 1rem !important; font-weight: 700 !important;
+  color: #00664f !important; display: block !important; margin: 0 0 0.35rem !important; padding: 0 !important; text-align: left !important;
+}
+.tl-num::before { content: "Step "; }
+.timeline::before, .tl-step::before, .tl-step::after { display: none !important; }
+.tl-step { text-align: left !important; }
+.feature { grid-template-columns: 1fr !important; }
+.feature > div { border-top: 2px solid var(--ink); padding-top: 0.8rem; }
