@@ -142,3 +142,6 @@ nav.open ul { border-bottom: 2px solid var(--ink) !important; }
 .tl-step { text-align: left !important; }
 .feature { grid-template-columns: 1fr !important; }
 .feature > div { border-top: 2px solid var(--ink); padding-top: 0.8rem; }
+.feature { background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; }
+.work-section .browser { max-width: 1080px; margin-left: auto; margin-right: auto; }
+.work-tag { display: none !important; }
